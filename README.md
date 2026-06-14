@@ -24,7 +24,3 @@ Questions: **Slack** once WindhorseTour invites you to bid. No email.
 | [03-legal/](03-legal/) | NDA template and signing instructions |
 | [04-templates/](04-templates/) | Commercial / pricing submission template (Appendix B) |
 | [05-workflow/](05-workflow/) | GitHub workflow, PR AI review prompts |
-
-## Status
-
-**Draft copied from private repo — review before sharing with bidders.** NDA template and signing steps may still need Legal finalization ([03-legal/](03-legal/)).
