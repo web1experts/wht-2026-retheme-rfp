@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kham Tibet Travel Guide & Tips — WindhorseTour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --orange: #e8410a;
+  --text: #1a1a1a;
+  --text-2: #555;
+  --text-3: #999;
+  --border: #e5e5e5;
+  --bg: #fff;
+  --bg-soft: #f9f8f6;
+  --font: 'DM Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+
+h4 { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; }
+body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+.shell { max-width: 1160px; margin: 0 auto; padding: 0 20px 80px; }
+
+nav { padding: 14px 20px; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 200; }
+.nav-inner { max-width: 1160px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo img { height: 38px; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a { font-size: 14px; color: var(--text-2); text-decoration: none; padding: 7px 12px; }
+.nav-links a.active { color: var(--orange); font-weight: 500; }
+.nav-cta { background: var(--orange); color: #fff !important; border-radius: 7px; padding: 9px 18px; font-size: 13px; font-weight: 500; }
+
+.bc { font-size: 13px; color: var(--text-3); padding: 16px 0; }
+.bc a { color: var(--text-3); text-decoration: none; }
+.bc a:hover { color: var(--orange); }
+.bc span { color: var(--orange); }
+
+/* banner — same as Tibet travel guide */
+.banner { width: 100%; aspect-ratio: 920/380; border-radius: 14px; overflow: hidden; margin-bottom: 0; }
+.banner svg { width: 100%; height: 100%; display: block; }
+
+/* intro — exact Tibet travel guide template */
+.intro { padding: 28px 0 32px; margin-bottom: 0; }
+.intro h1 { font-size: 38px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 14px; }
+.intro p { font-size: 16px; color: var(--text-2); line-height: 1.7; margin-bottom: 28px; }
+.meta { display: flex; gap: 36px; flex-wrap: wrap; margin-bottom: 28px; }
+.meta-item .lbl { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: .07em; display: block; margin-bottom: 3px; }
+.meta-item .val { font-size: 14px; font-weight: 500; }
+.intro-actions { display: flex; gap: 12px; }
+.btn-main { background: var(--orange); color: #fff; border: none; border-radius: 7px; padding: 12px 24px; font-size: 14px; font-family: var(--font); cursor: pointer; font-weight: 500; transition: opacity .15s; }
+.btn-main:hover { opacity: .88; }
+.btn-text { font-size: 14px; color: var(--orange); background: none; border: none; cursor: pointer; font-family: var(--font); text-decoration: underline; text-underline-offset: 3px; }
+
+.sec-h { font-size: 26px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 8px; }
+.sec-p { font-size: 16px; color: var(--text-2); margin-bottom: 28px; }
+
+/* article cards — Zicasso style, same as planning articles */
+.ac-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 80px; }
+.ac { display: flex; flex-direction: column; text-decoration: none; color: var(--text); }
+.ac:hover .ac-title { color: var(--orange); }
+.ac-photo { width: 100%; aspect-ratio: 4/3; border-radius: 10px; overflow: hidden; margin-bottom: 14px; background: #e0e0e0; }
+.ac-photo svg { width: 100%; height: 100%; display: block; transition: transform .4s ease; }
+.ac:hover .ac-photo svg { transform: scale(1.04); }
+.ac-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 6px; transition: color .15s; }
+.ac-excerpt { font-size: 13px; color: var(--text-2); line-height: 1.6; margin-bottom: 6px; }
+.ac-date { font-size: 11px; color: var(--text-3); }
+
+/* small article card — for remaining articles after featured 3 */
+.sc { display: flex; flex-direction: column; text-decoration: none; color: var(--text); }
+.sc:hover .sc-title { color: var(--orange); }
+.sc-photo { width: 100%; aspect-ratio: 4/3; border-radius: 10px; overflow: hidden; margin-bottom: 14px; background: #e0e0e0; }
+.sc-photo svg { width: 100%; height: 100%; display: block; transition: transform .4s ease; }
+.sc:hover .sc-photo svg { transform: scale(1.04); }
+.sc-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 6px; transition: color .15s; }
+.sc-date { font-size: 11px; color: var(--text-3); }
+
+.sec-label { font-size: 24px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; margin-bottom: 24px; }
+.featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 56px; }
+.all-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 64px; }
+
+/* planning section — exact Tibet travel guide template */
+.planning { border-top: 0.5px solid var(--border); padding-top: 64px; margin-bottom: 80px; }
+.planning .sec-h { margin-bottom: 10px; }
+.planning .sec-p { margin-bottom: 48px; }
+.dcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 64px; }
+.dcard { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 24px 22px; text-decoration: none; display: block; color: var(--text); transition: border-color .18s, box-shadow .18s, transform .18s; }
+.dcard:hover { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(232,65,10,.06); transform: translateY(-2px); }
+.dcard-title { font-size: 16px; font-weight: 600; line-height: 1.3; margin-bottom: 10px; }
+.dcard-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; margin-bottom: 18px; }
+.dcard-link { font-size: 13px; font-weight: 600; color: var(--orange); display: flex; align-items: center; gap: 5px; }
+.dcard-link svg { width: 13px; height: 13px; stroke: var(--orange); fill: none; stroke-width: 2.5; stroke-linecap: round; transition: transform .18s; }
+.dcard:hover .dcard-link svg { transform: translateX(3px); }
+.plan-lbl { font-size: 11px; font-weight: 500; color: var(--text-3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 0; }
+.psec { display: grid; grid-template-columns: 190px 1fr; gap: 56px; padding: 48px 0; align-items: start; }
+.pnum { font-size: 11px; color: var(--text-3); margin-bottom: 6px; }
+.ptitle { font-size: 20px; font-weight: 500; line-height: 1.25; }
+.plinks { display: flex; flex-direction: column; }
+.pl { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-bottom: 0.5px solid var(--border); text-decoration: none; }
+.pl:last-of-type { border-bottom: none; }
+.pl:hover .plt { color: var(--orange); }
+.plt { font-size: 15px; color: var(--text); transition: color .15s; }
+.pl svg { width: 15px; height: 15px; stroke: var(--text-3); fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; transition: stroke .15s, transform .15s; }
+.pl:hover svg { stroke: var(--orange); transform: translateX(3px); }
+.pall { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: var(--orange); text-decoration: none; margin-top: 14px; font-weight: 500; }
+.pall svg { width: 13px; height: 13px; stroke: var(--orange); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+
+/* tour cards — exact Tibet travel guide template */
+.tours { margin-bottom: 72px; }
+.tours h2 { font-size: 26px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 8px; }
+.tours-p { font-size: 16px; color: var(--text-2); margin-bottom: 28px; }
+.tour-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.tc { border-radius: 12px; overflow: hidden; text-decoration: none; display: block; border: 0.5px solid var(--border); transition: transform .2s, box-shadow .2s; }
+.tc:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+.tc-img { height: 160px; overflow: hidden; }
+.tc-img svg { width: 100%; height: 100%; display: block; }
+.tc-body { padding: 16px 18px 18px; }
+.tc-route { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+.tc-name { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+.tc-meta { font-size: 12px; color: var(--text-3); margin-bottom: 10px; }
+.tc-desc { font-size: 13px; color: var(--text-2); line-height: 1.5; margin-bottom: 14px; }
+.tc-link { font-size: 13px; font-weight: 600; color: var(--orange); display: flex; align-items: center; gap: 4px; }
+.tc-link svg { width: 13px; height: 13px; stroke: var(--orange); fill: none; stroke-width: 2.5; stroke-linecap: round; transition: transform .18s; }
+.tc:hover .tc-link svg { transform: translateX(3px); }
+.tour-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.tpill { font-size: 13px; color: var(--text-2); border: 0.5px solid #d5d5d5; border-radius: 22px; padding: 7px 16px; text-decoration: none; transition: border-color .15s, color .15s; }
+.tpill:hover, .tpill.on { border-color: var(--orange); color: var(--orange); }
+
+/* final cta — exact Tibet travel guide template */
+.final { padding-top: 52px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.final h3 { font-size: 26px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 7px; }
+.final p { font-size: 15px; color: var(--text-2); line-height: 1.65; }
+
+/* ── MOBILE ── */
+@media (max-width: 680px) {
+
+  .shell { max-width: 100%; padding: 0 16px 60px; }
+
+  /* nav */
+  nav { padding: 12px 0; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-links { gap: 0; }
+
+  /* banner */
+  .banner { border-radius: 10px; }
+
+  /* intro */
+  .intro { padding: 18px 0 24px; margin-bottom: 24px; }
+  .intro h1 { font-size: 28px; margin-bottom: 10px; }
+  .intro p { font-size: 15px; margin-bottom: 18px; }
+  .meta { gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+  .intro-actions { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* page intro (article list, destinations) */
+  .page-intro h1 { font-size: 28px; }
+  .page-intro p { font-size: 15px; }
+
+  /* article intro */
+  .article-intro h1 { font-size: 26px; }
+  .article-meta { gap: 10px; }
+
+  /* sec headings */
+  .sec-h { font-size: 22px; }
+  .sec-label { font-size: 20px; }
+
+  /* destination cards — 1 col */
+  .dest-grid { grid-template-columns: 1fr; gap: 12px; }
+  .dc.wide { grid-column: span 1; height: 240px; }
+  .dc:not(.wide) { height: 240px; }
+
+  /* more destinations pills */
+  .more-pills { gap: 6px; }
+  .mpill, .mpill-all { font-size: 12px; padding: 6px 12px; }
+
+  /* decision cards — 1 col */
+  .dcards { grid-template-columns: 1fr; }
+
+  /* planning rows — stack */
+  .psec { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  .ptitle { font-size: 17px; }
+
+  /* article cards — 1 col */
+  .featured-grid { grid-template-columns: 1fr; gap: 24px; }
+  .all-grid { grid-template-columns: 1fr; gap: 24px; }
+  .ac-grid { grid-template-columns: 1fr; gap: 24px; }
+
+  /* dest grid (destinations index) — 2 col */
+  .dest-grid-4 { grid-template-columns: repeat(2, 1fr); }
+
+  /* article body — single col, hide TOC */
+  .article-body { grid-template-columns: 1fr; gap: 0; }
+  .toc-sidebar { display: none; }
+  .article-content h2 { font-size: 20px; padding-top: 28px; margin-top: 28px; }
+  .article-content p, .article-content li { font-size: 15px; }
+
+  /* tour cards — 1 col */
+  .tour-cards { grid-template-columns: 1fr; gap: 12px; }
+  .tc-img { height: 180px; }
+
+  /* tour pills */
+  .tour-pills { gap: 6px; }
+  .tpill { font-size: 12px; padding: 6px 12px; }
+
+  /* related articles — 1 col */
+  .ac-grid { grid-template-columns: 1fr; gap: 20px; }
+
+  /* final CTA — stack */
+  .final { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 36px; }
+  .final h3 { font-size: 22px; }
+  .btn-main { width: 100%; text-align: center; padding: 14px 20px; font-size: 15px; }
+
+  /* map */
+  .map-section { padding: 20px; }
+  .map-wrap { padding: 20px; }
+
+  /* quick facts grid */
+  .facts-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  /* info box */
+  .info-box td { font-size: 13px; }
+
+  /* inline CTA */
+  .inline-cta { padding: 14px 16px; }
+
+  /* attractions */
+  .attr-row { grid-template-columns: 28px 1fr; gap: 12px; }
+  .attr-loc { display: none; }
+
+  /* destinations index cards */
+  .dest-grid.col3 { grid-template-columns: repeat(2, 1fr); }
+  .dcard { height: 200px; }
+
+}
+
+/* ── FOOTER ── */
+footer { background: #2a2e35; color: rgba(255,255,255,.75); margin-top: 80px; }
+.footer-inner { max-width: 1160px; margin: 0 auto; padding: 52px 20px 40px; display: grid; grid-template-columns: 220px 1fr 200px; gap: 48px; }
+.footer-heading { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a, .footer-links-grid a { font-size: 14px; color: rgba(255,255,255,.72); text-decoration: none; line-height: 1.4; transition: color .15s; }
+.footer-links a:hover, .footer-links-grid a:hover { color: #fff; }
+.footer-links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.footer-links-grid div { display: flex; flex-direction: column; gap: 10px; }
+.footer-bottom { max-width: 1160px; margin: 0 auto; padding: 20px 20px 28px; border-top: 0.5px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: space-between; }
+.footer-bottom span { font-size: 13px; color: rgba(255,255,255,.35); }
+.footer-social { display: flex; gap: 16px; align-items: center; }
+.footer-social a { color: rgba(255,255,255,.45); transition: color .15s; display: flex; }
+.footer-social a:hover { color: rgba(255,255,255,.9); }
+.footer-social svg { width: 18px; height: 18px; }
+
+@media (max-width: 680px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; padding: 36px 16px 28px; }
+  .footer-links-grid { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
+}
+
+/* start here — numbered steps */
+.steps { margin-bottom: 48px; }
+.steps-intro { font-size: 15px; color: var(--text-2); margin-bottom: 28px; line-height: 1.6; }
+.step { display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 0.5px solid var(--border); text-decoration: none; color: var(--text); transition: opacity .15s; }
+.step:last-child { border-bottom: 0.5px solid var(--border); }
+.step:hover { opacity: .75; }
+.step-num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; flex-shrink: 0; margin-top: 2px; }
+.step-num.active { background: var(--orange); color: #fff; }
+.step-num.inactive { background: var(--bg); border: 0.5px solid var(--border); color: var(--text-3); }
+.step-body { flex: 1; }
+.step-title { font-size: 19px; font-weight: 500; color: var(--text); margin-bottom: 4px; line-height: 1.35; }
+.step-desc { font-size: 14px; color: var(--text-2); line-height: 1.55; }
+.step-arrow { color: var(--text-3); flex-shrink: 0; margin-top: 6px; }
+
+@media (max-width: 680px) {
+  .expert-tip-box { padding: 12px 14px; margin-bottom: 32px; }
+  .expert-tip-box p { font-size: 13px; line-height: 1.6; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="https://windhorsetour.com/wp-content/uploads/2025/04/windhorsetour-1.webp" alt="WindhorseTour" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-txt" style="display:none">WindhorseTour</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Tibet tours</a>
+      <a href="#">China tours</a>
+      <a href="#" class="active">Travel guide</a>
+      <a href="#">About us</a>
+      <a href="#" class="nav-cta">Plan my trip</a>
+    </div>
+  </div>
+</nav>
+
+<div class="shell">
+
+<div class="bc">
+  <a href="#">Home</a> &nbsp;›&nbsp;
+  <a href="#">Travel guide</a> &nbsp;›&nbsp;
+  <a href="#">Tibet travel guide</a> &nbsp;›&nbsp;
+  <span>Kham Tibet</span>
+</div>
+
+<!-- banner — Kham-specific: green grasslands, peaks, monastery, prayer flags, yaks -->
+<div class="banner">
+  <svg viewBox="0 0 920 420" preserveAspectRatio="xMidYMid slice" fill="none">
+    <defs><linearGradient id="ksky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e1822"/><stop offset="40%" stop-color="#1a3a28"/><stop offset="72%" stop-color="#4a7855"/><stop offset="100%" stop-color="#8aaa78"/></linearGradient></defs>
+    <rect width="920" height="420" fill="url(#ksky)"/>
+    <path d="M0 298 L88 202 L162 238 L245 152 L328 198 L422 98 L504 158 L598 72 L685 142 L775 85 L862 130 L920 105 L920 420 L0 420Z" fill="rgba(45,85,55,.52)"/>
+    <path d="M0 325 L82 248 L155 280 L235 202 L315 248 L408 152 L488 208 L580 125 L665 188 L758 132 L848 175 L920 150 L920 420 L0 420Z" fill="rgba(60,100,68,.55)"/>
+    <path d="M422 98 L445 48 L468 98 L457 78 L445 55 L433 78Z" fill="rgba(255,255,255,.92)"/>
+    <path d="M598 72 L625 20 L652 72 L640 55 L625 28 L610 55Z" fill="rgba(255,255,255,.88)"/>
+    <path d="M775 85 L796 42 L817 85 L808 68 L796 48 L784 68Z" fill="rgba(255,255,255,.82)"/>
+    <!-- prayer flags -->
+    <line x1="118" y1="155" x2="415" y2="195" stroke="rgba(232,98,26,.42)" stroke-width="1.5"/>
+    <rect x="126" y="144" width="18" height="13" fill="rgba(232,98,26,.72)" rx="1"/>
+    <rect x="168" y="150" width="18" height="13" fill="rgba(255,220,50,.68)" rx="1"/>
+    <rect x="210" y="156" width="18" height="13" fill="rgba(100,180,100,.68)" rx="1"/>
+    <rect x="252" y="162" width="18" height="13" fill="rgba(255,255,255,.68)" rx="1"/>
+    <rect x="294" y="166" width="18" height="13" fill="rgba(100,120,220,.68)" rx="1"/>
+    <rect x="336" y="170" width="18" height="13" fill="rgba(232,98,26,.65)" rx="1"/>
+    <rect x="378" y="174" width="18" height="13" fill="rgba(255,220,50,.62)" rx="1"/>
+    <!-- monastery -->
+    <g transform="translate(575,205)">
+      <rect x="0" y="68" width="135" height="105" fill="rgba(215,205,190,.52)" rx="1"/>
+      <rect x="20" y="40" width="96" height="72" fill="rgba(180,50,50,.70)" rx="1"/>
+      <rect x="38" y="14" width="60" height="45" fill="rgba(180,50,50,.80)" rx="1"/>
+      <rect x="52" y="0" width="32" height="19" fill="rgba(200,160,30,.82)" rx="1"/>
+      <rect x="30" y="75" width="13" height="18" fill="rgba(255,215,80,.32)" rx="1"/>
+      <rect x="58" y="75" width="13" height="18" fill="rgba(255,215,80,.32)" rx="1"/>
+      <rect x="86" y="75" width="13" height="18" fill="rgba(255,215,80,.32)" rx="1"/>
+      <rect x="114" y="75" width="13" height="18" fill="rgba(255,215,80,.32)" rx="1"/>
+    </g>
+    <!-- yaks -->
+    <ellipse cx="188" cy="368" rx="24" ry="12" fill="rgba(22,10,5,.62)"/>
+    <circle cx="170" cy="357" r="12" fill="rgba(22,10,5,.62)"/>
+    <ellipse cx="255" cy="375" rx="22" ry="11" fill="rgba(22,10,5,.58)"/>
+    <circle cx="238" cy="365" r="11" fill="rgba(22,10,5,.58)"/>
+    <ellipse cx="315" cy="370" rx="20" ry="10" fill="rgba(22,10,5,.55)"/>
+    <circle cx="300" cy="361" r="10" fill="rgba(22,10,5,.55)"/>
+    <!-- rolling grassland layers -->
+    <path d="M0 328 Q115 305 250 318 Q385 330 520 298 Q655 265 790 288 Q855 300 920 280 L920 420 L0 420Z" fill="rgba(48,95,48,.45)"/>
+    <path d="M0 358 Q115 338 250 350 Q385 362 520 332 Q655 302 790 325 Q855 338 920 318 L920 420 L0 420Z" fill="rgba(40,82,40,.52)"/>
+    <path d="M0 392 Q230 372 460 385 Q682 397 920 377 L920 420 L0 420Z" fill="rgba(32,68,32,.48)"/>
+  </svg>
+</div>
+
+<!-- intro — same structure as Tibet travel guide -->
+<div class="intro">
+  <h1>Kham Tibet travel guide</h1>
+  <p>A spiritual and cultural heartland stretching across western Sichuan, Yunnan, Qinghai, and eastern Tibet — known for its Khampa people, high-altitude landscapes, and remote monasteries.</p>
+  <div class="meta">
+    <div class="meta-item"><span class="lbl">Best season</span><span class="val">May – Oct</span></div>
+    <div class="meta-item"><span class="lbl">Elevation</span><span class="val">3,000 – 4,500m</span></div>
+    <div class="meta-item"><span class="lbl">Tibet permit</span><span class="val">Not required</span></div>
+    <div class="meta-item"><span class="lbl">Gateway</span><span class="val">Chengdu</span></div>
+  </div>
+  <div class="intro-actions">
+    <button class="btn-main">Plan my Kham trip</button>
+    <button class="btn-text">View Kham tours →</button>
+  </div>
+</div>
+
+
+<!-- start here — numbered steps -->
+<div style="background: var(--bg-soft); border-radius: 14px; padding: 28px 32px; margin-bottom: 48px;">
+<div class="sec-label" style="color: var(--orange);">Start here</div>
+<p class="steps-intro">New to Kham? These are the most important guides to read before planning your trip.</p>
+<div class="steps">
+  <a class="step" href="https://windhorsetour.com/Kham-Tibet/Kham-Tibet-travel-guide">
+    <div class="step-num active">1</div>
+    <div class="step-body">
+      <div class="step-title">Kham Tibet travel guide: top things, itinerary & tips</div>
+      <div class="step-desc">Routes, permits, attractions, and practical tips for exploring Sichuan, Qinghai, Yunnan, and eastern Tibet.</div>
+    </div>
+    <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="15" height="15"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+  <a class="step" href="#">
+    <div class="step-num inactive">2</div>
+    <div class="step-body">
+      <div class="step-title">Kham Tibetan region: a cultural & historical introduction</div>
+      <div class="step-desc">Geography, history, Khampa people, warrior traditions, and monasteries across Greater Tibet.</div>
+    </div>
+    <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="15" height="15"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+  <a class="step" href="https://windhorsetour.com/tibet-overland/sichuan-tibet-highway-southern-route-G318">
+    <div class="step-num inactive">3</div>
+    <div class="step-body">
+      <div class="step-title">Top things to do on Sichuan–Tibet Highway southern route (G318)</div>
+      <div class="step-desc">Key stops, scenic detours, altitude changes, and travel tips from Chengdu to Lhasa.</div>
+    </div>
+    <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="15" height="15"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
+</div>
+
+<!-- more guides -->
+<div style="margin-bottom: 8px;">
+  <div class="sec-label" style="margin-bottom: 8px;">More Kham guides</div>
+  <p class="steps-intro" style="margin-bottom: 24px;">Deeper reading on routes, culture, and practical travel in Kham Tibet.</p>
+</div>
+<div class="all-grid">
+
+  <a class="ac" href="https://windhorsetour.com/tibet-overland/sichuan-tibet-highway-northern-route-g317">
+    <div class="ac-photo"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="k4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e1822"/><stop offset="45%" stop-color="#1a3228"/><stop offset="100%" stop-color="#5a8268"/></linearGradient></defs><rect width="400" height="300" fill="url(#k4)"/><path d="M0 225 L62 158 L125 182 L195 120 L265 160 L335 100 L400 128 L400 300 L0 300Z" fill="rgba(55,90,65,.5)"/><path d="M195 120 L210 80 L225 120 L218 102 L210 86 L202 102Z" fill="rgba(255,255,255,.88)"/><path d="M50 195 Q120 162 200 178 Q280 192 370 162" stroke="rgba(232,98,26,.5)" stroke-width="3" fill="none" stroke-dasharray="8 5"/><circle cx="88" cy="188" r="5" fill="rgba(232,98,26,.75)"/><circle cx="178" cy="176" r="5" fill="rgba(232,98,26,.75)"/><circle cx="268" cy="184" r="5" fill="rgba(232,98,26,.75)"/><circle cx="352" cy="166" r="5" fill="rgba(232,98,26,.75)"/></svg></div>
+    <div class="ac-title">Complete Guide to Sichuan–Tibet Highway Northern Route (G317)</div>
+    <div class="ac-date">Updated Jan 2026</div>
+  </a>
+
+  <a class="ac" href="#">
+    <div class="ac-photo"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="k5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a1428"/><stop offset="45%" stop-color="#1a3050"/><stop offset="100%" stop-color="#5a7a9a"/></linearGradient></defs><rect width="400" height="300" fill="url(#k5)"/><path d="M0 220 L62 155 L125 178 L195 115 L265 155 L335 95 L400 122 L400 300 L0 300Z" fill="rgba(55,80,110,.5)"/><path d="M195 115 L210 75 L225 115 L218 98 L210 82 L202 98Z" fill="rgba(255,255,255,.9)"/><path d="M335 95 L352 58 L369 95 L362 78 L352 64 L342 78Z" fill="rgba(255,255,255,.82)"/><path d="M55 192 Q130 165 210 178 Q290 190 380 162" stroke="rgba(232,98,26,.48)" stroke-width="2.5" fill="none"/></svg></div>
+    <div class="ac-title">Sichuan & Yunnan Highways to Tibet: Comparing the Scenic Routes</div>
+    <div class="ac-date">Updated Jan 2026</div>
+  </a>
+
+  <a class="ac" href="#">
+    <div class="ac-photo"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="k6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1028"/><stop offset="45%" stop-color="#2a2050"/><stop offset="100%" stop-color="#6a5a8a"/></linearGradient></defs><rect width="400" height="300" fill="url(#k6)"/><path d="M0 225 L62 158 L125 182 L195 120 L265 160 L335 100 L400 128 L400 300 L0 300Z" fill="rgba(60,40,80,.5)"/><path d="M195 120 L210 78 L225 120 L218 100 L210 84 L202 100Z" fill="rgba(255,255,255,.9)"/><ellipse cx="210" cy="122" rx="30" ry="7" fill="rgba(255,255,255,.1)"/></svg></div>
+    <div class="ac-title">Daocheng Yading: the Shangri-La of Tibet</div>
+    <div class="ac-date">Updated Jan 2026</div>
+  </a>
+
+  <a class="ac" href="#">
+    <div class="ac-photo"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="k7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e1a10"/><stop offset="45%" stop-color="#1a4a2a"/><stop offset="100%" stop-color="#5a8870"/></linearGradient></defs><rect width="400" height="300" fill="url(#k7)"/><path d="M0 225 L62 155 L125 180 L195 118 L265 158 L335 98 L400 125 L400 300 L0 300Z" fill="rgba(38,88,52,.5)"/><path d="M195 118 L210 76 L225 118 L218 98 L210 82 L202 98Z" fill="rgba(255,255,255,.88)"/><circle cx="80" cy="200" r="22" fill="rgba(255,180,200,.4)"/><rect x="76" y="220" width="7" height="28" fill="rgba(120,70,30,.6)" rx="1"/></svg></div>
+    <div class="ac-title">Best time to visit Kham Tibet</div>
+    <div class="ac-date">Updated Jan 2026</div>
+  </a>
+
+  <a class="ac" href="#">
+    <div class="ac-photo"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="k8" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0a0a"/><stop offset="45%" stop-color="#3a2a1a"/><stop offset="100%" stop-color="#8a6a40"/></linearGradient></defs><rect width="400" height="300" fill="url(#k8)"/><path d="M0 225 L62 158 L125 182 L195 120 L265 160 L335 100 L400 128 L400 300 L0 300Z" fill="rgba(80,55,25,.5)"/><path d="M195 120 L210 80 L225 120 L218 102 L210 86 L202 102Z" fill="rgba(255,255,255,.88)"/><g transform="translate(240,148)"><rect x="0" y="28" width="65" height="50" fill="rgba(180,50,50,.62)" rx="1"/><rect x="8" y="12" width="48" height="34" fill="rgba(180,50,50,.72)" rx="1"/><rect x="14" y="1" width="28" height="14" fill="rgba(200,160,30,.78)" rx="1"/></g></svg></div>
+    <div class="ac-title">Kham Tibet monasteries: Dege, Tagong and Litang</div>
+    <div class="ac-date">Updated Jan 2026</div>
+  </a>
+
+  <a class="ac" href="#">
+    <div class="ac-photo"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="k9" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a1628"/><stop offset="45%" stop-color="#1a3a5c"/><stop offset="100%" stop-color="#7a9ab0"/></linearGradient></defs><rect width="400" height="300" fill="url(#k9)"/><path d="M0 225 L62 155 L125 180 L195 118 L265 158 L335 98 L400 125 L400 300 L0 300Z" fill="rgba(55,85,115,.5)"/><path d="M195 118 L210 76 L225 118 L218 98 L210 82 L202 98Z" fill="rgba(255,255,255,.9)"/><path d="M50 198 Q130 178 210 190 Q290 200 370 182" stroke="rgba(100,150,220,.4)" stroke-width="8" fill="none"/></svg></div>
+    <div class="ac-title">Kham travel tips: permits, altitude and practical advice</div>
+    <div class="ac-date">Updated Jan 2026</div>
+  </a>
+
+</div>
+
+<!-- tour cards — same as Tibet travel guide -->
+<div class="tours">
+  <h2>Popular Kham Tibet tours</h2>
+  <p class="tours-p">Private overland journeys through Western Sichuan and Kham Tibet — fully customized, led by local Tibetan guides.</p>
+  <div class="tour-cards">
+
+    <a class="tc" href="https://windhorsetour.com/kham-tour">
+      <div class="tc-img"><svg viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="t1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e1822"/><stop offset="100%" stop-color="#5a8a62"/></linearGradient></defs><rect width="300" height="160" fill="url(#t1)"/><path d="M0 160 L0 72 L55 45 L110 22 L165 50 L220 15 L275 38 L300 28 L300 160Z" fill="rgba(55,95,65,.5)"/><path d="M110 22 L126 0 L142 22 L135 12 L126 5 L117 12Z" fill="rgba(255,255,255,.9)"/><path d="M40 98 Q100 82 160 92 Q220 102 285 85" stroke="rgba(232,98,26,.5)" stroke-width="2.5" fill="none"/><ellipse cx="48" cy="140" rx="20" ry="10" fill="rgba(22,10,5,.58)"/><circle cx="35" cy="131" r="10" fill="rgba(22,10,5,.58)"/></svg></div>
+      <div class="tc-body">
+        <div class="tc-route">Chengdu → Kangding → Yading</div>
+        <div class="tc-name">Western Sichuan Highlights</div>
+        <div class="tc-meta">7 – 12 days &nbsp;·&nbsp; Private &nbsp;·&nbsp; From $990</div>
+        <div class="tc-desc">Tagong grasslands, Dege Printing House, and Daocheng Yading — the cultural and natural heart of Kham.</div>
+        <div class="tc-link">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <a class="tc" href="https://windhorsetour.com/sichuan-yunnan-tibet-overland-tours">
+      <div class="tc-img"><svg viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="t2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a1428"/><stop offset="100%" stop-color="#5a7a9a"/></linearGradient></defs><rect width="300" height="160" fill="url(#t2)"/><path d="M0 160 L0 70 L55 44 L110 22 L165 50 L220 16 L275 40 L300 28 L300 160Z" fill="rgba(55,80,110,.5)"/><path d="M110 22 L126 0 L142 22 L135 12 L126 5 L118 12Z" fill="rgba(255,255,255,.9)"/><path d="M40 95 Q100 75 165 88 Q230 100 285 80" stroke="rgba(232,98,26,.5)" stroke-width="2.5" fill="none"/><path d="M40 100 Q100 82 165 95 Q230 108 280 88" stroke="rgba(100,120,220,.35)" stroke-width="2" fill="none" stroke-dasharray="5 4"/></svg></div>
+      <div class="tc-body">
+        <div class="tc-route">Chengdu → Kham → Lhasa via G318</div>
+        <div class="tc-name">Sichuan–Tibet Overland Tour</div>
+        <div class="tc-meta">12 – 18 days &nbsp;·&nbsp; Private &nbsp;·&nbsp; From $1,490</div>
+        <div class="tc-desc">Follow the legendary G318 through Kham — high passes, nomadic grasslands, and Tibetan monasteries all the way to Lhasa.</div>
+        <div class="tc-link">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <a class="tc" href="https://windhorsetour.com/sichuan-yunnan-tibet-overland-tours">
+      <div class="tc-img"><svg viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="t3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0e0a"/><stop offset="100%" stop-color="#8a6a40"/></linearGradient></defs><rect width="300" height="160" fill="url(#t3)"/><path d="M0 160 L0 68 L55 42 L110 20 L165 48 L220 14 L275 38 L300 25 L300 160Z" fill="rgba(80,55,25,.5)"/><path d="M110 20 L126 0 L142 20 L134 11 L126 5 L118 11Z" fill="rgba(255,255,255,.88)"/><g transform="translate(180,82)"><rect x="0" y="24" width="55" height="42" fill="rgba(180,50,50,.62)" rx="1"/><rect x="8" y="11" width="38" height="28" fill="rgba(180,50,50,.72)" rx="1"/><rect x="14" y="1" width="26" height="14" fill="rgba(200,160,30,.78)" rx="1"/></g></svg></div>
+      <div class="tc-body">
+        <div class="tc-route">Chengdu → Yunnan → Lhasa via G214</div>
+        <div class="tc-name">Yunnan–Tibet Overland Tour</div>
+        <div class="tc-meta">16 – 22 days &nbsp;·&nbsp; Private &nbsp;·&nbsp; From $1,890</div>
+        <div class="tc-desc">Lijiang, Mount Meili, and the Yunnan–Tibet Highway through southern Kham — one of China's most scenic overland routes.</div>
+        <div class="tc-link">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+  </div>
+  <div class="tour-pills">
+    <a class="tpill on" href="https://windhorsetour.com/kham-tour">All Kham tours</a>
+    <a class="tpill" href="https://windhorsetour.com/sichuan-yunnan-tibet-overland-tours">Overland tours</a>
+    <a class="tpill" href="https://windhorsetour.com/tibet-trekking-tour">Trekking tours</a>
+    <a class="tpill" href="https://windhorsetour.com/tibet-festival-tours">Festival tours</a>
+    <a class="tpill" href="https://windhorsetour.com/tibet-tour">All Tibet tours</a>
+  </div>
+</div>
+
+<!-- final CTA — exact Tibet travel guide template -->
+
+<div class="final">
+  <div>
+    <h3>Ready to explore Kham Tibet?</h3>
+    <p>Tell us your travel dates and interests.<br>Our Kham specialists will build the right overland journey for you.</p>
+  </div>
+  <button class="btn-main">Plan my Kham trip</button>
+</div>
+
+</div>
+
+</div><!-- /shell -->
+
+<!-- site footer -->
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-col">
+      <div class="footer-heading">Contact us</div>
+      <div class="footer-links">
+        <a href="tel:+862885593923">+86-28-85593923</a>
+        <a href="mailto:info@windhorsetour.com">info@windhorsetour.com</a>
+        <a href="tel:+8618628293438">WX/WA: +86 18628293438</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-heading">Discover</div>
+      <div class="footer-links-grid">
+        <div>
+          <a href="https://windhorsetour.com/tibet-group-tour">Tibet group tours</a>
+          <a href="https://windhorsetour.com/tibet-tour">Tibet tours</a>
+          <a href="https://windhorsetour.com/china-tour">China tours</a>
+          <a href="https://windhorsetour.com/silk-road-tours">Silk Road tours</a>
+          <a href="https://windhorsetour.com/china-tour/1st-time-travel-china">First-time to China</a>
+          <a href="https://windhorsetour.com/china-yangtze-river-tour">China tours w/ Yangtze</a>
+          <a href="https://windhorsetour.com/china-tour-destinations">All China destinations</a>
+          <a href="https://windhorsetour.com/tibet-tours-destinations">All Tibet destinations</a>
+          <a href="https://windhorsetour.com/tailor-made-tour">Plan My Trip</a>
+        </div>
+        <div>
+          <a href="https://windhorsetour.com/beijing-tour">Beijing</a>
+          <a href="https://windhorsetour.com/xian-tour">Xi'an</a>
+          <a href="https://windhorsetour.com/shanghai-tour">Shanghai</a>
+          <a href="https://windhorsetour.com/chengdu-tour">Chengdu</a>
+          <a href="https://windhorsetour.com/guilin-tour">Guilin &amp; Yangshuo</a>
+          <a href="https://windhorsetour.com/zhangjiajie-tour">Zhangjiajie</a>
+          <a href="https://windhorsetour.com/jiuzhaigou-tour">Jiuzhaigou</a>
+          <a href="https://windhorsetour.com/sichuan-tour">Sichuan</a>
+          <a href="https://windhorsetour.com/yunnan-tour">Yunnan</a>
+          <a href="https://windhorsetour.com/guizhou-tour">Guizhou</a>
+          <a href="https://windhorsetour.com/china-tour/xinjiang">Xinjiang</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-heading">Company</div>
+      <div class="footer-links">
+        <a href="https://windhorsetour.com/about-us">About us</a>
+        <a href="https://windhorsetour.com/about-us/why-windhorsetour">Why us</a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294219-d6744316-Reviews-WindhorseTour-Chengdu_Sichuan.html" target="_blank" rel="noopener">Reviews (Tripadvisor)</a>
+        <a href="https://windhorsetour.com/contact-us">Contact us</a>
+        <a href="https://windhorsetour.com/payment-guide">Payment</a>
+        <a href="https://windhorsetour.com/terms-and-conditions">Terms and Conditions</a>
+        <a href="https://windhorsetour.com/privacy-policy">Privacy Policy</a>
+        <a href="https://windhorsetour.com/travel-blog">Blog</a>
+        <a href="https://windhorsetour.com/faq">FAQ</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 WindhorseTour. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/windhorsetour" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/windhorsetour" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/windhorsetour" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WindhorseTour — Form System · Designer Handoff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────
+   DESIGN TOKENS (site system)
+───────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --o:#e8410a;--oh:#c93608;--obg:#fff3ee;--obr:#f5c4aa;
+  --t:#1a1a1a;--t2:#555;--t3:#999;
+  --bd:#e5e5e5;--bg:#fff;--bgs:#f9f8f6;
+  --gn:#2a6e47;--gnbg:#eaf4ee;
+  --f:'DM Sans',sans-serif;
+  --r:7px;--rc:14px;
+  --shadow:0 1px 4px rgba(0,0,0,.05),0 4px 20px rgba(0,0,0,.08);
+}
+body{font-family:var(--f);color:var(--t);background:#f0ece8;-webkit-font-smoothing:antialiased;line-height:1.6;font-size:15px;}
+
+/* ─────────────────────────────────────────
+   HANDOFF SCAFFOLD
+───────────────────────────────────────── */
+.doc{max-width:1100px;margin:0 auto;padding:0 24px 120px;}
+
+/* Cover */
+.cover{padding:64px 0 56px;border-bottom:0.5px solid #d8d0c8;margin-bottom:64px;}
+.cover-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:32px;flex-wrap:wrap;}
+.cover-logo{font-size:15px;font-weight:600;color:var(--t);letter-spacing:.01em;}
+.cover-date{font-size:12px;color:var(--t3);}
+.cover h1{font-size:clamp(32px,5vw,48px);font-weight:500;letter-spacing:-.02em;color:var(--t);line-height:1.1;margin-bottom:12px;}
+.cover h1 span{color:var(--o);}
+.cover-sub{font-size:16px;color:var(--t2);line-height:1.65;max-width:600px;margin-bottom:32px;}
+.tokens{display:flex;gap:12px;flex-wrap:wrap;}
+.token{display:flex;align-items:center;gap:8px;background:var(--bg);border:0.5px solid var(--bd);border-radius:8px;padding:8px 14px;font-size:12px;color:var(--t2);}
+.token-swatch{width:16px;height:16px;border-radius:4px;flex-shrink:0;}
+.token strong{color:var(--t);font-weight:600;}
+
+/* Section */
+.section{margin-bottom:112px;}
+.section-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:0.5px solid #d8d0c8;}
+.section-num{width:40px;height:40px;border-radius:50%;background:var(--t);color:#fff;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.section-meta{flex:1;}
+.section-meta h2{font-size:26px;font-weight:500;color:var(--t);letter-spacing:-.015em;margin-bottom:8px;}
+.section-meta p{font-size:15px;color:var(--t2);line-height:1.7;max-width:600px;}
+.section-tag{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:22px;white-space:nowrap;flex-shrink:0;margin-top:4px;}
+.tag-popup{background:#fff3ee;color:var(--o);}
+.tag-page{background:#eaf4ee;color:var(--gn);}
+.tag-inline{background:#f0f0f0;color:var(--t2);}
+
+/* Trigger note */
+.trigger-note{background:var(--bg);border:0.5px solid var(--bd);border-radius:10px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:flex-start;gap:12px;}
+.trigger-note .ico{font-size:16px;flex-shrink:0;margin-top:1px;}
+.trigger-note p{font-size:14px;color:var(--t2);line-height:1.6;}
+.trigger-note strong{color:var(--t);}
+
+/* Form preview wrapper */
+.preview{background:var(--bg);border:0.5px solid var(--bd);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}
+.preview-bar{background:var(--bgs);border-bottom:0.5px solid var(--bd);padding:10px 16px;display:flex;align-items:center;gap:8px;}
+.preview-dot{width:10px;height:10px;border-radius:50%;}
+.preview-label{font-size:11px;color:var(--t3);margin-left:4px;font-weight:500;}
+
+/* Popup preview (centered card on dimmed bg) */
+.popup-preview{background:#c8c0b8;padding:40px 20px;display:flex;align-items:center;justify-content:center;min-height:120px;}
+.popup-preview .modal-shell{width:100%;max-width:460px;background:var(--bg);border-radius:var(--rc);box-shadow:0 8px 40px rgba(0,0,0,.2);overflow:hidden;position:relative;}
+
+/* Page preview (full width) */
+.page-preview{background:var(--bgs);}
+.page-preview .page-shell{max-width:100%;overflow:hidden;}
+
+/* Inline preview (article context) */
+.article-preview{padding:40px 48px;background:var(--bg);}
+.article-preview .article-body{max-width:680px;margin:0 auto;}
+.article-preview .art-p{font-size:15px;color:var(--t2);line-height:1.75;margin-bottom:28px;}
+.article-preview .art-h{font-size:20px;font-weight:500;color:var(--t);margin-bottom:12px;margin-top:32px;}
+.article-preview .art-p:first-child{margin-top:0;}
+
+/* Step nav tabs */
+.step-tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;}
+.step-tab{padding:6px 14px;border-radius:22px;border:0.5px solid var(--bd);background:var(--bg);font-size:12px;color:var(--t2);cursor:pointer;font-family:var(--f);transition:all .15s;}
+.step-tab:hover,.step-tab.on{background:var(--t);color:#fff;border-color:var(--t);}
+
+/* Divider */
+.divider{height:0.5px;background:#d8d0c8;margin:64px 0;}
+
+/* ─────────────────────────────────────────
+   SHARED FORM COMPONENTS
+───────────────────────────────────────── */
+.prog{height:2px;background:var(--bd);}
+.prog-fill{height:100%;background:var(--o);transition:width .4s;}
+.f-hd{padding:32px 28px 24px;border-bottom:0.5px solid var(--bd);}
+.f-hd h3{font-size:22px;font-weight:500;color:var(--t);margin-bottom:8px;letter-spacing:-.01em;line-height:1.2;}
+.f-hd p{font-size:14px;color:var(--t2);line-height:1.65;margin-bottom:0;}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--gn);font-weight:500;background:var(--gnbg);padding:5px 13px;border-radius:22px;margin-top:12px;}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gn);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+.f-body{padding:28px 28px 32px;}
+.f-close{position:absolute;top:12px;right:12px;width:28px;height:28px;border:none;background:var(--bgs);border-radius:50%;font-size:13px;cursor:pointer;color:var(--t2);display:flex;align-items:center;justify-content:center;}
+.f-close:hover{background:var(--bd);}
+.tctx{background:var(--bgs);border:0.5px solid var(--bd);border-radius:10px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:28px;}
+.tctx-min{padding:0 0 20px 0;margin-bottom:20px;border-bottom:0.5px solid var(--bd);}
+.tctx-ico{width:34px;height:34px;background:var(--obg);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.tctx-name{font-size:14px;font-weight:600;color:var(--t);line-height:1.3;margin-bottom:4px;}
+.tctx-route{font-size:12px;color:var(--t3);line-height:1.6;}
+.tctx-price{font-size:12px;font-weight:600;color:var(--o);margin-top:3px;}
+.stepper{display:flex;align-items:center;margin-bottom:28px;}
+.sdot{width:24px;height:24px;border-radius:50%;background:var(--bgs);border:1px solid var(--bd);color:var(--t3);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.sdot.active{background:var(--o);border-color:var(--o);color:#fff;}
+.sdot.done{background:var(--gn);border-color:var(--gn);color:#fff;}
+.sline{flex:1;height:1px;background:var(--bd);transition:background .3s;}
+.sline.done{background:var(--gn);}
+.fstep{display:none;}.fstep.on{display:block;}
+.fq{font-size:15px;font-weight:600;color:var(--t);margin-bottom:14px;margin-top:4px;}
+.fhint{font-size:13px;color:var(--t2);margin-bottom:16px;line-height:1.65;}
+.chips{display:flex;flex-wrap:wrap;gap:10px;row-gap:10px;margin-bottom:28px;}
+.chip{padding:9px 16px;border-radius:22px;border:1px solid #d5d5d5;background:var(--bg);font-family:var(--f);font-size:13px;color:var(--t);cursor:pointer;transition:border-color .2s,color .2s,background .2s;user-select:none;line-height:1.3;white-space:nowrap;}
+.chip:hover,.chip.on{border-color:var(--o);color:var(--o);}
+.igrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px;}
+.itile{border:0.5px solid var(--bd);border-radius:10px;padding:14px 6px 12px;cursor:pointer;transition:border-color .15s;text-align:center;background:var(--bgs);user-select:none;}
+.itile:hover,.itile.on{border-color:var(--o);background:var(--obg);}
+.itile .ti{font-size:20px;display:block;margin-bottom:6px;}
+.itile .tl{font-size:11px;color:var(--t);font-weight:500;}
+.itile.on .tl{color:var(--o);}
+.intgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px;}
+.inttile{border:0.5px solid var(--bd);border-radius:7px;padding:12px 14px;cursor:pointer;display:flex;align-items:center;gap:9px;background:var(--bgs);font-size:13px;color:var(--t);font-weight:500;transition:border-color .15s,color .15s;user-select:none;line-height:1.3;}
+.inttile:hover,.inttile.on{border-color:var(--o);color:var(--o);background:var(--obg);}
+.ctrs{display:flex;gap:12px;margin-bottom:24px;width:100%;}
+.cg{flex:1;min-width:0;}
+.clbl{font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+.ctr{display:flex;align-items:center;border:1px solid var(--bd);border-radius:7px;overflow:hidden;width:100%;}
+.cb{width:36px;min-width:36px;height:44px;background:var(--bgs);border:none;font-size:17px;color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--f);}
+.cb:hover{background:var(--bd);}
+.cv{flex:1;min-width:0;text-align:center;font-size:15px;font-weight:600;color:var(--t);border:none;background:transparent;font-family:var(--f);pointer-events:none;}
+.field{margin-bottom:20px;}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--t);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;}
+.field input,.field textarea{width:100%;padding:11px 14px;border:1px solid var(--bd);border-radius:7px;font-family:var(--f);font-size:14px;color:var(--t);background:var(--bg);outline:none;transition:border-color .18s;-webkit-appearance:none;}
+.field input:focus,.field textarea:focus,.step-input:focus{border-color:var(--o);}
+.field textarea{resize:none;min-height:88px;overflow:hidden;}
+.field .hint{font-size:12px;color:var(--t3);margin-top:5px;}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.mrow{display:flex;gap:8px;margin-bottom:20px;}
+.mbtn{flex:1;padding:10px 6px;border:0.5px solid var(--bd);border-radius:7px;background:var(--bgs);font-family:var(--f);font-size:13px;font-weight:500;color:var(--t);cursor:pointer;transition:border-color .15s,color .15s;text-align:center;}
+.mbtn:hover,.mbtn.on{border-color:var(--o);color:var(--o);background:var(--obg);}
+.subrow{display:flex;align-items:flex-start;gap:10px;margin-bottom:24px;cursor:pointer;}
+.subrow input[type=checkbox]{width:15px;height:15px;margin-top:3px;accent-color:var(--o);flex-shrink:0;}
+.subrow span{font-size:13px;color:var(--t3);line-height:1.6;}
+.fnav{display:flex;gap:8px;margin-top:16px;}
+.bnext{flex:1;padding:14px;background:var(--o);color:#fff;border:none;border-radius:7px;font-family:var(--f);font-size:14px;font-weight:500;cursor:pointer;transition:background .18s;letter-spacing:.01em;}
+.bnext:hover{background:var(--oh);}
+.bback{width:44px;height:44px;background:var(--bgs);border:1px solid var(--bd);border-radius:7px;color:var(--t2);cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bback:hover{border-color:var(--o);color:var(--o);}
+.bsub{width:100%;padding:15px;background:var(--o);color:#fff;border:none;border-radius:7px;font-family:var(--f);font-size:14px;font-weight:500;cursor:pointer;transition:background .18s;}
+.bsub:hover{background:var(--oh);}
+.alts{margin-top:24px;padding-top:20px;border-top:0.5px solid var(--bd);text-align:center;}
+.alts p{font-size:13px;color:var(--t3);margin-bottom:12px;}
+.alts-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.alts-links a{font-size:14px;color:var(--o);text-decoration:none;font-weight:500;}.alts-links a .ico{color:var(--t3);}
+.alts-links a:hover{text-decoration:underline;}
+.ftrust{display:flex;border-top:0.5px solid var(--bd);margin-top:28px;padding-top:20px;}
+.fti{flex:1;text-align:center;padding:0 6px;border-right:0.5px solid var(--bd);}
+.fti:last-child{border-right:none;}
+.ftn{font-size:16px;font-weight:600;color:var(--t);}
+.ftl{font-size:11px;color:var(--t3);margin-top:3px;text-transform:uppercase;letter-spacing:.07em;}
+.ok{display:none;padding:44px 24px 32px;text-align:center;}
+.ok-ico{font-size:40px;margin-bottom:14px;}
+.ok h4{font-size:20px;font-weight:500;color:var(--t);margin-bottom:10px;}
+.ok p{font-size:14px;color:var(--t2);line-height:1.65;max-width:280px;margin:0 auto 20px;}
+.ok-close{padding:11px 28px;background:var(--bgs);color:var(--t2);border:0.5px solid var(--bd);border-radius:7px;font-family:var(--f);font-size:14px;cursor:pointer;}
+.ok-close:hover{border-color:var(--o);color:var(--o);}
+/* date opts */
+.date-list{max-height:188px;overflow-y:auto;margin-bottom:4px;}
+.dopt{display:flex;align-items:center;justify-content:space-between;gap:12px;border:0.5px solid var(--bd);border-radius:9px;padding:12px 16px;cursor:pointer;transition:border-color .15s,background .15s;margin-bottom:7px;}
+.dopt:hover,.dopt.on{border-color:var(--o);background:var(--obg);}
+.dm{font-size:14px;font-weight:600;color:var(--t);}
+.ds2{font-size:11px;color:var(--t3);margin-top:1px;}
+.dopt-other{flex-direction:column;align-items:stretch;gap:7px;}
+.dopt-other-hd{display:flex;align-items:center;justify-content:space-between;}
+/* spec date */
+.spec-wrap{display:none;margin-bottom:14px;}
+.spec-wrap input{width:100%;padding:10px 13px;border:1px solid var(--bd);border-radius:7px;font-family:var(--f);font-size:14px;color:var(--t);outline:none;-webkit-appearance:none;}
+.spec-wrap input:focus{border-color:var(--o);}
+.spec-wrap .hint{font-size:12px;color:var(--t3);margin-top:4px;}
+/* tailor-made page layout */
+.tm-page{background:var(--bgs);}
+.tm-nav{background:var(--bg);border-bottom:0.5px solid var(--bd);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:52px;}
+.tm-nav-logo{font-size:15px;font-weight:600;color:var(--t);}
+.tm-nav-back{font-size:13px;color:var(--t3);text-decoration:none;display:flex;align-items:center;gap:4px;}
+.tm-layout{display:flex;flex-direction:column;gap:0;padding:40px 32px 56px;max-width:680px;margin:0 auto;}
+.tm-intro{margin-bottom:28px;}
+.tm-intro .eyebrow{font-size:11px;font-weight:500;color:var(--o);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;display:block;}
+.tm-intro h1{font-size:42px;font-weight:500;letter-spacing:-.025em;line-height:1.05;color:var(--t);margin-bottom:10px;}
+.tm-intro p{font-size:16px;color:var(--t2);line-height:1.7;margin-bottom:0;margin-top:14px;}
+.tm-trust-list{display:flex;flex-direction:column;margin-top:36px;border-top:0.5px solid var(--bd);}
+.tm-trust-item{display:flex;gap:20px;align-items:baseline;padding:14px 0;border-bottom:0.5px solid var(--bd);}
+.tm-trust-label{font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;flex-shrink:0;width:56px;padding-top:1px;}
+.tm-trust-label{font-size:10px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;padding-top:1px;}
+.tm-trust-val{font-size:14px;color:var(--t);line-height:1.55;}
+.tm-card{background:var(--bg);border:0.5px solid var(--bd);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;}
+/* in-page CTA components */
+.article-cta{background:var(--bgs);border-left:3px solid var(--o);border-radius:0 12px 12px 0;padding:24px 28px;}
+.article-cta h4{font-size:17px;font-weight:600;color:var(--t);margin-bottom:10px;line-height:1.3;}
+.article-cta p{font-size:15px;color:var(--t2);line-height:1.7;margin-bottom:18px;}
+.article-cta-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--o);color:#fff;border:none;border-radius:7px;font-family:var(--f);font-size:14px;font-weight:500;cursor:pointer;transition:background .18s;}
+.article-cta-btn:hover{background:var(--oh);}
+.guide-hub-banner{border-top:0.5px solid var(--bd);border-bottom:0.5px solid var(--bd);padding:32px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.guide-hub-banner h4{font-size:24px;font-weight:500;color:var(--t);letter-spacing:-.015em;margin-bottom:8px;line-height:1.15;}
+.guide-hub-banner p{font-size:15px;color:var(--t2);line-height:1.65;}
+.hub-btn,.btn-main{background:var(--o);color:#fff;border:none;border-radius:7px;padding:11px 22px;font-size:14px;font-family:var(--f);cursor:pointer;font-weight:500;transition:background .18s;text-decoration:none;display:inline-block;white-space:nowrap;}
+.hub-btn:hover,.btn-main:hover{background:var(--oh);}
+.guide-bottom{border-top:0.5px solid var(--bd);padding-top:48px;}
+.gbhd{margin-bottom:28px;}
+.gbhd .glbl{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;}
+.gbhd h3{font-size:24px;font-weight:500;color:var(--t);letter-spacing:-.01em;margin-bottom:8px;}
+.gbhd p{font-size:15px;color:var(--t2);line-height:1.65;}
+.gnext-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:36px;}
+.gnext-glbl{font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:11px;}
+.gnext-link{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:0.5px solid var(--bd);text-decoration:none;transition:padding-left .15s;}
+.gnext-link:last-child{border-bottom:none;}
+.gnext-link:hover{padding-left:4px;}
+.gnext-link:hover .gnl-t{color:var(--o);}
+.gnext-link:hover .gnl-arr{color:var(--o);transform:translateX(3px);}
+.gnl-ico{width:28px;height:28px;background:var(--bgs);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+.gnext-link.tour .gnl-ico{background:var(--obg);}
+.gnl-t{font-size:14px;font-weight:500;color:var(--t);line-height:1.35;transition:color .15s;}
+.gnl-s{font-size:12px;color:var(--t3);margin-top:2px;}
+.gnl-arr{margin-left:auto;font-size:12px;color:var(--t3);flex-shrink:0;transition:color .15s,transform .15s;}
+.gcta-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;border-top:0.5px solid var(--bd);flex-wrap:wrap;}
+.gcta-row h4{font-size:16px;font-weight:500;color:var(--t);margin-bottom:5px;}
+.gcta-row p{font-size:14px;color:var(--t2);line-height:1.55;}
+.gcta-btns{display:flex;gap:8px;flex-shrink:0;}
+.btn-ghost{background:transparent;color:var(--t2);border:0.5px solid #d5d5d5;border-radius:7px;padding:10px 18px;font-size:13px;font-family:var(--f);cursor:pointer;font-weight:500;transition:border-color .15s,color .15s;text-decoration:none;display:inline-block;white-space:nowrap;}
+.btn-ghost:hover{border-color:var(--o);color:var(--o);}
+.sticky-bar{background:var(--bg);border:0.5px solid var(--bd);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 -2px 12px rgba(0,0,0,.07);}
+.sbl{flex:1;}
+.sbl .slbl{font-size:11px;color:var(--t3);}
+.sbl .stour{font-size:13px;font-weight:600;color:var(--t);}
+.sb-btns{display:flex;gap:7px;}
+/* cta variant label */
+.cta-var-lbl{font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;line-height:1.5;}
+.cta-vars{display:flex;flex-direction:column;gap:32px;}
+
+/* ── Inside popup modals — minimal separators ── */
+.modal-shell .f-hd{border-bottom:none;padding-bottom:16px;}
+.modal-shell .f-body{padding-top:16px;}
+.modal-shell .alts{border-top:none;margin-top:16px;padding-top:0;}
+.modal-shell .tctx-min{border-bottom:none;padding-bottom:0;margin-bottom:20px;}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — TABLET (max 768px)
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .doc { padding: 0 16px 80px; }
+  .cover { padding: 40px 0 40px; }
+  .cover h1 { font-size: 36px; }
+  .tokens { gap: 8px; }
+  .token { font-size: 11px; padding: 6px 10px; }
+  .section-header { flex-wrap: wrap; gap: 12px; }
+  .section-tag { margin-left: 0; }
+  .tm-layout { padding: 28px 20px 40px; }
+  .tm-intro h1 { font-size: 32px; }
+  .step-tabs { gap: 4px; }
+  .step-tab { font-size: 11px; padding: 6px 10px; }
+  .popup-preview { padding: 24px 12px; }
+  .modal-shell { max-width: 100%; }
+  .article-preview { padding: 28px 24px; }
+  .gnext-grid { grid-template-columns: 1fr; gap: 0; }
+  .guide-hub-banner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .gcta-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — MOBILE (max 480px)
+───────────────────────────────────────── */
+@media (max-width: 480px) {
+
+  /* Layout */
+  .doc { padding: 0 12px 60px; }
+  .cover { padding: 32px 0 32px; }
+  .cover h1 { font-size: 28px; }
+  .cover-top { flex-direction: column; gap: 4px; }
+  .cover-sub { font-size: 14px; }
+  .tokens { flex-direction: column; gap: 6px; }
+  .section-header { padding-bottom: 14px; margin-bottom: 20px; }
+  .section-meta h2 { font-size: 20px; }
+  .section-meta p { font-size: 14px; }
+  .trigger-note p { font-size: 13px; }
+
+  /* Form card */
+  .f-hd { padding: 20px 18px 16px; }
+  .f-hd h3 { font-size: 19px; }
+  .f-hd p { font-size: 13px; }
+  .f-body { padding: 18px 18px 22px; }
+
+  /* Two-column field grids → single column on mobile */
+  .f2 { grid-template-columns: 1fr; gap: 0; }
+
+  /* Icon tiles: 4-col → 2×2 */
+  .igrid { grid-template-columns: 1fr 1fr; }
+
+  /* Interest tiles stay 2-col but smaller text */
+  .intgrid { gap: 6px; }
+  .inttile { font-size: 12px; padding: 8px 10px; }
+
+  /* Chips */
+  .chip { font-size: 13px; padding: 8px 13px; }
+  .chips { gap: 7px; margin-bottom: 16px; }
+
+  /* Counters */
+  .ctrs { gap: 10px; }
+  .cb { width: 32px; min-width: 32px; height: 38px; font-size: 16px; }
+  .cv { font-size: 14px; }
+
+  /* Nav buttons */
+  .fnav { gap: 7px; }
+  .bnext { padding: 12px; font-size: 13px; }
+  .bback { width: 38px; height: 38px; font-size: 14px; }
+  .bsub { padding: 13px; font-size: 14px; }
+
+  /* Method row */
+  .mrow { gap: 6px; }
+  .mbtn { font-size: 11px; padding: 8px 5px; }
+
+  /* Stepper dots */
+  .sdot { width: 22px; height: 22px; font-size: 10px; }
+
+  /* Step tabs — scrollable on mobile */
+  .step-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .step-tabs::-webkit-scrollbar { display: none; }
+  .step-tab { font-size: 11px; padding: 6px 10px; white-space: nowrap; flex-shrink: 0; }
+
+  /* Popup preview — full width no side padding */
+  .popup-preview { padding: 20px 0; border-radius: 0; }
+  .modal-shell { border-radius: 12px; width: 100%; }
+
+  /* Plan My Trip page */
+  .tm-layout { padding: 20px 16px 36px; }
+  .tm-intro h1 { font-size: 26px; }
+  .tm-intro p { font-size: 15px; }
+  .tm-trust-list { margin-top: 28px; }
+  .tm-trust-item { gap: 14px; padding: 12px 0; }
+  .tm-trust-label { width: 48px; font-size: 10px; }
+  .tm-trust-val { font-size: 13px; }
+
+  /* Article preview */
+  .article-preview { padding: 24px 18px; }
+  .art-p { font-size: 14px; }
+  .article-cta { padding: 18px 20px; }
+  .article-cta h4 { font-size: 15px; }
+  .article-cta p { font-size: 14px; }
+
+  /* Guide hub */
+  .guide-hub-banner { padding: 20px 0; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .guide-hub-banner h4 { font-size: 19px; }
+  .hub-btn { width: 100%; text-align: center; }
+
+  /* Guide bottom */
+  .guide-bottom { padding-top: 32px; }
+  .gbhd h3 { font-size: 19px; }
+  .gnext-grid { grid-template-columns: 1fr; gap: 0; }
+  .guide-next-group { border-right: none; border-bottom: 0.5px solid var(--bd); padding-bottom: 20px; margin-bottom: 20px; }
+  .gcta-row { flex-direction: column; align-items: flex-start; }
+  .gcta-btns { flex-direction: row; width: 100%; }
+  .gcta-btns .btn-ghost,
+  .gcta-btns .btn-main { flex: 1; text-align: center; }
+
+  /* Trust bar in form */
+  .ftrust { flex-direction: column; gap: 0; }
+  .fti { border-right: none; border-bottom: 0.5px solid var(--bd); padding: 10px 0; }
+  .fti:last-child { border-bottom: none; }
+
+  /* Subrow */
+  .subrow { gap: 8px; }
+
+  /* Alts links — stack on very small screens */
+  .alts-links { flex-direction: column; align-items: center; gap: 10px; }
+}
+
+/* ─────────────────────────────────────────
+   FORM 6 — PAGE SECTION CTA
+   Matches homepage/landing page design system
+───────────────────────────────────────── */
+.inq{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;background:var(--bgs);border:0.5px solid var(--bd);border-radius:16px;padding:38px 40px;}
+.inq-l h2{font-size:24px;font-weight:500;letter-spacing:-.01em;color:var(--t);margin-bottom:10px;line-height:1.25;}
+.inq-l p{font-size:15px;color:var(--t2);line-height:1.65;margin-bottom:20px;}
+.inq-r{min-width:0;}
+.f6-field{margin-bottom:14px;}
+.f6-field label{display:block;font-size:12px;font-weight:500;color:var(--t2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;}
+.f6-field input,.f6-field textarea{width:100%;border:0.5px solid var(--bd);border-radius:7px;padding:11px 14px;font-family:var(--f);font-size:14px;color:var(--t);outline:none;background:var(--bg);transition:border-color .15s;-webkit-appearance:none;}
+.f6-field input:focus,.f6-field textarea:focus{border-color:var(--o);}
+.f6-field textarea{resize:vertical;min-height:88px;}
+.f6-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.f6-btn{background:var(--o);color:#fff;border:none;border-radius:7px;padding:13px 24px;font-size:14px;font-family:var(--f);cursor:pointer;font-weight:500;transition:opacity .15s;width:100%;margin-top:2px;}
+.f6-btn:hover{opacity:.9;}
+.f6-note{font-size:12px;color:var(--t3);margin-top:10px;text-align:center;line-height:1.5;}
+.chat-row{display:flex;gap:10px;flex-wrap:wrap;}
+.chat-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--t);border:0.5px solid var(--bd);background:var(--bg);border-radius:8px;padding:10px 14px;text-decoration:none;transition:border-color .15s;}
+.chat-btn:hover{border-color:var(--o);}
+.chat-btn svg{width:16px;height:16px;flex-shrink:0;}
+.f6-ok{display:none;padding:32px 0 16px;text-align:center;}
+.f6-ok .ok-ico{font-size:36px;margin-bottom:12px;}
+.f6-ok h4{font-size:20px;font-weight:500;color:var(--t);margin-bottom:8px;}
+.f6-ok p{font-size:14px;color:var(--t2);line-height:1.65;max-width:320px;margin:0 auto;}
+@media(max-width:900px){.inq{grid-template-columns:1fr;gap:28px;padding:30px 26px;}}
+@media(max-width:560px){.f6-row{grid-template-columns:1fr;}.inq{padding:24px 20px;}.inq-l h2{font-size:20px;}}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- ═══════════════════════════════════════
+     COVER
+═══════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">WindhorseTour</div>
+    <div class="cover-date">Form System · Designer Handoff · 2026</div>
+  </div>
+  <h1>5-Form CTA<br><span>System</span></h1>
+  <p class="cover-sub">A unified inquiry and conversion system for WindhorseTour.com. All forms share the same design tokens, typography, and interaction patterns. Every form is fully interactive — click through steps, counters, and chips.</p>
+  <div class="tokens">
+    <div class="token"><div class="token-swatch" style="background:#e8410a"></div><strong>#e8410a</strong> Primary orange</div>
+    <div class="token"><div class="token-swatch" style="background:#1a1a1a"></div><strong>#1a1a1a</strong> Text</div>
+    <div class="token"><div class="token-swatch" style="background:#f9f8f6;border:1px solid #e5e5e5"></div><strong>#f9f8f6</strong> Soft bg</div>
+    <div class="token"><div class="token-swatch" style="background:#e5e5e5"></div><strong>#e5e5e5</strong> Border</div>
+    <div class="token" style="gap:10px"><strong>DM Sans</strong> 400 / 500 / 600</div>
+    <div class="token"><strong>7px</strong> Button radius · <strong>14px</strong> Card radius</div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div style="background:var(--bg);border:0.5px solid var(--bd);border-radius:14px;padding:28px 32px;margin-bottom:80px;overflow-x:auto;">
+  <div style="font-size:12px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">Form map — what triggers what</div>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;">
+    <thead><tr style="border-bottom:0.5px solid var(--bd);">
+      <th style="text-align:left;padding:8px 12px;color:var(--t3);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.06em;">#</th>
+      <th style="text-align:left;padding:8px 12px;color:var(--t3);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.06em;">Form</th>
+      <th style="text-align:left;padding:8px 12px;color:var(--t3);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.06em;">Type</th>
+      <th style="text-align:left;padding:8px 12px;color:var(--t3);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.06em;">Triggered by</th>
+      <th style="text-align:left;padding:8px 12px;color:var(--t3);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.06em;">Intent</th>
+    </tr></thead>
+    <tbody>
+      <tr style="border-bottom:0.5px solid var(--bd);"><td style="padding:10px 12px;color:var(--t3);">1</td><td style="padding:10px 12px;font-weight:500;">Contact Us</td><td style="padding:10px 12px;"><span style="background:#fff3ee;color:var(--o);font-size:11px;font-weight:600;padding:2px 8px;border-radius:22px;">Popup</span></td><td style="padding:10px 12px;color:var(--t2);">In-page CTA "Ask a Tibet/China specialist" buttons in articles &amp; guides</td><td style="padding:10px 12px;color:var(--t2);">Low — quick question</td></tr>
+      <tr style="border-bottom:0.5px solid var(--bd);"><td style="padding:10px 12px;color:var(--t3);">2</td><td style="padding:10px 12px;font-weight:500;">Plan My Trip</td><td style="padding:10px 12px;"><span style="background:#eaf4ee;color:var(--gn);font-size:11px;font-weight:600;padding:2px 8px;border-radius:22px;">Page</span></td><td style="padding:10px 12px;color:var(--t2);">Nav, homepage hero, in-page CTA "Plan my trip" buttons, email links, AI citations</td><td style="padding:10px 12px;color:var(--t2);">High — planning intent</td></tr>
+      <tr style="border-bottom:0.5px solid var(--bd);"><td style="padding:10px 12px;color:var(--t3);">3</td><td style="padding:10px 12px;font-weight:500;">Private Tour Quote</td><td style="padding:10px 12px;"><span style="background:#fff3ee;color:var(--o);font-size:11px;font-weight:600;padding:2px 8px;border-radius:22px;">Popup</span></td><td style="padding:10px 12px;color:var(--t2);">Inquiry button on private tour pages / sticky bar</td><td style="padding:10px 12px;color:var(--t2);">High — tour-specific</td></tr>
+      <tr style="border-bottom:0.5px solid var(--bd);"><td style="padding:10px 12px;color:var(--t3);">4</td><td style="padding:10px 12px;font-weight:500;">Group Tour</td><td style="padding:10px 12px;"><span style="background:#fff3ee;color:var(--o);font-size:11px;font-weight:600;padding:2px 8px;border-radius:22px;">Popup</span></td><td style="padding:10px 12px;color:var(--t2);">Inquiry button on group tour pages / sticky bar</td><td style="padding:10px 12px;color:var(--t2);">High — date-specific</td></tr>
+      <tr><td style="padding:10px 12px;color:var(--t3);">5</td><td style="padding:10px 12px;font-weight:500;">In-Page CTAs</td><td style="padding:10px 12px;"><span style="background:#f0f0f0;color:#666;font-size:11px;font-weight:600;padding:2px 8px;border-radius:22px;">Inline</span></td><td style="padding:10px 12px;color:var(--t2);">Embedded in articles &amp; guide pages — buttons link to Form 1 popup or Form 2 page</td><td style="padding:10px 12px;color:var(--t2);">Mid — still researching</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     FORM 1 — CONTACT US POPUP
+═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div class="section-meta">
+      <h2>Contact Us — Popup</h2>
+      <p>Triggered by "Ask a Tibet specialist" or "Ask a China specialist" buttons inside planning articles and destination guides. Opens as a modal overlay on the current page — the user doesn't leave what they were reading.</p>
+    </div>
+    <div class="section-tag tag-popup">Popup modal</div>
+  </div>
+  <div class="trigger-note">
+    <div class="ico">⚡</div>
+    <p><strong>Trigger:</strong> In-page CTA buttons labelled "Ask a Tibet specialist", "Ask a China specialist", or "Plan my Tibet trip" etc. — see Form 5 for the button components. Opens immediately on the same page with no navigation.</p>
+  </div>
+  <div class="preview">
+    <div class="preview-bar">
+      <div class="preview-dot" style="background:#ff5f57"></div>
+      <div class="preview-dot" style="background:#febc2e;margin-left:4px"></div>
+      <div class="preview-dot" style="background:#28c840;margin-left:4px"></div>
+      <div class="preview-label">windhorsetour.com/tibet-permit-guide  ←  user stays on this page</div>
+    </div>
+    <div class="popup-preview">
+      <div class="modal-shell">
+        <button class="f-close">✕</button>
+        <div class="prog"><div class="prog-fill" style="width:100%"></div></div>
+        <div class="f-hd">
+          <h3>Ask us anything</h3>
+          <p>Questions about China or Tibet travel, permits, visas, or tour options — we're happy to help before you commit to anything.</p>
+          <div class="badge">We reply within 1 working day</div>
+        </div>
+        <div class="f-body">
+          <div class="fq">What's your question about?</div>
+          <div class="chips">
+            <div class="chip" onclick="c1chip(this)">Tibet travel</div>
+            <div class="chip" onclick="c1chip(this)">China itinerary</div>
+            <div class="chip" onclick="c1chip(this)">Visas &amp; permits</div>
+            <div class="chip" onclick="c1chip(this)">Trip cost</div>
+            <div class="chip" onclick="c1chip(this)">Existing booking</div>
+            <div class="chip" onclick="c1chip(this)">Something else</div>
+          </div>
+          <div class="field"><label>Your message *</label><textarea placeholder="What would you like to know? There are no silly questions." style="min-height:72px"></textarea></div>
+          <div class="f2">
+            <div class="field"><label>Your name</label><input type="text" placeholder="First name"></div>
+            <div class="field"><label>Email address *</label><input type="email" placeholder="your@email.com"></div>
+          </div>
+          <button class="bsub" onclick="c1submit(this)">Send My Question</button>
+          <div class="ok" id="c1ok"><div class="ok-ico">✉️</div><h4>Message received</h4><p>We'll get back to you within one working day.</p><button class="ok-close" onclick="c1reset()">Close</button></div>
+          <div class="alts" id="c1alts">
+            <p>Or reach us directly</p>
+            <div class="alts-links">
+              <a href="mailto:info@windhorsetour.com"><span style="color:var(--t3)">✉</span> info@windhorsetour.com</a>
+              <a href="https://wa.me/8618628293438" target="_blank" rel="noopener"><span style="color:var(--t3)">💬</span> WhatsApp</a>
+              <a href="tel:+862885593923"><span style="color:var(--t3)">📞</span> +86-28-85593923</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     FORM 2 — PLAN MY TRIP PAGE
+═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div class="section-meta">
+      <h2>Plan My Trip — Dedicated Page</h2>
+      <p>The most important form. Lives at <strong>windhorsetour.com/tailor-made-tour</strong>. Two-column layout: trust building on the left, 4-step conversational form on the right. Has its own URL for nav links, email campaigns, AI citations, and social sharing.</p>
+    </div>
+    <div class="section-tag tag-page">Dedicated page</div>
+  </div>
+  <div class="trigger-note">
+    <div class="ico">⚡</div>
+    <p><strong>Trigger:</strong> Main nav "Plan My Trip" link · Homepage hero button · In-page CTA "Plan my trip / Get a free itinerary" buttons · Email links · AI citations · Social posts. URL: <strong>windhorsetour.com/tailor-made-tour</strong></p>
+  </div>
+
+  <div class="step-tabs">
+    <div class="step-tab on" onclick="showTM(1,this)">Step 1 · Where, When &amp; Duration</div>
+    <div class="step-tab" onclick="showTM(2,this)">Step 2 · Interests</div>
+    <div class="step-tab" onclick="showTM(3,this)">Step 3 · Who &amp; Contact</div>
+  </div>
+
+  <div class="preview">
+    <div class="preview-bar">
+      <div class="preview-dot" style="background:#ff5f57"></div>
+      <div class="preview-dot" style="background:#febc2e;margin-left:4px"></div>
+      <div class="preview-dot" style="background:#28c840;margin-left:4px"></div>
+      <div class="preview-label">windhorsetour.com/tailor-made-tour</div>
+    </div>
+    <div class="tm-page">
+      <div class="tm-nav">
+        <div class="tm-nav-logo">WindhorseTour</div>
+        <a class="tm-nav-back" href="#">← Back</a>
+      </div>
+      <div class="tm-layout">
+        <div class="tm-intro">
+          <h1>Plan your China &amp; Tibet trip</h1>
+          <div class="eyebrow">Start planning</div>
+          <p>Tell us a little about what you're looking for. A local specialist in Chengdu will reply with a personalised suggestion — not a template.</p>
+        </div>
+        <div class="tm-card" id="tmcard">
+          <div class="prog"><div class="prog-fill" id="tmbar" style="width:25%"></div></div>
+          <div class="f-hd">
+            <h3 id="tmtitle">Step 1 of 3 — Where, When &amp; Duration</h3>
+            <p>The more you share, the better we can tailor your suggestion.</p>
+            <div class="badge">We reply within 1 working day</div>
+          </div>
+          <div class="f-body">
+            <div class="stepper" id="tmstepper">
+              <div class="sdot active" id="tmd1">1</div><div class="sline" id="tml1"></div>
+              <div class="sdot" id="tmd2">2</div><div class="sline" id="tml2"></div>
+              <div class="sdot" id="tmd3">3</div>
+            </div>
+            <!-- Step 1: Where + When + How long -->
+            <div class="fstep on" id="tms1">
+              <div class="fq">Where are you thinking of going?</div>
+              <div class="chips">
+                <div class="chip on" onclick="s1chip(this)">Tibet</div>
+                <div class="chip" onclick="s1chip(this)">China + Tibet</div>
+                <div class="chip" onclick="s1chip(this)">Classic China</div>
+                <div class="chip" onclick="s1chip(this)">Yunnan &amp; Southwest</div>
+                <div class="chip" onclick="s1chip(this)">Silk Road &amp; Xinjiang</div>
+                <div class="chip" id="chip-places" onclick="s1places(this)">I have specific places</div>
+              </div>
+              <div id="specific-places" style="display:none;margin-bottom:20px">
+                <input type="text" id="specific-places-inp" class="step-input" placeholder="e.g. Zhangjiajie, Jiuzhaigou, Lhasa and EBC" style="width:100%;padding:10px 13px;border:1px solid #e5e5e5;border-radius:7px;font-family:var(--f);font-size:14px;color:var(--t);outline:none;">
+                <div style="font-size:12px;color:var(--t3);margin-top:4px">Any specific destinations, sights, or routes in mind</div>
+              </div>
+              <div class="fq">When are you thinking of going?</div>
+              <div class="chips">
+                <div class="chip" onclick="s2when(this)">Autumn (Sep–Nov)</div>
+                <div class="chip" onclick="s2when(this)">Spring (Mar–May)</div>
+                <div class="chip" onclick="s2when(this)">Summer (Jun–Aug)</div>
+                <div class="chip" onclick="s2when(this)">Winter (Dec–Feb)</div>
+                <div class="chip" onclick="s2when(this)">Flexible</div>
+                <div class="chip" id="tmcspec" onclick="s2dates(this)">I have specific dates</div>
+              </div>
+              <div id="tmspec" style="display:none;margin-bottom:20px">
+                <input type="text" id="tmspecinp" class="step-input" placeholder="e.g. 10 Sep – 24 Sep 2026, or around mid-October" style="width:100%;padding:10px 13px;border:1px solid #e5e5e5;border-radius:7px;font-family:var(--f);font-size:14px;color:var(--t);outline:none;">
+                <div style="font-size:12px;color:var(--t3);margin-top:4px">Exact dates, rough window, or just a month — anything helps</div>
+              </div>
+              <div class="fq">How long is your trip?</div>
+              <div class="chips">
+                <div class="chip" onclick="s2dur(this)">Under 1 week</div>
+                <div class="chip" onclick="s2dur(this)">1–2 weeks</div>
+                <div class="chip on" onclick="s2dur(this)">2 weeks</div>
+                <div class="chip" onclick="s2dur(this)">3 weeks+</div>
+                <div class="chip" onclick="s2dur(this)">Not sure yet</div>
+              </div>
+              <div class="fnav"><button class="bnext" onclick="tmGo(2)">Continue →</button></div>
+            </div>
+
+            <!-- Step 2: Interests + Anything specific -->
+            <div class="fstep" id="tms2">
+              <div class="fq">What interests you most?</div>
+              <div class="fhint">Pick anything that applies — helps us suggest the right route.</div>
+              <div class="intgrid">
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>🏔️</span> Tibet &amp; Altitude</div>
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>🏛️</span> Culture &amp; Heritage</div>
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>🌿</span> Nature &amp; Scenery</div>
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>🐼</span> Pandas &amp; Wildlife</div>
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>🚂</span> Train Travel</div>
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>🥾</span> Trekking</div>
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>📸</span> Photography</div>
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>🙏</span> Pilgrimage</div>
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>👨‍👩‍👧</span> Family-Friendly</div>
+                <div class="inttile" onclick="this.classList.toggle('on')"><span>🏮</span> Festivals</div>
+              </div>
+              <div class="field">
+                <label>Anything specific? (optional)</label>
+                <textarea placeholder="e.g. I must reach Everest Base Camp, celebrating an anniversary, interested in train travel…"></textarea>
+              </div>
+              <div class="fnav">
+                <button class="bback" onclick="tmGo(1)">←</button>
+                <button class="bnext" onclick="tmGo(3)">Continue →</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Who + Contact -->
+            <div class="fstep" id="tms3">
+              <div class="fq">Who is traveling?</div>
+              <div class="igrid">
+                <div class="itile on" onclick="s3tile(this)"><span class="ti">👫</span><span class="tl">Couple</span></div>
+                <div class="itile" onclick="s3tile(this)"><span class="ti">👨‍👩‍👧‍👦</span><span class="tl">Family</span></div>
+                <div class="itile" onclick="s3tile(this)"><span class="ti">🧑‍🤝‍🧑</span><span class="tl">Friends</span></div>
+                <div class="itile" onclick="s3tile(this)"><span class="ti">🧳</span><span class="tl">Solo</span></div>
+              </div>
+              <div class="ctrs">
+                <div class="cg">
+                  <div class="clbl">Adults</div>
+                  <div class="ctr">
+                    <button class="cb" onclick="adj('tma',-1)">−</button>
+                    <input class="cv" id="tma" value="2" readonly>
+                    <button class="cb" onclick="adj('tma',1)">+</button>
+                  </div>
+                </div>
+                <div class="cg">
+                  <div class="clbl">Children</div>
+                  <div class="ctr">
+                    <button class="cb" onclick="adj('tmc',-1);s3ages()">−</button>
+                    <input class="cv" id="tmc" value="0" readonly>
+                    <button class="cb" onclick="adj('tmc',1);s3ages()">+</button>
+                  </div>
+                </div>
+              </div>
+              <div id="child-ages" style="display:none;margin-bottom:16px">
+                <div style="font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Children's ages</div>
+                <input type="text" class="step-input" placeholder="e.g. 8 and 12" style="width:100%;padding:10px 13px;border:1px solid #e5e5e5;border-radius:7px;font-family:var(--f);font-size:14px;color:var(--t);outline:none;">
+                <div style="font-size:12px;color:var(--t3);margin-top:4px">Helps us suggest the right pace and activities</div>
+              </div>
+              <div style="margin-top:24px;"></div>
+              <div class="fq">How should we reach you?</div>
+              <div class="fhint">We'll send a personalised trip suggestion, not a generic brochure.</div>
+              <div class="f2">
+                <div class="field"><label>First name</label><input type="text" placeholder="Sarah"></div>
+                <div class="field"><label>Nationality</label><input type="text" placeholder="Australian"></div>
+              </div>
+              <div class="field"><label>Email address *</label><input type="email" placeholder="sarah@email.com"></div>
+              <div class="field">
+                <label>Preferred reply method</label>
+                <div class="mrow">
+                  <button class="mbtn on" onclick="s4meth(this)">✉ Email</button>
+                  <button class="mbtn" onclick="s4meth(this)">💬 WhatsApp</button>
+                  <button class="mbtn" onclick="s4meth(this)">📞 Phone</button>
+                </div>
+              </div>
+              <div id="tmwa" style="display:none" class="field">
+                <label>WhatsApp / phone number</label>
+                <input type="tel" placeholder="+1 555 000 0000">
+              </div>
+              <div class="subrow">
+                <input type="checkbox" id="tmsub">
+                <div>
+                  <label for="tmsub" style="font-size:13px;color:var(--t);cursor:pointer;">Send me travel tips and updates</label>
+                  <div style="font-size:11px;color:var(--t3);margin-top:2px;">Unsubscribe anytime</div>
+                </div>
+              </div>
+              <div class="fnav">
+                <button class="bback" onclick="tmGo(2)">←</button>
+                <button class="bsub" onclick="tmSubmit()">Send My Inquiry</button>
+              </div>
+              <div class="alts">
+                <p>Or reach us directly</p>
+                <div class="alts-links">
+                  <a href="mailto:info@windhorsetour.com"><span style="color:var(--t3)">✉</span> info@windhorsetour.com</a>
+                  <a href="https://wa.me/8618628293438" target="_blank" rel="noopener"><span style="color:var(--t3)">💬</span> WhatsApp</a>
+                  <a href="tel:+862885593923"><span style="color:var(--t3)">📞</span> +86-28-85593923</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Success -->
+            <div class="ok" id="tmok"><div class="ok-ico">✉️</div><h4>Inquiry received</h4><p>A local specialist will reply within one working day with a personalised suggestion.</p></div>
+            
+          </div>
+        </div>
+        <div class="tm-trust-list">
+          <div class="tm-trust-item"><div class="tm-trust-label">Since</div><div class="tm-trust-val">2007 — 19 years of local expertise</div></div>
+          <div class="tm-trust-item"><div class="tm-trust-label">Where</div><div class="tm-trust-val">Tibet, China, Silk Road, Yunnan &amp; beyond</div></div>
+          <div class="tm-trust-item"><div class="tm-trust-label">How</div><div class="tm-trust-val">Every trip planned around you, not a catalogue</div></div>
+          <div class="tm-trust-item"><div class="tm-trust-label">Rated</div><div class="tm-trust-val">4.8 stars on Tripadvisor · 5,000+ travelers guided since 2007</div></div>
+          <div class="tm-trust-item"><div class="tm-trust-label">Policy</div><div class="tm-trust-val">No forced shopping, no hidden fees</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     FORM 3 — PRIVATE TOUR QUOTE POPUP
+═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div class="section-meta">
+      <h2>Private Tour Quote — Popup</h2>
+      <p>Triggered by the inquiry button on individual private tour pages. The tour context card is pre-populated from the page. User stays in context while filling in details.</p>
+    </div>
+    <div class="section-tag tag-popup">Popup modal</div>
+  </div>
+  <div class="trigger-note">
+    <div class="ico">⚡</div>
+    <p><strong>Trigger:</strong> "Get a Quote" / "Inquire" button on private tour pages and the sticky bottom bar. Tour name, route, and price are pre-filled from the page content.</p>
+  </div>
+  <div class="step-tabs">
+    <div class="step-tab on" onclick="showP(1,this)">Step 1 · Group &amp; Date</div>
+    <div class="step-tab" onclick="showP(2,this)">Step 2 · Preferences</div>
+    <div class="step-tab" onclick="showP(3,this)">Step 3 · Contact</div>
+  </div>
+  <div class="preview">
+    <div class="preview-bar">
+      <div class="preview-dot" style="background:#ff5f57"></div>
+      <div class="preview-dot" style="background:#febc2e;margin-left:4px"></div>
+      <div class="preview-dot" style="background:#28c840;margin-left:4px"></div>
+      <div class="preview-label">windhorsetour.com/private-mount-kailash-tour  ←  user stays on this page</div>
+    </div>
+    <div class="popup-preview">
+      <div class="modal-shell">
+        <button class="f-close">✕</button>
+        <div class="prog"><div class="prog-fill" id="pbar" style="width:33%"></div></div>
+        <div class="f-hd">
+          <h3>Get your personalised quote</h3>
+          <p>A few details and we'll send a tailored price estimate and suggested itinerary.</p>
+          <div class="badge">We reply within 1 working day</div>
+        </div>
+        <div class="f-body">
+          <div class="tctx-min"><div class="tctx-name">Private Mount Kailash Tour · Lhasa to Kathmandu</div><div class="tctx-route">Lhasa → Shigatse → Everest → Kailash Kora → Gyirong → Kathmandu</div><div class="tctx-price">From USD 3,200 · 14 days · Private · Overland</div></div>
+          <div class="stepper" id="pstepper"><div class="sdot active" id="pd1">1</div><div class="sline" id="pl1"></div><div class="sdot" id="pd2">2</div><div class="sline" id="pl2"></div><div class="sdot" id="pd3">3</div></div>
+          <div class="fstep on" id="ps1">
+            <div class="ctrs"><div class="cg"><div class="clbl">Adults *</div><div class="ctr"><button class="cb" onclick="adj('pa',-1)">−</button><input class="cv" id="pa" value="2" readonly><button class="cb" onclick="adj('pa',1)">+</button></div></div><div class="cg"><div class="clbl">Children</div><div class="ctr"><button class="cb" onclick="adj('pc',-1);pAges()">−</button><input class="cv" id="pc" value="0" readonly><button class="cb" onclick="adj('pc',1);pAges()">+</button></div></div></div>
+              <div id="p-child-ages" style="display:none;margin-bottom:16px">
+                <div style="font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Children's ages</div>
+                <input type="text" class="step-input" placeholder="e.g. 8 and 12" style="width:100%;padding:10px 13px;border:1px solid #e5e5e5;border-radius:7px;font-family:var(--f);font-size:14px;color:var(--t);outline:none;">
+                <div style="font-size:12px;color:var(--t3);margin-top:4px">Helps us plan the right pace and activities</div>
+              </div>
+            <div class="field"><label>Preferred travel time (optional)</label><input type="text" placeholder="e.g. September, Spring 2027, or flexible"><div class="hint">Season, month, or rough dates all work</div></div>
+            <div class="fq">Would you like to adjust this tour?</div>
+            <div class="chips"><div class="chip on" onclick="scAdj(this,false)">Use it as-is</div><div class="chip" onclick="scAdj(this,true)">Extend the route</div><div class="chip" onclick="scAdj(this,true)">Shorten it</div><div class="chip" onclick="scAdj(this,true)">Change start / end city</div><div class="chip" onclick="scAdj(this,true)">Something else</div></div>
+            <div id="adjust-detail" style="display:none;margin-top:4px;margin-bottom:4px">
+              <textarea class="step-input" placeholder="Tell us how you'd like to adjust this tour — dates, route changes, start city, duration…" style="width:100%;padding:10px 13px;border:1px solid #e5e5e5;border-radius:7px;font-family:var(--f);font-size:14px;color:var(--t);outline:none;min-height:72px;resize:none;overflow:hidden;"></textarea>
+            </div>
+            <div class="fnav"><button class="bnext" onclick="pGo(2)">Continue →</button></div>
+          </div>
+          <div class="fstep" id="ps2">
+            <div class="fq">What matters most on this trip?</div>
+            <div class="chips"><div class="chip" onclick="sc(this)">Relaxed pace</div><div class="chip" onclick="sc(this)">Remote &amp; adventurous</div><div class="chip" onclick="sc(this)">Photography stops</div><div class="chip" onclick="sc(this)">Cultural depth</div><div class="chip" onclick="sc(this)">Luxury accommodation</div><div class="chip" onclick="sc(this)">Budget-conscious</div></div>
+            <div class="field"><label>Any special requests? (optional)</label><textarea placeholder="e.g. Preferred hotel style, dietary needs, accessibility requirements…"></textarea></div>
+            <div class="fnav"><button class="bback" onclick="pGo(1)">←</button><button class="bnext" onclick="pGo(3)">Continue →</button></div>
+          </div>
+          <div class="fstep" id="ps3">
+            <div class="f2"><div class="field"><label>Your name</label><input type="text" placeholder="First name"></div><div class="field"><label>Nationality</label><input type="text" placeholder="Country"></div></div>
+            <div class="field"><label>Email address *</label><input type="email" placeholder="your@email.com"></div>
+            <div class="field"><label>WhatsApp / phone (optional)</label><input type="tel" placeholder="+1 555 000 0000"><div class="hint">We'll use whichever you prefer</div></div>
+            <div class="fnav">
+              <button class="bback" onclick="pGo(2)">←</button>
+              <button class="bsub" onclick="pSubmit()">Get My Private Tour Quote →</button>
+            </div>
+            <div class="alts"><p>Or reach us directly</p><div class="alts-links"><a href="mailto:info@windhorsetour.com"><span style="color:var(--t3)">✉</span> info@windhorsetour.com</a><a href="https://wa.me/8618628293438" target="_blank" rel="noopener"><span style="color:var(--t3)">💬</span> WhatsApp</a><a href="tel:+862885593923"><span style="color:var(--t3)">📞</span> +86-28-85593923</a></div></div>
+          </div>
+          <div class="ok" id="pok"><div class="ok-ico">✉️</div><h4>Quote request received</h4><p>A local specialist will send a personalised price estimate and itinerary within one working day.</p><button class="ok-close" onclick="resetP()">Close</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     FORM 4 — GROUP TOUR POPUP
+═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div class="section-meta">
+      <h2>Group Tour Inquiry — Popup</h2>
+      <p>Triggered by the inquiry button on group tour pages. Shows all available departures in a scrollable list. No spot counts — just dates and price. Includes a "none of these work" option that reveals a free-text date field.</p>
+    </div>
+    <div class="section-tag tag-popup">Popup modal</div>
+  </div>
+  <div class="trigger-note">
+    <div class="ico">⚡</div>
+    <p><strong>Trigger:</strong> "Join this tour" / "Reserve a spot" / "Inquire" button on group tour pages and sticky bar. Tour name, route, and price pre-filled. Departure dates populated from CMS.</p>
+  </div>
+  <div class="preview">
+    <div class="preview-bar">
+      <div class="preview-dot" style="background:#ff5f57"></div>
+      <div class="preview-dot" style="background:#febc2e;margin-left:4px"></div>
+      <div class="preview-dot" style="background:#28c840;margin-left:4px"></div>
+      <div class="preview-label">windhorsetour.com/mount-kailash-group-tour  ←  user stays on this page</div>
+    </div>
+    <div class="popup-preview">
+      <div class="modal-shell">
+        <button class="f-close">✕</button>
+        <div class="f-hd">
+          <h3>Join this departure</h3>
+          <p>Reserve your spot or ask a question. We'll confirm availability and send full joining details.</p>
+          <div class="badge">We reply within 1 working day</div>
+        </div>
+        <div class="f-body">
+          <div class="tctx-min"><div class="tctx-name">Mount Kailash Group Tour with Everest Base Camp</div><div class="tctx-route">Lhasa → Shigatse → Everest → Saga → Kailash → Manasarovar → Lhasa</div><div class="tctx-price">USD 2,388 per person · 15 days</div></div>
+          <!-- Selected date pre-filled from tour page — no list needed in popup -->
+          <div style="background:var(--obg);border-radius:8px;padding:14px 16px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px">Selected departure</div>
+              <div style="font-size:14px;font-weight:600;color:var(--t);">Aug 15 – Aug 29, 2026</div>
+              <div style="font-size:12px;color:var(--t3);margin-top:2px">15 days · USD 2,388 per person</div>
+            </div>
+            <button onclick="this.closest('.f-body').querySelector('.date-change').style.display='block';this.style.display='none';" style="font-size:12px;color:var(--o);background:none;border:none;cursor:pointer;font-family:var(--f);text-decoration:underline;white-space:nowrap;">Change</button>
+          </div>
+          <div class="date-change" style="display:none;margin-bottom:16px;">
+            <div style="font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Preferred dates</div>
+            <input type="text" placeholder="e.g. September, October 2026, or flexible" style="width:100%;padding:10px 13px;border:1px solid var(--bd);border-radius:7px;font-family:var(--f);font-size:14px;color:var(--t);outline:none;" class="step-input">
+            <div style="font-size:12px;color:var(--t3);margin-top:4px">We'll check availability and confirm your spot</div>
+          </div>
+          <div class="ctrs" style="margin-top:4px"><div class="cg"><div class="clbl">Adults *</div><div class="ctr"><button class="cb" onclick="adj('ga',-1)">−</button><input class="cv" id="ga" value="2" readonly><button class="cb" onclick="adj('ga',1)">+</button></div></div><div class="cg"><div class="clbl">Children</div><div class="ctr"><button class="cb" onclick="adj('gc',-1);gAges()">−</button><input class="cv" id="gc" value="0" readonly><button class="cb" onclick="adj('gc',1);gAges()">+</button></div></div></div>
+          <div id="g-child-ages" style="display:none;margin-bottom:16px">
+            <div style="font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Children's ages</div>
+            <input type="text" class="step-input" placeholder="e.g. 8 and 12" style="width:100%;padding:10px 13px;border:1px solid #e5e5e5;border-radius:7px;font-family:var(--f);font-size:14px;color:var(--t);outline:none;">
+            <div style="font-size:12px;color:var(--t3);margin-top:4px">Helps us plan the right pace and activities</div>
+          </div>
+          <div class="field"><label>Any questions before you commit? (optional)</label><textarea rows="2" placeholder="e.g. Is there a single supplement? Can I join from Chengdu?"></textarea></div>
+          <div class="f2"><div class="field"><label>Your name</label><input type="text" placeholder="First name"></div><div class="field"><label>Nationality</label><input type="text" placeholder="Country"></div></div>
+          <div class="field"><label>Email address *</label><input type="email" placeholder="your@email.com"></div>
+          <div class="field"><label>WhatsApp / phone (optional)</label><input type="tel" placeholder="+1 555 000 0000"></div>
+          <button class="bsub" onclick="gSubmit()">Reserve My Spot →</button>
+          <div class="ok" id="gok"><div class="ok-ico">🎉</div><h4>Spot request received</h4><p>We'll confirm your place and send full joining details within one working day.</p><button class="ok-close" onclick="resetG()">Close</button></div>
+          <div class="alts" id="galts"><p>Or reach us directly</p><div class="alts-links"><a href="mailto:info@windhorsetour.com"><span style="color:var(--t3)">✉</span> info@windhorsetour.com</a><a href="https://wa.me/8618628293438" target="_blank" rel="noopener"><span style="color:var(--t3)">💬</span> WhatsApp</a><a href="tel:+862885593923"><span style="color:var(--t3)">📞</span> +86-28-85593923</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     FORM 5 — IN-PAGE CTA BLOCKS
+═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div class="section-meta">
+      <h2>In-Page CTA Blocks — Inline Components</h2>
+      <p>Reusable blocks embedded inside planning articles and destination guides. Never a popup — they live in the page. Title, body text, and button copy are swappable per context. Each button links to either Form 1 (Contact popup) or Form 2 (Plan My Trip page).</p>
+    </div>
+    <div class="section-tag tag-inline">Inline / reusable</div>
+  </div>
+  <div class="trigger-note">
+    <div class="ico">⚡</div>
+    <p><strong>Placement:</strong> Inside article content at natural decision points — after a cost section, after a permit explanation, at the end of an itinerary guide. <strong>Button A</strong> opens the Contact Us popup (Form 1). <strong>Button B</strong> navigates to Plan My Trip page (Form 2).</p>
+  </div>
+
+  <div class="cta-vars">
+
+    <!-- A: Mid-article callout — links to Contact popup -->
+    <div>
+      <div class="cta-var-lbl">A — Mid-article callout · left orange border · button → opens Contact Us popup (Form 1)</div>
+      <div class="preview">
+        <div class="article-preview">
+          <div class="article-body">
+            <p class="art-p">The Tibet Travel Permit (TTP) is the main permit required for all foreign travelers to Tibet. It's issued by the Tibet Tourism Bureau and must be arranged through a registered Tibet travel agency — individual travelers cannot apply directly.</p>
+            <div class="article-cta">
+              <h4>Need help with permits?</h4>
+              <p>Our team in Lhasa handles all Tibet permits for you. Tell us your travel dates and we'll start the process — permits typically take 2–3 weeks.</p>
+              <button class="article-cta-btn">Ask a Tibet specialist →</button>
+            </div>
+            <p class="art-p" style="margin-top:20px">In addition to the TTP, travelers visiting certain areas such as Everest Base Camp or Mount Kailash will need additional area permits, which your agency will arrange at the same time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B: Guide hub banner — links to Plan My Trip page -->
+    <div>
+      <div class="cta-var-lbl">B — Guide hub page banner · full-width · always present on Tibet / China guide hub pages · button → Plan My Trip page (Form 2)</div>
+      <div class="preview">
+        <div class="article-preview">
+          <div class="guide-hub-banner">
+            <div>
+              <h4>Ready to start planning?</h4>
+              <p>Tell us your travel dates and interests.<br>Our Tibet specialists will build the right itinerary for you.</p>
+            </div>
+            <a href="#" class="hub-btn">Plan my Tibet trip</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- ════════════════════════════════════════
+     FORM 6 — PAGE SECTION CTA
+     Embedded section · Homepage · Landing pages
+════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div class="section-meta">
+      <h2>Page Section CTA — Embedded Form</h2>
+      <p>Embedded directly into pages — not a popup. Two-column layout with trust copy on the left and a simple 5-field form on the right. Used at the end of the homepage, theme-based landing pages (e.g. Tibet Tours, Silk Road Tours), and destination-based pages (e.g. Lhasa, Yunnan). Headline adapts to the page destination.</p>
+    </div>
+    <div class="section-tag tag-inline">Inline section</div>
+  </div>
+
+  <div class="trigger-note">
+    <div class="ico">⚡</div>
+    <p><strong>Placement:</strong> End of homepage · End of theme-based tour pages · End of destination-based tour pages. The headline and intro copy adapt per destination. Form fields are identical across all placements.</p>
+  </div>
+
+  <!-- Variant A: Homepage / Theme-based -->
+  <div style="font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">
+    Variant A — Homepage &amp; theme-based pages · generic destination headline
+  </div>
+  <div class="preview" style="margin-bottom:40px;">
+    <div class="preview-bar">
+      <div class="preview-dot" style="background:#ff5f57"></div>
+      <div class="preview-dot" style="background:#febc2e;margin-left:4px"></div>
+      <div class="preview-dot" style="background:#28c840;margin-left:4px"></div>
+      <div class="preview-label">windhorsetour.com — end of page section</div>
+    </div>
+    <div style="padding:48px 40px;background:var(--bg);">
+      <div class="inq" id="inq-a">
+        <div class="inq-l">
+          <h2>Start planning your China or Tibet trip</h2>
+          <p>Tell us a little about your trip and your dedicated advisor will reply within 24 hours with a tailored itinerary and a clear per-person price. Free and no obligation.</p>
+          <div class="chat-row">
+            <a class="chat-btn" href="https://wa.me/8618628293438" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15l-1 4 4.1-1A10 10 0 1 0 12 2zm5.3 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.2-.2-1.2-1.5-1.2-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.2.1.5.1.7-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+              WhatsApp
+            </a>
+            <a class="chat-btn" href="https://www.windhorsetour.com/contact-us" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="#09BB07"><path d="M9 3C4.6 3 1 6 1 9.6c0 2 1.2 3.8 3 5L3 17l2.6-1.3c.7.2 1.4.3 2.2.4-.1-.5-.2-1-.2-1.5 0-3.3 3.2-5.9 7.1-5.9h.7C14.7 5.2 12.1 3 9 3zm-2.6 4.6a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.2 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM15 10c-3.3 0-6 2.2-6 5s2.7 5 6 5c.6 0 1.2-.1 1.8-.3l2 1-.6-1.7c1.1-.9 1.8-2.1 1.8-3.5 0-2.8-2.7-5-5-5zm-2 3.2a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6z"/></svg>
+              WeChat
+            </a>
+          </div>
+        </div>
+        <div class="inq-r">
+          <div id="inq-a-form">
+            <div class="f6-row">
+              <div class="f6-field"><label>Your name</label><input type="text" placeholder="Name"></div>
+              <div class="f6-field"><label>Your email</label><input type="email" placeholder="email@example.com"></div>
+            </div>
+            <div class="f6-row">
+              <div class="f6-field"><label>Travel dates</label><input type="text" placeholder="e.g. mid-October, flexible"></div>
+              <div class="f6-field"><label>Group size</label><input type="text" placeholder="e.g. 2 adults"></div>
+            </div>
+            <div class="f6-field"><label>What would you like to see?</label><textarea placeholder="Routes, interests, must-sees, pace…"></textarea></div>
+            <button class="f6-btn" onclick="f6submit('a')">Send my inquiry</button>
+            <div class="f6-note">We reply within 24 hours · your details are never shared</div>
+          </div>
+          <div class="f6-ok" id="f6ok-a">
+            <div class="ok-ico">✉️</div>
+            <h4>Inquiry received</h4>
+            <p>Your dedicated advisor will reply personally within 24 hours with a tailored itinerary and per-person price.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: Destination-based pages -->
+  <div style="font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">
+    Variant B — Destination-based pages · headline adapts to destination (Tibet / Yunnan / Silk Road etc.)
+  </div>
+  <div class="preview">
+    <div class="preview-bar">
+      <div class="preview-dot" style="background:#ff5f57"></div>
+      <div class="preview-dot" style="background:#febc2e;margin-left:4px"></div>
+      <div class="preview-dot" style="background:#28c840;margin-left:4px"></div>
+      <div class="preview-label">windhorsetour.com/tibet-tours — end of page section</div>
+    </div>
+    <div style="padding:48px 40px;background:var(--bg);">
+      <div class="inq" id="inq-b">
+        <div class="inq-l">
+          <h2>Start planning your Tibet trip</h2>
+          <p>Tell us a little about what you have in mind and your dedicated Tibet specialist will reply within 24 hours with a personalised itinerary and a clear per-person price. Free and no obligation.</p>
+          <div class="chat-row">
+            <a class="chat-btn" href="https://wa.me/8618628293438" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15l-1 4 4.1-1A10 10 0 1 0 12 2zm5.3 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.2-.2-1.2-1.5-1.2-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.2.1.5.1.7-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+              WhatsApp
+            </a>
+            <a class="chat-btn" href="https://www.windhorsetour.com/contact-us" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="#09BB07"><path d="M9 3C4.6 3 1 6 1 9.6c0 2 1.2 3.8 3 5L3 17l2.6-1.3c.7.2 1.4.3 2.2.4-.1-.5-.2-1-.2-1.5 0-3.3 3.2-5.9 7.1-5.9h.7C14.7 5.2 12.1 3 9 3zm-2.6 4.6a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.2 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM15 10c-3.3 0-6 2.2-6 5s2.7 5 6 5c.6 0 1.2-.1 1.8-.3l2 1-.6-1.7c1.1-.9 1.8-2.1 1.8-3.5 0-2.8-2.7-5-5-5zm-2 3.2a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6z"/></svg>
+              WeChat
+            </a>
+          </div>
+        </div>
+        <div class="inq-r">
+          <div id="inq-b-form">
+            <div class="f6-row">
+              <div class="f6-field"><label>Your name</label><input type="text" placeholder="Name"></div>
+              <div class="f6-field"><label>Your email</label><input type="email" placeholder="email@example.com"></div>
+            </div>
+            <div class="f6-row">
+              <div class="f6-field"><label>Travel dates</label><input type="text" placeholder="e.g. mid-October, flexible"></div>
+              <div class="f6-field"><label>Group size</label><input type="text" placeholder="e.g. 2 adults"></div>
+            </div>
+            <div class="f6-field"><label>What would you like to see?</label><textarea placeholder="Routes, interests, must-sees, pace…"></textarea></div>
+            <button class="f6-btn" onclick="f6submit('b')">Send my inquiry</button>
+            <div class="f6-note">We reply within 24 hours · your details are never shared</div>
+          </div>
+          <div class="f6-ok" id="f6ok-b">
+            <div class="ok-ico">✉️</div>
+            <h4>Inquiry received</h4>
+            <p>Your dedicated Tibet specialist will reply personally within 24 hours with a personalised itinerary and per-person price.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end Form 6 section -->
+</div><!-- /doc -->
+
+<script>
+/* ── Private tour children ages ── */
+function pAges(){
+  const count=parseInt(document.getElementById('pc').value)||0;
+  const f=document.getElementById('p-child-ages');
+  if(f)f.style.display=count>0?'block':'none';
+}
+/* ── Group tour children ages ── */
+function gAges(){
+  const count=parseInt(document.getElementById('gc').value)||0;
+  const f=document.getElementById('g-child-ages');
+  if(f)f.style.display=count>0?'block':'none';
+}
+/* ── Private tour adjust chip ── */
+function scAdj(el,showField){
+  el.closest('.chips').querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  const f=document.getElementById('adjust-detail');
+  if(f){
+    f.style.display=showField?'block':'none';
+    if(showField){const ta=f.querySelector('textarea');if(ta)setTimeout(()=>ta.focus(),50);}
+  }
+}
+/* ── Counter ── */
+function adj(id,d){
+  const e=document.getElementById(id);
+  const isChild=(id==='tmc'||id==='pc'||id==='gc');
+  e.value=Math.max(isChild?0:1,(parseInt(e.value)||0)+d);
+}
+
+/* ── Step 1: Destination chips ── */
+function s1chip(el){
+  el.closest('.chips').querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  const f=document.getElementById('specific-places');
+  if(f)f.style.display='none';
+}
+function s1places(el){
+  el.closest('.chips').querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  const f=document.getElementById('specific-places');
+  if(f){f.style.display='block';setTimeout(()=>document.getElementById('specific-places-inp').focus(),50);}
+}
+
+/* ── Step 2: When chips ── */
+function s2when(el){
+  el.closest('.chips').querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  const f=document.getElementById('tmspec');
+  if(f)f.style.display='none';
+}
+function s2dates(el){
+  el.closest('.chips').querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  const f=document.getElementById('tmspec');
+  if(f){f.style.display='block';setTimeout(()=>document.getElementById('tmspecinp').focus(),50);}
+}
+function s2dur(el){
+  el.closest('.chips').querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+}
+
+/* ── Step 3: Who tiles + ages ── */
+function s3tile(el){
+  el.closest('.igrid').querySelectorAll('.itile').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+}
+function s3ages(){
+  const count=parseInt(document.getElementById('tmc').value)||0;
+  const f=document.getElementById('child-ages');
+  if(f)f.style.display=count>0?'block':'none';
+}
+
+/* ── Step 4: Contact method ── */
+function s4meth(el){
+  el.closest('.mrow').querySelectorAll('.mbtn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  const wa=document.getElementById('tmwa');
+  if(wa)wa.style.display=(el.textContent.includes('WhatsApp')||el.textContent.includes('Phone'))?'block':'none';
+}
+
+/* ── Tailor-Made stepper ── */
+function tmGo(n){
+  for(let i=1;i<=3;i++){
+    const s=document.getElementById('tms'+i);
+    if(s)s.classList.toggle('on',i===n);
+    const d=document.getElementById('tmd'+i);
+    if(d){
+      if(i<n){d.className='sdot done';d.textContent='✓';}
+      else if(i===n){d.className='sdot active';d.textContent=i;}
+      else{d.className='sdot';d.textContent=i;}
+    }
+    if(i<3){const l=document.getElementById('tml'+i);if(l)l.className='sline'+(i<n?' done':'');}
+  }
+  const pct=Math.round((n/3)*100);
+  document.getElementById('tmbar').style.width=pct+'%';
+  const titles=['','Step 1 of 3 — Where, When & Duration','Step 2 of 3 — Your Interests','Step 3 of 3 — Who & Contact'];
+  document.getElementById('tmtitle').textContent=titles[n];
+  document.getElementById('tmcard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function tmSubmit(){
+  for(let i=1;i<=3;i++){const s=document.getElementById('tms'+i);if(s)s.classList.remove('on');}
+  document.getElementById('tmstepper').style.display='none';
+  document.getElementById('tmok').style.display='block';
+  
+  document.getElementById('tmbar').style.width='100%';
+}
+function showTM(n,tab){
+  tab.closest('.step-tabs').querySelectorAll('.step-tab').forEach(t=>t.classList.remove('on'));
+  tab.classList.add('on');
+  tmGo(n);
+}
+
+/* ── Contact chip single select ── */
+function c1chip(el){
+  el.closest('.chips').querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+}
+/* ── Form 1 (Contact popup) ── */
+function c1submit(btn){
+  document.getElementById('c1ok').style.display='block';
+  document.getElementById('c1alts').style.display='none';
+  btn.style.display='none';
+}
+function c1reset(){
+  document.getElementById('c1ok').style.display='none';
+  document.getElementById('c1alts').style.display='block';
+}
+
+/* ── Form 3 (Private tour) stepper ── */
+function pGo(n){
+  const pct=[0,33,66,100];
+  for(let i=1;i<=3;i++){
+    const s=document.getElementById('ps'+i);
+    if(s)s.classList.toggle('on',i===n);
+    const d=document.getElementById('pd'+i);
+    if(d){
+      if(i<n){d.className='sdot done';d.textContent='✓';}
+      else if(i===n){d.className='sdot active';d.textContent=i;}
+      else{d.className='sdot';d.textContent=i;}
+    }
+    if(i<3){const l=document.getElementById('pl'+i);if(l)l.className='sline'+(i<n?' done':'');}
+  }
+  document.getElementById('pbar').style.width=pct[n]+'%';
+}
+function pSubmit(){
+  document.getElementById('ps3').classList.remove('on');
+  document.getElementById('pok').style.display='block';
+  document.getElementById('ptrust').style.display='none';
+}
+function resetP(){document.getElementById('pok').style.display='none';pGo(1);}
+function showP(n,tab){
+  tab.closest('.step-tabs').querySelectorAll('.step-tab').forEach(t=>t.classList.remove('on'));
+  tab.classList.add('on');
+  pGo(n);
+}
+function sc(el){el.closest('.chips').querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));el.classList.add('on');}
+
+/* ── Form 4 (Group tour) ── */
+function gSubmit(){
+  document.getElementById('gok').style.display='block';
+  document.getElementById('galts').style.display='none';
+  document.getElementById('gtrust').style.display='none';
+  event.target.style.display='none';
+}
+function resetG(){
+  document.getElementById('gok').style.display='none';
+  document.getElementById('galts').style.display='block';
+  document.getElementById('gtrust').style.display='flex';
+}
+
+/* ── Auto-expanding textareas ── */
+function autoExpand(el){el.style.height='auto';el.style.height=el.scrollHeight+'px';}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('textarea').forEach(function(ta){
+    ta.addEventListener('input',function(){autoExpand(this);});
+    autoExpand(ta);
+  });
+});
+
+/* ── Form 6 (Page section CTA) ── */
+function f6submit(v){
+  document.getElementById('inq-'+v+'-form').style.display='none';
+  document.getElementById('f6ok-'+v).style.display='block';
+}
+</script>
+</body>
+</html>

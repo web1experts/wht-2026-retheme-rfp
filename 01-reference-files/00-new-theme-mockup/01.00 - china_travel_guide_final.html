@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China Travel Guide — WindhorseTour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --orange: #e8410a;
+  --text: #1a1a1a;
+  --text-2: #555;
+  --text-3: #999;
+  --border: #e5e5e5;
+  --bg: #fff;
+  --bg-soft: #f9f8f6;
+  --font: 'DM Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+
+h4 { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; }
+body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+.shell { max-width: 1160px; margin: 0 auto; padding: 0 20px 80px; }
+
+nav { padding: 14px 20px; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 200; }
+.nav-inner { max-width: 1160px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo img { height: 38px; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a { font-size: 14px; color: var(--text-2); text-decoration: none; padding: 7px 12px; }
+.nav-links a.active { color: var(--orange); font-weight: 500; }
+.nav-cta { background: var(--orange); color: #fff !important; border-radius: 7px; padding: 9px 18px; font-size: 13px; font-weight: 500; }
+
+.bc { font-size: 13px; color: var(--text-3); padding: 16px 0; }
+.bc a { color: var(--text-3); text-decoration: none; }
+.bc span { color: var(--orange); }
+
+.banner { width: 100%; aspect-ratio: 920/380; border-radius: 14px; overflow: hidden; margin-bottom: 0; }
+.banner svg { width: 100%; height: 100%; display: block; }
+
+.intro { padding: 20px 0 32px; margin-bottom: 32px; }
+.intro h1 { font-size: 38px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px; }
+.intro p { font-size: 16px; color: var(--text-2); line-height: 1.7; margin-bottom: 28px; }
+.meta { display: flex; gap: 36px; margin-bottom: 32px; }
+.meta-item .lbl { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: .07em; display: block; margin-bottom: 3px; }
+.meta-item .val { font-size: 14px; font-weight: 500; }
+.intro-actions { display: flex; gap: 12px; }
+.btn-main { background: var(--orange); color: #fff; border: none; border-radius: 7px; padding: 12px 24px; font-size: 14px; font-family: var(--font); cursor: pointer; font-weight: 500; transition: opacity .15s; }
+.btn-main:hover { opacity: .88; }
+.btn-text { font-size: 14px; color: var(--orange); background: none; border: none; cursor: pointer; font-family: var(--font); text-decoration: underline; text-underline-offset: 3px; }
+
+.sec-h { font-size: 26px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 8px; }
+.sec-p { font-size: 16px; color: var(--text-2); margin-bottom: 28px; }
+
+/* destination grid */
+.dest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+.dc { border-radius: 13px; overflow: hidden; position: relative; display: block; }
+.dc:not(.wide) { height: 320px; }
+.dc.wide { grid-column: span 2; height: 240px; }
+.di { width: 100%; height: 100%; position: absolute; inset: 0; }
+.di svg { width: 100%; height: 100%; display: block; }
+.dgrad { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,15,30,.92) 0%, rgba(6,15,30,.15) 55%, transparent 100%); }
+.dbd { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 18px; }
+.dtag { display: inline-block; background: rgba(232,65,10,.88); color: #fff; font-size: 9px; font-weight: 700; padding: 3px 9px; border-radius: 3px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
+.dn { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 5px; line-height: 1.2; }
+.dd { font-size: 12px; color: rgba(255,255,255,.72); line-height: 1.5; margin-bottom: 12px; }
+.dchips { display: flex; flex-wrap: wrap; gap: 6px; }
+.dchip { font-size: 11px; color: rgba(255,255,255,.85); background: rgba(255,255,255,.15); padding: 5px 12px; border-radius: 20px; border: 0.5px solid rgba(255,255,255,.3); text-decoration: none; transition: background .15s; }
+.dchip:hover { background: rgba(255,255,255,.28); color: #fff; }
+
+/* more destinations — plain row */
+.more-row { margin-bottom: 48px; }
+.more-lbl { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 14px; display: block; }
+.more-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.mpill { font-size: 13px; color: var(--text-2); border: 0.5px solid #d5d5d5; border-radius: 22px; padding: 7px 16px; text-decoration: none; transition: border-color .15s, color .15s; }
+.mpill:hover { border-color: var(--orange); color: var(--orange); }
+.mpill-all { font-size: 13px; color: var(--orange); border: 0.5px solid rgba(232,65,10,.3); border-radius: 22px; padding: 7px 16px; text-decoration: none; font-weight: 500; transition: border-color .15s, background .15s; }
+.mpill-all:hover { background: rgba(232,65,10,.05); border-color: var(--orange); }
+
+/* planning */
+.planning { border-top: 0.5px solid var(--border); padding-top: 40px; margin-bottom: 36px; }
+.planning .sec-h { margin-bottom: 10px; }
+.planning .sec-p { margin-bottom: 32px; }
+
+.dcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 64px; }
+.dcard { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 24px 22px; text-decoration: none; display: block; color: var(--text); transition: border-color .18s, box-shadow .18s, transform .18s; }
+.dcard:hover { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(232,65,10,.06); transform: translateY(-2px); }
+.dcard-title { font-size: 16px; font-weight: 600; line-height: 1.3; margin-bottom: 10px; }
+.dcard-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; margin-bottom: 18px; }
+.dcard-link { font-size: 13px; font-weight: 600; color: var(--orange); display: flex; align-items: center; gap: 5px; }
+.dcard-link svg { width: 13px; height: 13px; stroke: var(--orange); fill: none; stroke-width: 2.5; stroke-linecap: round; transition: transform .18s; }
+.dcard:hover .dcard-link svg { transform: translateX(3px); }
+
+.plan-lbl { font-size: 11px; font-weight: 500; color: var(--text-3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 0; }
+.psec { display: grid; grid-template-columns: 190px 1fr; gap: 56px; padding: 32px 0; align-items: start; }
+.pnum { font-size: 11px; color: var(--text-3); margin-bottom: 6px; }
+.ptitle { font-size: 20px; font-weight: 500; line-height: 1.25; }
+.plinks { display: flex; flex-direction: column; }
+.pl { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-bottom: 0.5px solid var(--border); text-decoration: none; }
+.pl:last-of-type { border-bottom: none; }
+.pl:hover .plt { color: var(--orange); }
+.plt { font-size: 15px; color: var(--text); transition: color .15s; }
+.pl svg { width: 15px; height: 15px; stroke: var(--text-3); fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; transition: stroke .15s, transform .15s; }
+.pl:hover svg { stroke: var(--orange); transform: translateX(3px); }
+.pall { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: var(--orange); text-decoration: none; margin-top: 14px; font-weight: 500; }
+.pall svg { width: 13px; height: 13px; stroke: var(--orange); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+
+/* tour cards */
+.tours { margin-bottom: 72px; }
+.tours h2 { font-size: 26px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 8px; }
+.tours-p { font-size: 16px; color: var(--text-2); margin-bottom: 28px; }
+.tour-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.tc { border-radius: 12px; overflow: hidden; text-decoration: none; display: block; border: 0.5px solid var(--border); transition: transform .2s, box-shadow .2s; }
+.tc:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+.tc-img { height: 160px; position: relative; overflow: hidden; }
+.tc-img svg { width: 100%; height: 100%; display: block; }
+.tc-body { padding: 16px 18px 18px; }
+.tc-route { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+.tc-name { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+.tc-meta { font-size: 12px; color: var(--text-3); margin-bottom: 10px; }
+.tc-desc { font-size: 13px; color: var(--text-2); line-height: 1.5; margin-bottom: 14px; }
+.tc-link { font-size: 13px; font-weight: 600; color: var(--orange); display: flex; align-items: center; gap: 4px; }
+.tc-link svg { width: 13px; height: 13px; stroke: var(--orange); fill: none; stroke-width: 2.5; stroke-linecap: round; transition: transform .18s; }
+.tc:hover .tc-link svg { transform: translateX(3px); }
+.tour-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.tpill { font-size: 13px; color: var(--text-2); border: 0.5px solid #d5d5d5; border-radius: 22px; padding: 7px 16px; text-decoration: none; transition: border-color .15s, color .15s; }
+.tpill:hover { border-color: var(--orange); color: var(--orange); }
+.tpill.on { border-color: var(--orange); color: var(--orange); }
+
+/* final cta */
+.final { padding-top: 52px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.final h3 { font-size: 26px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 7px; }
+.final p { font-size: 15px; color: var(--text-2); line-height: 1.65; }
+
+/* ── MOBILE ── */
+@media (max-width: 680px) {
+
+  .shell { max-width: 100%; padding: 0 16px 60px; }
+
+  /* nav */
+  nav { padding: 12px 0; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-links { gap: 0; }
+
+  /* banner */
+  .banner { border-radius: 10px; }
+
+  /* intro */
+  .intro { padding: 18px 0 24px; margin-bottom: 24px; }
+  .intro h1 { font-size: 28px; margin-bottom: 10px; }
+  .intro p { font-size: 15px; margin-bottom: 18px; }
+  .meta { gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+  .intro-actions { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* page intro (article list, destinations) */
+  .page-intro h1 { font-size: 28px; }
+  .page-intro p { font-size: 15px; }
+
+  /* article intro */
+  .article-intro h1 { font-size: 26px; }
+  .article-meta { gap: 10px; }
+
+  /* sec headings */
+  .sec-h { font-size: 22px; }
+  .sec-label { font-size: 20px; }
+
+  /* destination cards — 1 col */
+  .dest-grid { grid-template-columns: 1fr; gap: 12px; }
+  .dc.wide { grid-column: span 1; height: 240px; }
+  .dc:not(.wide) { height: 240px; }
+
+  /* more destinations pills */
+  .more-pills { gap: 6px; }
+  .mpill, .mpill-all { font-size: 12px; padding: 6px 12px; }
+
+  /* decision cards — 1 col */
+  .dcards { grid-template-columns: 1fr; }
+
+  /* planning rows — stack */
+  .psec { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  .ptitle { font-size: 17px; }
+
+  /* article cards — 1 col */
+  .featured-grid { grid-template-columns: 1fr; gap: 24px; }
+  .all-grid { grid-template-columns: 1fr; gap: 24px; }
+  .ac-grid { grid-template-columns: 1fr; gap: 24px; }
+
+  /* dest grid (destinations index) — 2 col */
+  .dest-grid-4 { grid-template-columns: repeat(2, 1fr); }
+
+  /* article body — single col, hide TOC */
+  .article-body { grid-template-columns: 1fr; gap: 0; }
+  .toc-sidebar { display: none; }
+  .article-content h2 { font-size: 20px; padding-top: 28px; margin-top: 28px; }
+  .article-content p, .article-content li { font-size: 15px; }
+
+  /* tour cards — 1 col */
+  .tour-cards { grid-template-columns: 1fr; gap: 12px; }
+  .tc-img { height: 180px; }
+
+  /* tour pills */
+  .tour-pills { gap: 6px; }
+  .tpill { font-size: 12px; padding: 6px 12px; }
+
+  /* related articles — 1 col */
+  .ac-grid { grid-template-columns: 1fr; gap: 20px; }
+
+  /* final CTA — stack */
+  .final { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 36px; }
+  .final h3 { font-size: 22px; }
+  .btn-main { width: 100%; text-align: center; padding: 14px 20px; font-size: 15px; }
+
+  /* map */
+  .map-section { padding: 20px; }
+  .map-wrap { padding: 20px; }
+
+  /* quick facts grid */
+  .facts-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  /* info box */
+  .info-box td { font-size: 13px; }
+
+  /* inline CTA */
+  .inline-cta { padding: 14px 16px; }
+
+  /* attractions */
+  .attr-row { grid-template-columns: 28px 1fr; gap: 12px; }
+  .attr-loc { display: none; }
+
+  /* destinations index cards */
+  .dest-grid.col3 { grid-template-columns: repeat(2, 1fr); }
+  .dcard { height: 200px; }
+
+}
+
+/* ── FOOTER ── */
+footer { background: #2a2e35; color: rgba(255,255,255,.75); margin-top: 80px; }
+.footer-inner { max-width: 1160px; margin: 0 auto; padding: 52px 20px 40px; display: grid; grid-template-columns: 220px 1fr 200px; gap: 48px; }
+.footer-heading { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a, .footer-links-grid a { font-size: 14px; color: rgba(255,255,255,.72); text-decoration: none; line-height: 1.4; transition: color .15s; }
+.footer-links a:hover, .footer-links-grid a:hover { color: #fff; }
+.footer-links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.footer-links-grid div { display: flex; flex-direction: column; gap: 10px; }
+.footer-bottom { max-width: 1160px; margin: 0 auto; padding: 20px 20px 28px; border-top: 0.5px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: space-between; }
+.footer-bottom span { font-size: 13px; color: rgba(255,255,255,.35); }
+.footer-social { display: flex; gap: 16px; align-items: center; }
+.footer-social a { color: rgba(255,255,255,.45); transition: color .15s; display: flex; }
+.footer-social a:hover { color: rgba(255,255,255,.9); }
+.footer-social svg { width: 18px; height: 18px; }
+
+@media (max-width: 680px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; padding: 36px 16px 28px; }
+  .footer-links-grid { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="https://windhorsetour.com/wp-content/uploads/2025/04/windhorsetour-1.webp" alt="WindhorseTour" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-txt" style="display:none">WindhorseTour</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Tibet tours</a>
+      <a href="#">China tours</a>
+      <a href="#" class="active">Travel guide</a>
+      <a href="#">About us</a>
+      <a href="#" class="nav-cta">Plan my trip</a>
+    </div>
+  </div>
+</nav>
+
+<div class="shell">
+
+<div class="bc"><a href="#">Home</a> &nbsp;›&nbsp; <a href="#">Travel guide</a> &nbsp;›&nbsp; <span>China travel guide</span></div>
+
+<div class="banner">
+  <svg viewBox="0 0 920 420" preserveAspectRatio="xMidYMid slice" fill="none">
+    <defs><linearGradient id="csky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d1520"/><stop offset="40%" stop-color="#1a3a5c"/><stop offset="75%" stop-color="#8a9fb0"/><stop offset="100%" stop-color="#c4b89a"/></linearGradient></defs>
+    <rect width="920" height="420" fill="url(#csky)"/>
+    <path d="M0 278 L82 188 L158 218 L238 148 L318 192 L408 108 L488 162 L578 88 L658 152 L748 95 L832 140 L920 115 L920 420 L0 420Z" fill="rgba(55,85,115,.45)"/>
+    <path d="M0 305 L78 222 L152 254 L230 180 L308 226 L398 142 L476 198 L565 120 L648 178 L738 125 L825 168 L920 142 L920 420 L0 420Z" fill="rgba(75,105,135,.5)"/>
+    <path d="M408 108 L428 62 L448 108 L438 92 L428 68 L418 92Z" fill="rgba(255,255,255,.9)"/>
+    <path d="M578 88 L602 38 L626 88 L614 72 L602 44 L590 72Z" fill="rgba(255,255,255,.85)"/>
+    <path d="M0 298 Q115 276 248 290 Q380 303 512 263 Q645 225 778 248 Q848 260 920 238" stroke="rgba(180,155,110,.65)" stroke-width="6" fill="none"/>
+    <rect x="72" y="286" width="13" height="17" fill="rgba(160,135,90,.8)" rx="1"/>
+    <rect x="188" y="276" width="13" height="17" fill="rgba(160,135,90,.8)" rx="1"/>
+    <rect x="332" y="272" width="13" height="17" fill="rgba(160,135,90,.8)" rx="1"/>
+    <rect x="482" y="248" width="13" height="17" fill="rgba(160,135,90,.8)" rx="1"/>
+    <rect x="632" y="234" width="13" height="17" fill="rgba(160,135,90,.8)" rx="1"/>
+    <rect x="768" y="242" width="13" height="17" fill="rgba(160,135,90,.8)" rx="1"/>
+    <g transform="translate(95,192)"><rect x="0" y="78" width="78" height="82" fill="rgba(155,30,30,.65)" rx="1"/><polygon points="-5,78 39,52 83,78" fill="rgba(128,20,20,.75)"/><rect x="11" y="40" width="56" height="50" fill="rgba(155,30,30,.7)" rx="1"/><polygon points="7,40 39,18 71,40" fill="rgba(128,20,20,.8)"/><rect x="19" y="8" width="40" height="35" fill="rgba(155,30,30,.75)" rx="1"/><polygon points="16,8 39,-8 62,8" fill="rgba(128,20,20,.85)"/><rect x="25" y="-14" width="28" height="10" fill="rgba(200,160,30,.85)" rx="1"/><rect x="22" y="85" width="10" height="16" fill="rgba(255,210,80,.38)" rx="1"/><rect x="44" y="85" width="10" height="16" fill="rgba(255,210,80,.38)" rx="1"/><rect x="66" y="85" width="10" height="16" fill="rgba(255,210,80,.38)" rx="1"/></g>
+    <path d="M700 420 L708 352 Q713 328 718 320 Q723 328 728 352 L736 420Z" fill="rgba(32,72,48,.65)"/>
+    <path d="M728 420 L735 364 Q739 342 743 335 Q747 342 751 364 L758 420Z" fill="rgba(32,72,48,.7)"/>
+    <path d="M752 420 L758 374 Q762 354 766 347 Q770 354 774 374 L780 420Z" fill="rgba(32,72,48,.65)"/>
+    <path d="M775 420 L780 382 Q783 365 786 358 Q789 365 792 382 L797 420Z" fill="rgba(32,72,48,.6)"/>
+    <ellipse cx="756" cy="412" rx="68" ry="10" fill="rgba(70,130,170,.28)"/>
+    <line x1="275" y1="112" x2="445" y2="148" stroke="rgba(232,98,26,.28)" stroke-width="1"/>
+    <ellipse cx="295" cy="108" rx="7" ry="10" fill="rgba(232,98,26,.52)"/>
+    <ellipse cx="328" cy="102" rx="7" ry="10" fill="rgba(210,45,45,.48)"/>
+    <ellipse cx="361" cy="112" rx="7" ry="10" fill="rgba(232,98,26,.48)"/>
+    <ellipse cx="394" cy="120" rx="7" ry="10" fill="rgba(210,45,45,.45)"/>
+    <ellipse cx="427" cy="128" rx="7" ry="10" fill="rgba(232,98,26,.42)"/>
+    <path d="M0 402 Q230 383 460 396 Q682 408 920 388 L920 420 L0 420Z" fill="rgba(20,45,20,.42)"/>
+  </svg>
+</div>
+
+<div class="intro">
+  <h1>China travel guide</h1>
+    <p>From imperial capitals to mountain roads. Explore by destination or find everything you need to plan your trip.</p>
+    <div class="meta">
+      <div class="meta-item"><span class="lbl">Typical duration</span><span class="val">10 – 21 days</span></div>
+      <div class="meta-item"><span class="lbl">Best season</span><span class="val">Mar–May, Sep–Oct</span></div>
+      <div class="meta-item"><span class="lbl">Visa-free</span><span class="val">50+ countries</span></div>
+      <div class="meta-item"><span class="lbl">Entry</span><span class="val">Beijing or Shanghai</span></div>
+  </div>
+  <div class="intro-actions">
+    <button class="btn-main">Plan my China trip</button>
+    <button class="btn-text">View China tours →</button>
+  </div>
+</div>
+
+<div class="sec-h">Where do you want to go?</div>
+<p class="sec-p">Select a destination to explore guides and tours.</p>
+
+<div class="dest-grid">
+
+  <div class="dc wide">
+    <div class="di"><svg viewBox="0 0 600 338" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="bj" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0a0a"/><stop offset="55%" stop-color="#5c1a1a"/><stop offset="100%" stop-color="#8a6040"/></linearGradient></defs><rect width="600" height="338" fill="url(#bj)"/><path d="M0 268 L80 198 L162 226 L242 156 L322 198 L402 124 L482 176 L562 106 L600 133 L600 338 L0 338Z" fill="rgba(80,40,20,.48)"/><path d="M0 218 Q150 198 300 213 Q450 226 600 203" stroke="rgba(200,170,110,.72)" stroke-width="6" fill="none"/><rect x="54" y="205" width="13" height="17" fill="rgba(180,150,90,.88)" rx="1"/><rect x="170" y="195" width="13" height="17" fill="rgba(180,150,90,.88)" rx="1"/><rect x="298" y="200" width="13" height="17" fill="rgba(180,150,90,.88)" rx="1"/><rect x="428" y="190" width="13" height="17" fill="rgba(180,150,90,.88)" rx="1"/><rect x="175" y="146" width="250" height="115" fill="rgba(155,30,30,.72)" rx="2"/><rect x="205" y="113" width="190" height="58" fill="rgba(155,30,30,.82)" rx="1"/><rect x="228" y="86" width="144" height="36" fill="rgba(195,155,28,.82)" rx="2"/><rect x="238" y="156" width="18" height="28" fill="rgba(255,210,80,.38)" rx="1"/><rect x="272" y="156" width="18" height="28" fill="rgba(255,210,80,.38)" rx="1"/><rect x="314" y="156" width="18" height="28" fill="rgba(255,210,80,.38)" rx="1"/><rect x="348" y="156" width="18" height="28" fill="rgba(255,210,80,.38)" rx="1"/><path d="M0 306 Q150 290 300 300 Q450 308 600 293 L600 338 L0 338Z" fill="rgba(18,42,18,.4)"/></svg></div>
+    <div class="dgrad"></div>
+    <div class="dbd"><div class="dtag">Start here</div><div class="dn">Beijing</div><div class="dd">Great Wall, Forbidden City, Temple of Heaven — China's imperial heartland and most visited city.</div><div class="dchips"><a class="dchip" href="https://windhorsetour.com/china-travel-tips/beijing-travel-guide">Beijing guide</a><a class="dchip" href="https://windhorsetour.com/beijing-tour">Beijing tours</a></div></div>
+  </div>
+
+  <div class="dc">
+    <div class="di"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a1428"/><stop offset="55%" stop-color="#1a2d5c"/><stop offset="100%" stop-color="#5a7a9a"/></linearGradient></defs><rect width="300" height="400" fill="url(#sh)"/><rect x="15" y="200" width="18" height="200" fill="rgba(255,255,255,.48)"/><rect x="40" y="178" width="22" height="222" fill="rgba(255,255,255,.44)"/><rect x="70" y="155" width="26" height="245" fill="rgba(255,255,255,.48)"/><rect x="103" y="110" width="14" height="290" fill="rgba(255,255,255,.38)"/><circle cx="110" cy="162" r="22" fill="rgba(255,150,50,.28)" stroke="rgba(255,255,255,.48)" stroke-width="2"/><circle cx="110" cy="215" r="30" fill="rgba(255,150,50,.22)" stroke="rgba(255,255,255,.42)" stroke-width="2"/><rect x="125" y="140" width="20" height="260" fill="rgba(255,255,255,.44)"/><rect x="152" y="162" width="16" height="238" fill="rgba(255,255,255,.38)"/><rect x="175" y="178" width="22" height="222" fill="rgba(255,255,255,.44)"/><rect x="204" y="195" width="18" height="205" fill="rgba(255,255,255,.38)"/><rect x="0" y="300" width="300" height="100" fill="rgba(40,80,130,.32)"/></svg></div>
+    <div class="dgrad"></div>
+    <div class="dbd"><div class="dn">Shanghai</div><div class="dd">The Bund, Pudong skyline, French Concession — China's most cosmopolitan city.</div><div class="dchips"><a class="dchip" href="https://windhorsetour.com/china-travel-tips/shanghai-travel-guide">Shanghai guide</a><a class="dchip" href="https://windhorsetour.com/shanghai-tour">Shanghai tours</a></div></div>
+  </div>
+
+  <div class="dc">
+    <div class="di"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" fill="none"><rect width="300" height="400" fill="#1a3d2a"/><rect x="15" y="55" width="30" height="345" fill="rgba(100,140,80,.8)" rx="3"/><rect x="52" y="95" width="24" height="305" fill="rgba(80,120,60,.85)" rx="3"/><rect x="84" y="35" width="32" height="365" fill="rgba(100,140,80,.8)" rx="3"/><rect x="124" y="75" width="26" height="325" fill="rgba(80,120,60,.85)" rx="3"/><rect x="158" y="52" width="30" height="348" fill="rgba(100,140,80,.8)" rx="3"/><rect x="196" y="108" width="22" height="292" fill="rgba(80,120,60,.8)" rx="3"/><rect x="226" y="68" width="28" height="332" fill="rgba(100,140,80,.75)" rx="3"/><ellipse cx="30" cy="55" rx="22" ry="11" fill="rgba(55,115,38,.9)"/><ellipse cx="64" cy="95" rx="18" ry="9" fill="rgba(55,115,38,.9)"/><ellipse cx="100" cy="35" rx="23" ry="12" fill="rgba(55,115,38,.9)"/><ellipse cx="137" cy="75" rx="19" ry="10" fill="rgba(55,115,38,.9)"/><ellipse cx="173" cy="52" rx="22" ry="11" fill="rgba(55,115,38,.9)"/><ellipse cx="207" cy="108" rx="17" ry="9" fill="rgba(55,115,38,.9)"/><ellipse cx="240" cy="68" rx="20" ry="10" fill="rgba(55,115,38,.9)"/></svg></div>
+    <div class="dgrad"></div>
+    <div class="dbd"><div class="dn">Zhangjiajie</div><div class="dd">Avatar's floating sandstone pillars rising through the mist.</div><div class="dchips"><a class="dchip" href="https://windhorsetour.com/china-travel-tips/zhangjiajie-travel-guide">Zhangjiajie guide</a><a class="dchip" href="https://windhorsetour.com/zhangjiajie-tours">Zhangjiajie tours</a></div></div>
+  </div>
+
+  <div class="dc wide">
+    <div class="di"><svg viewBox="0 0 600 338" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a1e2e"/><stop offset="55%" stop-color="#1a3d5c"/><stop offset="100%" stop-color="#6a9ab0"/></linearGradient></defs><rect width="600" height="338" fill="url(#gl)"/><path d="M0 338 L0 205 Q28 160 56 140 Q84 160 104 205 L104 338Z" fill="rgba(35,75,50,.72)"/><path d="M68 338 L68 185 Q105 132 142 118 Q179 132 196 185 L196 338Z" fill="rgba(35,75,50,.75)"/><path d="M168 338 L168 195 Q205 148 238 135 Q271 148 285 195 L285 338Z" fill="rgba(35,75,50,.72)"/><path d="M260 338 L260 210 Q292 168 318 158 Q344 168 358 210 L358 338Z" fill="rgba(35,75,50,.68)"/><path d="M335 338 L335 205 Q362 165 384 156 Q406 165 418 205 L418 338Z" fill="rgba(35,75,50,.65)"/><path d="M398 338 L398 218 Q422 182 442 174 Q462 182 474 218 L474 338Z" fill="rgba(35,75,50,.62)"/><path d="M458 338 L458 228 Q478 196 495 188 Q512 196 523 228 L523 338Z" fill="rgba(35,75,50,.6)"/><path d="M0 288 Q150 272 300 282 Q450 292 600 275 L600 338 L0 338Z" fill="rgba(55,120,165,.4)"/><path d="M95 280 Q125 274 148 280 Q125 287 95 280Z" fill="rgba(175,128,58,.78)"/><line x1="118" y1="266" x2="118" y2="280" stroke="rgba(175,128,58,.78)" stroke-width="1.5"/></svg></div>
+    <div class="dgrad"></div>
+    <div class="dbd"><div class="dtag">Most scenic</div><div class="dn">Guilin & Yangshuo</div><div class="dd">Li River cruise through iconic limestone karst peaks — China at its most photogenic.</div><div class="dchips"><a class="dchip" href="https://windhorsetour.com/china-travel-tips/guilin-yangshuo-travel-guide">Guilin guide</a><a class="dchip" href="https://windhorsetour.com/guilin-tour">Guilin tours</a></div></div>
+  </div>
+
+  <div class="dc">
+    <div class="di"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="yn" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e2218"/><stop offset="50%" stop-color="#1a4a3a"/><stop offset="100%" stop-color="#6a9870"/></linearGradient></defs><rect width="300" height="400" fill="url(#yn)"/><path d="M0 400 L55 272 L95 298 L148 215 L200 268 L252 192 L300 238 L300 400Z" fill="rgba(38,88,62,.5)"/><path d="M148 215 L162 172 L176 215 L168 200 L162 178 L156 200Z" fill="rgba(255,255,255,.88)"/><g transform="translate(28,262)"><rect x="0" y="0" width="65" height="50" fill="rgba(155,78,28,.68)" rx="1"/><polygon points="-5,0 32,-20 69,0" fill="rgba(118,55,18,.78)"/></g></svg></div>
+    <div class="dgrad"></div>
+    <div class="dbd"><div class="dn">Yunnan</div><div class="dd">Lijiang old town, Tiger Leaping Gorge, Shangri-La — China's most diverse province.</div><div class="dchips"><a class="dchip" href="https://windhorsetour.com/china-travel-tips/yunnan-travel-guide">Yunnan guide</a><a class="dchip" href="https://windhorsetour.com/yunnan-tour">Yunnan tours</a></div></div>
+  </div>
+
+  <div class="dc wide">
+    <div class="di"><svg viewBox="0 0 600 338" preserveAspectRatio="xMidYMid slice" fill="none"><defs><linearGradient id="cd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e2215"/><stop offset="50%" stop-color="#1a4a2a"/><stop offset="100%" stop-color="#6a9870"/></linearGradient></defs><rect width="600" height="338" fill="url(#cd)"/><path d="M0 338 L0 215 L70 175 L145 195 L220 135 L295 178 L375 105 L455 162 L535 118 L600 148 L600 338Z" fill="rgba(38,88,52,.48)"/><path d="M375 105 L392 65 L409 105 L400 90 L392 71 L384 90Z" fill="rgba(255,255,255,.85)"/><circle cx="320" cy="195" r="62" fill="rgba(0,0,0,.68)"/><circle cx="320" cy="195" r="48" fill="white" opacity=".85"/><circle cx="295" cy="178" r="20" fill="rgba(0,0,0,.78)"/><circle cx="345" cy="178" r="20" fill="rgba(0,0,0,.78)"/><circle cx="295" cy="178" r="9" fill="white" opacity=".88"/><circle cx="345" cy="178" r="9" fill="white" opacity=".88"/><ellipse cx="320" cy="210" rx="15" ry="11" fill="rgba(0,0,0,.58)"/><path d="M120 338 L120 85" stroke="rgba(95,175,75,.68)" stroke-width="7" stroke-linecap="round"/><path d="M490 338 L490 105" stroke="rgba(95,175,75,.62)" stroke-width="6" stroke-linecap="round"/></svg></div>
+    <div class="dgrad"></div>
+    <div class="dbd"><div class="dtag">Tibet gateway</div><div class="dn">Chengdu</div><div class="dd">Giant pandas, spicy hotpot, and the main gateway for Tibet trips — a must-visit hub city.</div><div class="dchips"><a class="dchip" href="https://windhorsetour.com/china-travel-tips/chengdu-travel-guide">Chengdu guide</a><a class="dchip" href="https://windhorsetour.com/chengdu-tour">Chengdu tours</a></div></div>
+  </div>
+
+</div>
+
+<div class="more-row">
+  <span class="more-lbl">More destinations</span>
+  <div class="more-pills">
+    <a class="mpill" href="#">Xi'an</a>
+    <a class="mpill" href="https://windhorsetour.com/china-travel-tips/sichuan-travel-guide">Sichuan</a>
+    <a class="mpill" href="https://windhorsetour.com/china-travel-tips/silk-road-travel-guide">Silk Road</a>
+    <a class="mpill" href="https://windhorsetour.com/china-travel-tips/xinjiang-travel-guide">Xinjiang</a>
+    <a class="mpill" href="https://windhorsetour.com/china-travel-tips/jiuzhaigou-travel-guide">Jiuzhaigou</a>
+    <a class="mpill-all" href="https://windhorsetour.com/china-tour-destinations">See all China destinations →</a>
+  </div>
+</div>
+
+<div class="planning">
+  <div class="sec-h">Plan your China trip</div>
+  <p class="sec-p">Everything you need to plan your China trip with confidence.</p>
+
+  <div class="dcards">
+    <a class="dcard" href="https://windhorsetour.com/china-travel-tips/how-to-travel-china">
+      <div class="dcard-title">New to China? Start here</div>
+      <div class="dcard-desc">Visas, apps, trains, payments, pacing — everything a first-time visitor needs before arriving.</div>
+      <div class="dcard-link">Start here <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+    <a class="dcard" href="https://windhorsetour.com/china-travel-tips/china-visa-tibet-permit">
+      <div class="dcard-title">Can I visit China visa-free?</div>
+      <div class="dcard-desc">Over 50 countries qualify in 2026. Check your eligibility, entry conditions, and how to use it.</div>
+      <div class="dcard-link">Check visa rules <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+    <a class="dcard" href="https://windhorsetour.com/china-travel-tips/how-many-days-in-china">
+      <div class="dcard-title">How many days in China?</div>
+      <div class="dcard-desc">10 days, 2 weeks, or 3 weeks — what's achievable with the best destination pacing.</div>
+      <div class="dcard-link">View itineraries <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+  </div>
+
+  <div class="plan-lbl">All planning guides</div>
+
+  <div class="psec">
+    <div><div class="pnum">01</div><div class="ptitle">Visa & entry</div></div>
+    <div class="plinks">
+      <a class="pl" href="#"><span class="plt">China visa-free policy 2026</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">China visa application guide</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">First trip to China — what to expect</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pall" href="https://windhorsetour.com/china-travel-tips/china-Visa-Info/">All visa & entry guides <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></a>
+    </div>
+  </div>
+
+  <div class="psec">
+    <div><div class="pnum">02</div><div class="ptitle">Plan your trip</div></div>
+    <div class="plinks">
+      <a class="pl" href="#"><span class="plt">How many days in China?</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">Where to go in China</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">Best time to visit China</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pall" href="https://windhorsetour.com/china-travel-tips/tour-planning/">All planning guides <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></a>
+    </div>
+  </div>
+
+  <div class="psec">
+    <div><div class="pnum">03</div><div class="ptitle">Itineraries</div></div>
+    <div class="plinks">
+      <a class="pl" href="#"><span class="plt">10-day China itinerary</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">2-week China itinerary</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">3-week China itinerary</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pall" href="https://windhorsetour.com/china-travel-tips/itinerary-travel-ideas/">All itineraries <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></a>
+    </div>
+  </div>
+
+  <div class="psec">
+    <div><div class="pnum">04</div><div class="ptitle">Getting around</div></div>
+    <div class="plinks">
+      <a class="pl" href="#"><span class="plt">China train vs flights</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">How to use China's trains</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">Domestic transport guide</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pall" href="https://windhorsetour.com/china-travel-tips/essential-tips/">All transport guides <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></a>
+    </div>
+  </div>
+
+  <div class="psec">
+    <div><div class="pnum">05</div><div class="ptitle">Cost & budget</div></div>
+    <div class="plinks">
+      <a class="pl" href="#"><span class="plt">China trip cost guide</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">Budget travel in China</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pall" href="https://windhorsetour.com/china-travel-tips/tour-planning/">All cost guides <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></a>
+    </div>
+  </div>
+
+  <div class="psec">
+    <div><div class="pnum">06</div><div class="ptitle">Practical tips</div></div>
+    <div class="plinks">
+      <a class="pl" href="#"><span class="plt">Payments & apps in China</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">Language & communication tips</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pl" href="#"><span class="plt">What to pack for China</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="pall" href="https://windhorsetour.com/china-travel-tips/essential-tips/">All practical guides <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></a>
+    </div>
+  </div>
+
+</div>
+
+<!-- tour cards -->
+<div class="tours">
+  <h2>Popular China tours</h2>
+  <p class="tours-p">Ready to start planning? Browse our most popular China tours.</p>
+  <div class="tour-cards">
+
+    <a class="tc" href="https://windhorsetour.com/china-tour-packages">
+      <div class="tc-img">
+        <svg viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice" fill="none"><rect width="300" height="160" fill="#3d1a1a"/><path d="M0 160 L0 80 L55 50 L110 30 L165 55 L220 20 L275 45 L300 35 L300 160Z" fill="rgba(80,40,20,.5)"/><path d="M0 115 Q75 100 150 108 Q225 115 300 102" stroke="rgba(200,170,110,.7)" stroke-width="5" fill="none"/><rect x="110" y="55" width="120" height="70" fill="rgba(155,30,30,.7)" rx="1"/><rect x="128" y="35" width="84" height="38" fill="rgba(155,30,30,.8)" rx="1"/><rect x="140" y="18" width="60" height="22" fill="rgba(195,155,28,.8)" rx="1"/><rect x="130" y="62" width="12" height="18" fill="rgba(255,210,80,.35)" rx="1"/><rect x="154" y="62" width="12" height="18" fill="rgba(255,210,80,.35)" rx="1"/><rect x="178" y="62" width="12" height="18" fill="rgba(255,210,80,.35)" rx="1"/></svg>
+      </div>
+      <div class="tc-body">
+        <div class="tc-route">Beijing → Xi'an → Shanghai</div>
+        <div class="tc-name">Classic China Tour</div>
+        <div class="tc-meta">10 – 14 days &nbsp;·&nbsp; Private &nbsp;·&nbsp; From $1,890</div>
+        <div class="tc-desc">Great Wall, Terracotta Army, The Bund — the essential China experience for first-time visitors.</div>
+        <div class="tc-link">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <a class="tc" href="https://windhorsetour.com/china-tibet-tours">
+      <div class="tc-img">
+        <svg viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice" fill="none"><rect width="300" height="160" fill="#1a2a3d"/><path d="M0 160 L0 75 L55 48 L110 25 L165 50 L220 15 L275 42 L300 30 L300 160Z" fill="rgba(55,85,115,.5)"/><path d="M110 25 L128 0 L146 25 L137 14 L128 5 L119 14Z" fill="rgba(255,255,255,.9)"/><g transform="translate(155,68)"><rect x="0" y="30" width="58" height="45" fill="rgba(180,50,50,.65)" rx="1"/><rect x="10" y="12" width="38" height="32" fill="rgba(180,50,50,.75)" rx="1"/><rect x="18" y="2" width="22" height="14" fill="rgba(200,160,30,.78)" rx="1"/></g></svg>
+      </div>
+      <div class="tc-body">
+        <div class="tc-route">Beijing → Xi'an → Chengdu → Lhasa</div>
+        <div class="tc-name">China & Tibet Highlights</div>
+        <div class="tc-meta">14 – 21 days &nbsp;·&nbsp; Private &nbsp;·&nbsp; From $2,650</div>
+        <div class="tc-desc">The best of China combined with Tibet — Great Wall, Terracotta Army, Potala Palace, and pandas.</div>
+        <div class="tc-link">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <a class="tc" href="https://windhorsetour.com/scenic-southwest-china-tours">
+      <div class="tc-img">
+        <svg viewBox="0 0 300 160" preserveAspectRatio="xMidYMid slice" fill="none"><rect width="300" height="160" fill="#1a3d2a"/><path d="M0 160 L0 70 L45 50 L90 25 L135 52 L180 18 L225 45 L270 22 L300 35 L300 160Z" fill="rgba(38,88,52,.5)"/><path d="M180 18 L196 0 L212 18 L204 10 L196 4 L188 10Z" fill="rgba(255,255,255,.85)"/><rect x="20" y="75" width="25" height="85" fill="rgba(100,140,80,.8)" rx="3"/><rect x="52" y="55" width="20" height="105" fill="rgba(80,120,60,.85)" rx="3"/><rect x="80" y="38" width="25" height="122" fill="rgba(100,140,80,.8)" rx="3"/><ellipse cx="32" cy="75" rx="18" ry="9" fill="rgba(55,115,38,.9)"/><ellipse cx="62" cy="55" rx="15" ry="8" fill="rgba(55,115,38,.9)"/><ellipse cx="92" cy="38" rx="18" ry="9" fill="rgba(55,115,38,.9)"/><path d="M0 130 Q75 118 150 125 Q225 132 300 118 L300 160 L0 160Z" fill="rgba(55,120,165,.38)"/></svg>
+      </div>
+      <div class="tc-body">
+        <div class="tc-route">Chengdu → Guilin → Zhangjiajie</div>
+        <div class="tc-name">Scenic Southwest China</div>
+        <div class="tc-meta">12 – 18 days &nbsp;·&nbsp; Private &nbsp;·&nbsp; From $2,190</div>
+        <div class="tc-desc">Pandas, Li River karst peaks, and Avatar's floating pillars — China's most scenic landscapes.</div>
+        <div class="tc-link">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="tour-pills">
+    <a class="tpill on" href="https://windhorsetour.com/china-tour">All China tours</a>
+    <a class="tpill" href="https://windhorsetour.com/china-tour-packages">First-time China</a>
+    <a class="tpill" href="https://windhorsetour.com/china-tibet-tours">China & Tibet</a>
+    <a class="tpill" href="https://windhorsetour.com/scenic-southwest-china-tours">Scenic China</a>
+    <a class="tpill" href="https://windhorsetour.com/silk-road-tour">Silk Road</a>
+    <a class="tpill" href="https://windhorsetour.com/chengdu-tour">Panda tours</a>
+    <a class="tpill" href="https://windhorsetour.com/tibet-train-tour">China train tours</a>
+  </div>
+</div>
+
+<div class="final">
+  <div>
+    <h3>Not sure where to start?</h3>
+    <p>Tell us your travel dates and interests.<br>Our China specialists will build the right itinerary for you.</p>
+  </div>
+  <button class="btn-main" style="padding:14px 30px;font-size:15px;">Plan my China trip</button>
+</div>
+
+</div>
+
+</div><!-- /shell -->
+
+<!-- site footer -->
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-col">
+      <div class="footer-heading">Contact us</div>
+      <div class="footer-links">
+        <a href="tel:+862885593923">+86-28-85593923</a>
+        <a href="mailto:info@windhorsetour.com">info@windhorsetour.com</a>
+        <a href="tel:+8618628293438">WX/WA: +86 18628293438</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-heading">Discover</div>
+      <div class="footer-links-grid">
+        <div>
+          <a href="https://windhorsetour.com/tibet-group-tour">Tibet group tours</a>
+          <a href="https://windhorsetour.com/tibet-tour">Tibet tours</a>
+          <a href="https://windhorsetour.com/china-tour">China tours</a>
+          <a href="https://windhorsetour.com/silk-road-tours">Silk Road tours</a>
+          <a href="https://windhorsetour.com/china-tour/1st-time-travel-china">First-time to China</a>
+          <a href="https://windhorsetour.com/china-yangtze-river-tour">China tours w/ Yangtze</a>
+          <a href="https://windhorsetour.com/china-tour-destinations">All China destinations</a>
+          <a href="https://windhorsetour.com/tibet-tours-destinations">All Tibet destinations</a>
+          <a href="https://windhorsetour.com/tailor-made-tour">Plan My Trip</a>
+        </div>
+        <div>
+          <a href="https://windhorsetour.com/beijing-tour">Beijing</a>
+          <a href="https://windhorsetour.com/xian-tour">Xi'an</a>
+          <a href="https://windhorsetour.com/shanghai-tour">Shanghai</a>
+          <a href="https://windhorsetour.com/chengdu-tour">Chengdu</a>
+          <a href="https://windhorsetour.com/guilin-tour">Guilin &amp; Yangshuo</a>
+          <a href="https://windhorsetour.com/zhangjiajie-tour">Zhangjiajie</a>
+          <a href="https://windhorsetour.com/jiuzhaigou-tour">Jiuzhaigou</a>
+          <a href="https://windhorsetour.com/sichuan-tour">Sichuan</a>
+          <a href="https://windhorsetour.com/yunnan-tour">Yunnan</a>
+          <a href="https://windhorsetour.com/guizhou-tour">Guizhou</a>
+          <a href="https://windhorsetour.com/china-tour/xinjiang">Xinjiang</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-heading">Company</div>
+      <div class="footer-links">
+        <a href="https://windhorsetour.com/about-us">About us</a>
+        <a href="https://windhorsetour.com/about-us/why-windhorsetour">Why us</a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294219-d6744316-Reviews-WindhorseTour-Chengdu_Sichuan.html" target="_blank" rel="noopener">Reviews (Tripadvisor)</a>
+        <a href="https://windhorsetour.com/contact-us">Contact us</a>
+        <a href="https://windhorsetour.com/payment-guide">Payment</a>
+        <a href="https://windhorsetour.com/terms-and-conditions">Terms and Conditions</a>
+        <a href="https://windhorsetour.com/privacy-policy">Privacy Policy</a>
+        <a href="https://windhorsetour.com/travel-blog">Blog</a>
+        <a href="https://windhorsetour.com/faq">FAQ</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 WindhorseTour. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/windhorsetour" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/windhorsetour" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/windhorsetour" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

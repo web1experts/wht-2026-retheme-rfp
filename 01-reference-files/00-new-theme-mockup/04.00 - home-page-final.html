@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private China &amp; Tibet Tours, Designed by Local Experts Since 2007 | WindhorseTour</title>
+<meta name="description" content="Private, tailor-made China and Tibet tours designed by a small local team in Chengdu since 2007. Tibet permits arranged end to end, no forced shopping, 268+ 5-star Tripadvisor reviews. Plan your trip with a local expert.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--orange:#e8410a; --text:#1a1a1a; --text-2:#555; --text-3:#999;
+  --border:#e5e5e5; --bg:#fff; --bg-soft:#f9f8f6; --font:'DM Sans',sans-serif;}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+h4{font-size:14px;font-weight:600;line-height:1.4}
+.shell{max-width:1160px;margin:0 auto;padding:0 20px}
+section{padding:48px 0}
+.sec-soft{background:var(--bg-soft)}
+.sec-h{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-bottom:8px}
+.sec-p{font-size:16px;color:var(--text-2);margin-bottom:28px;line-height:1.6}
+/* ===== MEGA-MENU NAV (desktop dropdowns + mobile drawer) ===== */
+nav{
+  padding:14px 20px;
+  border-bottom:.5px solid var(--border);
+  position:relative;
+  background:var(--bg);
+  z-index:300;
+}
+.nav-inner{
+  max-width:1160px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+}
+.nav-logo img{height:38px}
+.logo-wm{font-family:var(--font);font-weight:700;font-size:21px;letter-spacing:-.02em;color:var(--text);white-space:nowrap;display:inline-block;text-decoration:none}
+.logo-wm em{font-style:normal;color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:4px}
+
+/* Plain links + dropdown trigger buttons */
+.nav-links a:not(.nav-cta),
+.nav-trigger-btn{
+  font-family:var(--font);
+  font-size:14px;
+  color:var(--text-2);
+  padding:7px 12px;
+  background:none;
+  border:none;
+  border-bottom:2px solid transparent;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  transition:color .15s, border-color .15s;
+  white-space:nowrap;
+  text-decoration:none;
+}
+.nav-trigger-btn.on,
+.nav-trigger-btn:hover,
+.nav-links a:not(.nav-cta):hover{color:var(--orange)}
+.nav-trigger-btn.on{border-bottom-color:var(--orange)}
+
+.nav-chev{
+  width:9px;height:9px;opacity:.4;flex-shrink:0;
+  transition:transform .18s, opacity .15s;
+}
+.nav-trigger-btn.on .nav-chev{transform:rotate(180deg);opacity:.7}
+
+/* CTA button — high specificity to beat .nav-links a */
+.nav-links a.nav-cta{
+  font-family:var(--font);
+  font-size:13px;
+  font-weight:500;
+  background:var(--orange);
+  color:#fff;
+  border-radius:7px;
+  padding:9px 18px;
+  border:none;
+  border-bottom:none;
+  cursor:pointer;
+  margin-left:8px;
+  white-space:nowrap;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  transition:opacity .15s;
+}
+.nav-links a.nav-cta:hover{opacity:.9;color:#fff}
+/* Overlay */
+.d-overlay{
+  display:none;position:fixed;
+  top:0;left:0;right:0;bottom:0;z-index:200;
+}
+.d-overlay.on{display:block}
+
+/* ── DROPDOWN PANELS — from nav file ── */
+.drop{
+  display:none;
+  position:fixed;
+  top:67px;left:0;right:0;
+  background:var(--bg-soft);
+  border-top:.5px solid var(--border);
+  border-bottom:.5px solid var(--border);
+  box-shadow:0 8px 32px rgba(0,0,0,.07);
+  z-index:250;
+  padding:2.75rem 3rem 2.5rem;
+}
+.drop-grid.on{display:grid}
+.drop-flex.on{display:flex}
+
+.g2{grid-template-columns:1.6fr 1fr;gap:4rem}
+.g3{grid-template-columns:1.5fr 1fr 1fr;gap:3.5rem}
+.g3e{grid-template-columns:repeat(3,1fr);gap:3.5rem}
+.col1{width:280px}
+
+.ch{font-size:12px;font-weight:500;color:#aaa;margin-bottom:1.4rem;letter-spacing:.07em;text-transform:uppercase}
+.lxl{display:block;font-size:32px;font-weight:400;color:var(--text);line-height:1.5;letter-spacing:-.02em;text-decoration:none;transition:color .15s}
+.lxl:hover{color:#515154}
+.lfeat{display:block;font-size:20px;font-weight:400;color:var(--text);line-height:1.75;letter-spacing:-.01em;text-decoration:none;margin-bottom:.35rem;transition:color .15s}
+.lfeat:hover{color:#515154}
+.lmd{display:block;font-size:16px;font-weight:400;color:var(--text);line-height:2.0;text-decoration:none;transition:color .15s}
+.lmd:hover{color:#515154}
+.lsee{display:block;font-size:14px;font-weight:400;color:#888;line-height:2.2;text-decoration:none;transition:color .15s}
+.lsee:hover{color:var(--text)}
+.lhub{display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:500;color:var(--text);line-height:2.2;text-decoration:none;padding-right:.2rem;transition:color .15s}
+.lhub:hover{color:#515154}.lhub em{color:#aaa;font-style:normal}
+.gsm{height:.75rem}.gmd{height:1.5rem}
+/* mobile nav */
+/* ── MOBILE NAV — from nav file ── */
+.m-bar{display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.25rem;background:var(--bg);border-bottom:.5px solid var(--border);position:sticky;top:0;z-index:100}
+.m-logo img{height:34px;width:auto}
+.m-right{display:flex;align-items:center;gap:8px}
+.m-cta{font-size:12px;font-weight:500;padding:7px 14px;border-radius:7px;background:var(--orange);color:#fff;border:none;cursor:pointer;font-family:var(--font)}
+.m-bar .m-cta{display:none}
+.m-ham{font-size:22px;color:var(--text);cursor:pointer;background:none;border:none;width:28px;text-align:center;line-height:1}
+.m-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:500;flex-direction:column;overflow:hidden}
+.m-drawer.on{display:flex}
+.m-dbar{display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.25rem;background:#fff;border-bottom:.5px solid var(--border);flex-shrink:0}
+.m-dbar img{height:34px;width:auto}
+.m-screens{position:relative;flex:1;overflow:hidden}
+.m-main{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column;transition:transform .32s cubic-bezier(.4,0,.2,1),opacity .32s}
+.m-main.pushed{transform:translateX(-25%);opacity:.4}
+.m-screen{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1)}
+.m-screen.on{transform:translateX(0)}
+.m-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.m-backbar{display:flex;align-items:center;justify-content:space-between;padding:.65rem 1.25rem .3rem;flex-shrink:0}
+.m-back{font-size:28px;color:var(--text);cursor:pointer;background:none;border:none;line-height:1}
+.m-close{font-size:20px;color:var(--text);cursor:pointer;background:none;border:none}
+.m-item{display:block;font-size:24px;font-weight:500;color:var(--text);letter-spacing:-.02em;line-height:1.7;padding:.2rem 1.25rem;cursor:pointer;border:none;background:none;font-family:var(--font);width:100%;text-align:left;transition:opacity .12s}
+.m-item:hover{opacity:.6}
+.m-div{height:.5px;background:rgba(0,0,0,.08);margin:.75rem 1.25rem}
+.m-util{padding:.5rem 1.25rem}
+.m-urow{display:flex;align-items:center;gap:8px;padding:.3rem 0;font-size:14px;color:var(--text)}
+.m-urow.org{color:var(--orange)}
+.m-ctawrap{padding:.85rem 1.25rem 1.25rem;flex-shrink:0}
+.m-ctafull{display:block;width:100%;padding:14px;background:var(--orange);color:#fff;font-size:16px;font-weight:500;border:none;border-radius:7px;cursor:pointer;font-family:var(--font);text-align:center}
+.m-slabel{font-size:12px;font-weight:500;color:#aaa;letter-spacing:.07em;text-transform:uppercase;padding:1.25rem 1.25rem .5rem;display:block}
+.m-lhero{display:block;font-size:28px;font-weight:400;color:var(--text);letter-spacing:-.02em;line-height:1.5;padding:.1rem 1.25rem;text-decoration:none;transition:color .12s}
+.m-lhero:hover{color:#515154}
+.m-lfeat{display:block;font-size:20px;font-weight:400;color:var(--text);letter-spacing:-.01em;line-height:1.7;padding:.1rem 1.25rem;text-decoration:none;margin-bottom:.15rem;transition:color .12s}
+.m-lfeat:hover{color:#515154}
+.m-lreg{display:block;font-size:16px;font-weight:400;color:var(--text);line-height:2.0;padding:0 1.25rem;text-decoration:none;transition:color .12s}
+.m-lreg:hover{color:#515154}
+.m-lsee{display:block;font-size:14px;font-weight:400;color:#888;padding:.2rem 1.25rem;text-decoration:none;line-height:2.2;transition:color .12s}
+.m-lsee:hover{color:var(--text)}
+.m-gsm{height:.5rem}.m-gmd{height:1.25rem}
+/* nav responsive */
+/* ── TABLET ── */
+@media(max-width:900px) and (min-width:769px){
+  nav{padding:12px 16px}
+  .nav-links a,
+  .nav-trigger-btn{font-size:13px;padding:6px 9px}
+  .nav-links a.nav-cta{padding:8px 14px;margin-left:4px}
+}
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .desktop-nav{display:none}
+  .m-nav{display:block}
+  .demo-hero{padding:40px 1.5rem;min-height:50vh}
+  .demo-hero h1{font-size:28px}
+  .footer-inner{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+}
+@media(min-width:769px){
+  .m-nav{display:none}
+  .desktop-nav{display:block;position:sticky;top:0;z-index:300}
+  .hero-tab,.hero-or{display:none}
+}
+/* HERO (full-bleed) */
+.hero{position:relative;overflow:hidden;min-height:520px;display:flex;align-items:flex-end;justify-content:flex-start;text-align:left;background:#1a1a1a}
+.hero .ph-hero,.hero img,.hero-illus{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{display:none;content:""}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 50%);pointer-events:none}
+.hero h1{font-size:46px;font-weight:600;letter-spacing:-.02em;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.5);margin:0;white-space:nowrap}
+/* INTRO + WHY (merged, restrained) */
+.intro-h{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-bottom:14px}
+.why{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.why-card{border:.5px solid var(--border);border-radius:12px;padding:22px 16px;background:#fff;transition:border-color .18s,box-shadow .18s,transform .18s}
+.why-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,65,10,.05);transform:translateY(-2px)}
+.why-ic{width:44px;height:44px;border-radius:11px;background:rgba(232,65,10,.08);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.why-ic svg{width:22px;height:22px;stroke:var(--orange);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.why-card h3{font-size:15px;font-weight:600;margin-bottom:7px;letter-spacing:-.01em}
+.why-card p{font-size:13px;color:var(--text-2);line-height:1.6}
+/* ===== CREDIBILITY STRIP ===== */
+.cred{border-bottom:.5px solid var(--border);background:#fff}
+.cred-in{max-width:1160px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap}
+.cred-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:4px 30px}
+.cred-item .n{font-size:17px;font-weight:600;color:var(--text);letter-spacing:-.01em;line-height:1.2}
+.cred-item .n .star{color:var(--orange)}
+.cred-item .l{font-size:12.5px;color:var(--text-3);margin-top:3px}
+.cred-div{width:.5px;height:34px;background:var(--border);flex-shrink:0}
+@media(max-width:560px){.cred-div{display:none}.cred-item{flex:0 0 50%;padding:10px 8px}}
+/* TOUR CARDS (.tc — new-design) */
+.tc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.tc{border-radius:12px;overflow:hidden;display:flex;flex-direction:column;height:100%;border:.5px solid var(--border);color:var(--text);background:#fff;transition:transform .2s,box-shadow .2s}
+.tc:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.tc-img{height:170px;position:relative;overflow:hidden;background:#e8e8e8;flex-shrink:0}
+.tc-img img{width:100%;height:100%;object-fit:cover}
+.tc-body{padding:18px 22px 20px;display:flex;flex-direction:column;flex:1}
+.tc-route{font-size:12px;color:#7d7d7d;letter-spacing:.01em;line-height:1.45;margin-bottom:8px}
+.tc-name{font-size:17px;font-weight:600;line-height:1.32;letter-spacing:-.01em;margin-bottom:10px;color:var(--text)}
+.tc-desc{font-size:13.5px;color:var(--text-2);line-height:1.6;margin-bottom:16px}
+.tc-foot{display:flex;flex-direction:column;align-items:flex-start;margin-top:auto}
+.tc-type{font-size:12.5px;color:var(--text-3);margin-bottom:1px;line-height:1.3}
+.tc-price{font-size:13px;color:var(--text-3)}
+.tc-price .now{color:var(--text);font-weight:600;font-size:16px}
+.tc-price .old{text-decoration:line-through;color:var(--text-3);margin-right:6px}
+.tc-cta{font-size:13px;font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:5px;white-space:nowrap;flex-shrink:0}
+.tc-cta svg{width:13px;height:13px;stroke:var(--orange);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .18s}
+.tc:hover .tc-cta svg{transform:translateX(3px)}
+/* SPECIALIST NUDGE — .final CTA band (heading+text left, button right) */
+.final{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.final>div{flex:1;min-width:0}
+.final h3{font-size:26px;font-weight:500;letter-spacing:-.01em;margin-bottom:7px}
+.final p{font-size:15px;color:var(--text-2);line-height:1.65;max-width:640px}
+.cta-short{display:none}
+.final .btn-main{flex-shrink:0;width:auto;display:inline-flex;align-items:center;background:var(--orange);color:#fff;border:none;border-radius:7px;padding:14px 26px;font-size:15px;font-weight:500;font-family:var(--font);cursor:pointer;white-space:nowrap;transition:opacity .15s}
+.final .btn-main:hover{opacity:.9}
+/* DCARDS (new-design) */
+.dcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dcard{background:#fff;border:.5px solid var(--border);border-radius:14px;overflow:hidden;color:var(--text);transition:border-color .18s,box-shadow .18s,transform .18s;display:block}
+.dcard:hover{border-color:var(--orange);box-shadow:0 10px 28px rgba(0,0,0,.09);transform:translateY(-3px)}
+.dcard-img{height:160px;position:relative;overflow:hidden;background:#e8e8e8}
+.dcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.dcard:hover .dcard-img img{transform:scale(1.05)}
+.dcard-body{padding:20px 22px}
+.dcard-title{font-size:17px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.dcard-desc{font-size:13.5px;color:var(--text-2);line-height:1.6;margin-bottom:16px}
+.dcard-link{font-size:13px;font-weight:600;color:var(--orange);display:flex;align-items:center;gap:6px}
+.dcard-link svg{width:13px;height:13px;stroke:var(--orange);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .18s}
+.dcard:hover .dcard-link svg{transform:translateX(3px)}
+/* TRAVEL TIPS (.pl numbered authority links) */
+.plan-links{display:flex;flex-direction:column;max-width:820px}
+.pl{display:flex;align-items:baseline;gap:10px;font-size:14px;color:var(--text-2);padding:11px 0;border-bottom:.5px solid var(--border);counter-increment:pc;transition:color .15s}
+.pl:last-child{border-bottom:none}
+.pl::before{content:counter(pc,decimal-leading-zero);font-size:11px;color:var(--text-3);font-weight:500;flex-shrink:0;width:20px}
+.pl:hover{color:var(--orange)}
+/* FOOTER (new-design #2a2e35) */
+footer{background:#2a2e35;color:rgba(255,255,255,.75)}
+.footer-inner{max-width:1160px;margin:0 auto;padding:52px 20px 40px;display:grid;grid-template-columns:220px 1fr 200px;gap:48px}
+.footer-heading{font-size:12px;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a,.footer-links-grid a{font-size:14px;color:rgba(255,255,255,.72);line-height:1.4;transition:color .15s}
+.footer-links a:hover,.footer-links-grid a:hover{color:#fff}
+.footer-links-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.footer-links-grid div{display:flex;flex-direction:column;gap:10px}
+.footer-bottom{max-width:1160px;margin:0 auto;padding:20px 20px 28px;border-top:.5px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between}
+.footer-bottom span{font-size:13px;color:rgba(255,255,255,.35)}
+.footer-social{display:flex;gap:16px;align-items:center}
+.footer-social a{color:rgba(255,255,255,.45);transition:color .15s;display:flex}
+.footer-social a:hover{color:rgba(255,255,255,.9)}
+.footer-social svg{width:18px;height:18px}
+.btn-main{background:var(--orange);color:#fff;border:none;border-radius:7px;padding:13px 24px;font-size:14px;font-family:var(--font);cursor:pointer;font-weight:500;transition:opacity .15s;width:100%}
+.btn-main:hover{opacity:.9}
+/* ON-PAGE INQUIRY FORM */
+.inq{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;background:var(--bg-soft);border:.5px solid var(--border);border-radius:16px;padding:38px 40px}
+.inq-l h2{font-size:24px;font-weight:500;letter-spacing:-.01em;margin-bottom:10px}
+.inq-l p{font-size:15px;color:var(--text-2);line-height:1.65;margin-bottom:20px}
+.inq-r{min-width:0}
+.form-field{margin-bottom:14px}
+.form-field label{display:block;font-size:12px;font-weight:500;color:var(--text-2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em}
+.form-field input,.form-field textarea{width:100%;border:.5px solid var(--border);border-radius:7px;padding:11px 14px;font-family:var(--font);font-size:14px;color:var(--text);outline:none;background:#fff;transition:border-color .15s}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--orange)}
+.form-field textarea{resize:vertical;min-height:84px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-note{font-size:12px;color:var(--text-3);margin-top:10px;text-align:center}
+.chat-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.chat-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--text);border:.5px solid var(--border);background:#fff;border-radius:8px;padding:10px 14px;transition:border-color .15s}
+.chat-btn:hover{border-color:var(--orange)}
+.chat-btn svg{width:16px;height:16px}
+/* REVIEWS (mirrors the Trustindex / Tripadvisor widget) */
+.rev-widget{display:grid;grid-template-columns:210px 1fr;gap:28px;align-items:start}
+.rev-summary{padding-top:6px}
+.rev-brand{font-size:18px;font-weight:600;margin-bottom:10px}
+.rev-rings{color:#00aa6c;font-size:15px;letter-spacing:3px;margin-bottom:8px}
+.rev-summary-count{font-size:13px;color:var(--text-2);margin-bottom:18px}
+.rev-write{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--text);border:.5px solid var(--border);border-radius:7px;padding:9px 18px;transition:border-color .15s}
+.rev-write:hover{border-color:var(--orange);color:var(--orange)}
+.rev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rev{background:var(--bg-soft);border:.5px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column}
+.rev-head{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+.rev-av{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:repeating-linear-gradient(45deg,#e6e2dc,#e6e2dc 6px,#ded9d2 6px,#ded9d2 12px)}
+.rev-name{font-size:14px;font-weight:600;line-height:1.2}
+.rev-time{font-size:12px;color:var(--text-3)}
+.rev-ta{margin-left:auto;width:22px;height:22px;flex-shrink:0}
+.rev-rate{display:flex;align-items:center;gap:7px;margin-bottom:10px}
+.rev-rate .rings{color:#00aa6c;font-size:13px;letter-spacing:2px}
+.rev-rate .vf{width:15px;height:15px}
+.rev-text{font-size:14px;color:var(--text);line-height:1.6;margin-bottom:12px;flex:1}
+.rev-more{font-size:13px;font-weight:600;color:var(--text-3)}
+.rev-more:hover{color:var(--orange)}
+/* TRUST STRIP */
+/* BROWSE ALL link */
+.browse-all{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--orange);margin-top:26px}
+.browse-all svg{width:14px;height:14px;stroke:var(--orange);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .18s}
+.browse-all:hover svg{transform:translateX(3px)}
+/* MEET THE TEAM */
+.team{display:grid;grid-template-columns:repeat(5,1fr);gap:28px 20px;margin-top:6px}
+.team-card{text-align:center}
+.team-av{width:128px;height:128px;border-radius:50%;margin:0 auto 14px;background-size:cover;background-position:center;display:flex;align-items:flex-end;justify-content:center;color:rgba(255,255,255,.8);font-size:12px;padding-bottom:16px;overflow:hidden}
+.team-name{font-size:16px;font-weight:600;color:var(--text)}
+.team-role{font-size:14px;font-weight:500;color:var(--orange);margin-top:3px}
+@media(max-width:860px){.team{grid-template-columns:repeat(3,1fr);gap:30px 16px}}
+@media(max-width:480px){.team{grid-template-columns:repeat(2,1fr)}.team-av{width:120px;height:120px}}
+/* MOBILE STICKY BAR */
+.m-sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:1px solid var(--border);padding:10px 16px calc(10px + env(safe-area-inset-bottom));z-index:300;box-shadow:0 -4px 20px rgba(0,0,0,.1)}
+.m-sticky-btn{display:flex;width:100%;justify-content:space-between;background:var(--orange);color:#fff;border:none;border-radius:8px;padding:12px 18px;align-items:center;font-family:var(--font)}
+.m-sticky-label{font-size:14px;font-weight:600}
+.m-sticky-price{font-size:12px;opacity:.88}
+@media(max-width:768px){
+  .m-sticky{display:block;transform:translateY(130%);transition:transform .28s ease}
+  .m-sticky.visible{transform:translateY(0)}
+}
+
+@media(max-width:980px){.tc-grid{grid-template-columns:repeat(2,1fr)}.dcards{grid-template-columns:1fr}.why{grid-template-columns:repeat(3,1fr)}.highlights{grid-template-columns:1fr 1fr}.inq{grid-template-columns:1fr;gap:28px;padding:30px 26px}.rev-widget{grid-template-columns:1fr;gap:22px}.rev-cards{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr;gap:32px}}
+
+@media(max-width:560px){.tc-foot{flex-wrap:wrap}.tc-price{white-space:normal}.tc-grid,.why,.highlights{grid-template-columns:1fr}.hero h1{font-size:32px}.hero{height:400px}.nav-links a:not(.nav-cta){display:none}.form-row{grid-template-columns:1fr}.final{flex-direction:column;align-items:flex-start;gap:16px}.final h3{font-size:22px}.cta-full{display:none}.cta-short{display:inline}}
+@media(max-width:560px){.hero-actions{margin-top:22px;gap:0}}
+.team .btn-main{display:inline-flex;align-items:center;width:auto;padding:13px 24px}
+
+@media(max-width:900px){.team{grid-template-columns:1fr;gap:28px}}
+
+/* hero — Intrepid style */
+.hero{position:relative;overflow:hidden;min-height:520px;display:flex;align-items:flex-end;justify-content:flex-start;text-align:left;background:#1a1a1a}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.hero-sub{font-size:13px;color:#fff;font-weight:600;margin-bottom:16px;display:block;letter-spacing:.09em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.7),0 0 20px rgba(0,0,0,.5)}
+.hero-lead{font-size:17px;color:rgba(255,255,255,.92);margin-top:18px;max-width:600px;line-height:1.55;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center}
+.hero-tab svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round}
+.hero-or{color:rgba(255,255,255,.85);font-size:14px;margin:0 4px;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.chip{display:inline-flex;align-items:center;color:#fff;border:1px solid rgba(255,255,255,.5);padding:12px 20px;border-radius:7px;font-size:14px;font-weight:500;transition:background .15s,border-color .15s}
+.chip:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.85)}
+.hero-tabs{display:inline-flex;gap:10px;flex-wrap:wrap}
+.hero-tab{display:inline-flex;align-items:center;background:var(--orange);color:#fff;border:none;font-family:var(--font);font-size:15px;font-weight:500;padding:13px 26px;border-radius:7px;cursor:pointer;transition:opacity .15s;white-space:nowrap}
+@media(min-width:769px){.hero-tab,.hero-or{display:none}}
+.hero-tab.active{opacity:1}
+.hero-tab:not(.active):hover{opacity:.8}
+
+@media(max-width:768px){.hero-in{padding:0 24px 36px;max-width:100%}
+  .hero{min-height:400px}
+  
+  .hero-in h1{font-size:34px;white-space:normal}
+}
+/* tabs */
+
+@media(max-width:768px){.hero{min-height:380px}
+
+.hero-in h1{font-size:32px}
+}
+
+/* find a tour */
+.soft-select{border:.5px solid var(--border);border-radius:7px;padding:11px 28px 11px 12px;font-family:var(--font);font-size:14px;color:var(--text);background:#fff url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 8px center/13px;appearance:none;cursor:pointer;outline:none;transition:border-color .2s}
+.soft-select:focus{border-color:var(--orange)}
+.hero-in{position:relative;z-index:2;padding:0 48px 52px 76px;max-width:680px}
+
+/* ===== NEW HOMEPAGE COMPONENTS ===== */
+/* Gradient photo stand-ins */
+.img-ph{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* SECTION 2 — Find your perfect journey (decision UX) */
+
+.find{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fc{border:.5px solid var(--border);border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:border-color .18s,box-shadow .18s,transform .18s}
+.fc:hover{border-color:var(--orange);box-shadow:0 10px 28px rgba(0,0,0,.08);transform:translateY(-2px)}
+.fc-head{display:flex;align-items:center;gap:11px;padding:12px 16px;background:var(--bg-soft);border-bottom:.5px solid var(--border);box-shadow:inset 0 3px 0 var(--orange)}
+.fc-ico{width:32px;height:32px;border-radius:8px;background:rgba(232,65,10,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fc-ic{width:17px;height:17px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fc-q{color:var(--text);font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.fc-opts{display:flex;flex-direction:column;padding:5px 7px 7px}
+.fc-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 13px;border-radius:8px;font-size:14.5px;font-weight:500;color:var(--text);transition:background .15s,color .15s}
+.fc-opt:hover{background:var(--bg-soft);color:var(--orange)}
+.fc-opt svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform .18s}
+.fc-opt:hover svg{transform:translateX(3px)}
+/* search-all row beneath the find cards */
+.find-search{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px}
+.find-search-lead{font-size:14px;color:var(--text-2);font-weight:500}
+.find-search-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.find-search-btn{background:var(--orange);color:#fff;border:none;border-radius:7px;padding:11px 20px;font-family:var(--font);font-size:14px;font-weight:500;cursor:pointer;transition:opacity .15s;white-space:nowrap}
+.find-search-btn:hover{opacity:.9}
+/* SECTION 5 — two-column planning links */
+.plan-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;counter-reset:pc}
+/* Tour-card footer: price left, CTA right */
+.tc-foot{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:12px}
+.tc-pricebox{min-width:0}
+@media(max-width:980px){.find{grid-template-columns:1fr}.plan-cols{grid-template-columns:1fr;gap:0}}
+@media(max-width:560px){.find-search{flex-direction:column;align-items:flex-start}.find-search-row{width:100%}.find-search-row .soft-select{flex:1}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TravelAgency",
+      "name": "WindhorseTour",
+      "url": "https://windhorsetour.com/",
+      "description": "Private, tailor-made China and Tibet tours designed by a small local team based in Chengdu since 2007.",
+      "telephone": "+86-28-85593923",
+      "email": "info@windhorsetour.com",
+      "foundingDate": "2007",
+      "address": {"@type": "PostalAddress", "addressLocality": "Chengdu", "addressRegion": "Sichuan", "addressCountry": "CN"},
+      "areaServed": ["China", "Tibet"],
+      "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "268", "bestRating": "5"}
+    },
+    {
+      "@type": "WebSite",
+      "name": "WindhorseTour",
+      "url": "https://windhorsetour.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://windhorsetour.com/search-tours?destination={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Do I need a permit to travel to Tibet?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every foreign traveler needs a Tibet Travel Permit, which can only be arranged through a registered local agency as part of a guided tour. WindhorseTour handles the full permit process for every Tibet trip."}},
+        {"@type": "Question", "name": "Are your China and Tibet tours private or group?", "acceptedAnswer": {"@type": "Answer", "text": "Almost every trip is private and tailor-made — your own guide, vehicle, route and pace. We also run a small number of scheduled Tibet group departures for travelers who prefer to share costs."}},
+        {"@type": "Question", "name": "How much does a China or Tibet trip cost?", "acceptedAnswer": {"@type": "Answer", "text": "Private China tours typically start around USD 1,500–1,700 per person, and Tibet trips from roughly USD 1,500, depending on route, duration, season and group size. Each quote includes guide, private vehicle, hotels, internal transport and entrance tickets."}},
+        {"@type": "Question", "name": "When is the best time to visit China and Tibet?", "acceptedAnswer": {"@type": "Answer", "text": "Spring (April–June) and autumn (September–October) are the most comfortable seasons across most of China and Tibet, with mild weather and clear skies. Tibet is accessible roughly March through early November."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- ============================================================
+  PHOTO SLOTS
+  Every image area is a single element:  <div class="img-ph" data-img="SLUG" data-alt="...">
+  To use a real photo, replace that div with:  <img src="/images/SLUG.webp" alt="THE data-alt TEXT">
+  (Containers already crop with object-fit:cover, so any photo fits.)
+  Or do them all at once: uncomment the swap helper at the bottom of this file.
+============================================================ -->
+
+<!-- ===== DESKTOP NAV (mega-menu) ===== -->
+<div class="desktop-nav">
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-wm">Windhorse<em>Tour</em></span>
+      </div>
+      <div class="nav-links">
+        <button class="nav-trigger-btn" onclick="dtog('tibet',this)">
+          Tibet tours
+          <svg class="nav-chev" viewBox="0 0 10 10" fill="none">
+            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="nav-trigger-btn" onclick="dtog('china',this)">
+          China tours
+          <svg class="nav-chev" viewBox="0 0 10 10" fill="none">
+            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="nav-trigger-btn" onclick="dtog('guide',this)">
+          Travel guide
+          <svg class="nav-chev" viewBox="0 0 10 10" fill="none">
+            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="nav-trigger-btn" onclick="dtog('about',this)">
+          About us
+          <svg class="nav-chev" viewBox="0 0 10 10" fill="none">
+            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <a href="/tailor-made-tour" class="nav-cta">Plan my trip</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="d-overlay" id="d-overlay" onclick="dclose()"></div>
+
+  <!-- Tibet dropdown -->
+  <div class="drop drop-grid g2" id="d-tibet">
+    <div>
+      <div class="ch">Browse by Place</div>
+      <a class="lxl" href="#">Everest Base Camp tours</a>
+      <a class="lxl" href="#">Lhasa tours</a>
+      <a class="lxl" href="#">Mount Kailash tours</a>
+      <div class="gsm"></div>
+      <a class="lmd" href="#">Tibet &amp; Nepal tours</a>
+      <a class="lmd" href="#">China &amp; Tibet tours</a>
+      <a class="lmd" href="#">Qinghai&#8211;Tibet Railway tours</a>
+      <a class="lmd" href="#">Nyingchi tours</a>
+      <a class="lmd" href="#">Central Tibet tours</a>
+      <a class="lmd" href="#">Sichuan&#8211;Tibet overland</a>
+      <a class="lmd" href="#">Kham Tibet tours</a>
+      <div class="gsm"></div>
+      <a class="lsee" href="#">See all tours by destination &#8594;</a>
+      <a class="lsee" href="#">See all Tibet tours &#8594;</a>
+    </div>
+    <div>
+      <div class="ch">Browse by Style</div>
+      <a class="lmd" href="#">Private tours</a>
+      <a class="lmd" href="#">Small group tours</a>
+      <a class="lmd" href="#">Trekking tours</a>
+      <a class="lmd" href="#">Family tours</a>
+      <a class="lmd" href="#">Photography tours</a>
+      <a class="lmd" href="#">Winter tours</a>
+      <div class="gsm"></div>
+      <a class="lsee" href="#">See all styles &#8594;</a>
+    </div>
+  </div>
+
+  <!-- China dropdown -->
+  <div class="drop drop-grid g3" id="d-china">
+    <div>
+      <div class="ch">Browse by Experience</div>
+      <a class="lxl" href="#">First-Time China tours</a>
+      <a class="lxl" href="#">China &amp; Tibet tours</a>
+      <a class="lxl" href="#">Yangtze River cruise</a>
+      <div class="gsm"></div>
+      <a class="lmd" href="#">Silk Road tours</a>
+      <a class="lmd" href="#">Panda tours</a>
+      <a class="lmd" href="#">Zhangjiajie tours</a>
+      <a class="lmd" href="#">Yunnan tours</a>
+      <a class="lmd" href="#">Xinjiang tours</a>
+      <div class="gsm"></div>
+      <a class="lsee" href="#">See all China tours &#8594;</a>
+    </div>
+    <div>
+      <div class="ch">Top Destinations</div>
+      <a class="lmd" href="#">Beijing</a>
+      <a class="lmd" href="#">Xi&#8217;an</a>
+      <a class="lmd" href="#">Chengdu</a>
+      <a class="lmd" href="#">Chongqing</a>
+      <a class="lmd" href="#">Shanghai</a>
+      <a class="lmd" href="#">Guilin &amp; Yangshuo</a>
+      <a class="lmd" href="#">Jiuzhaigou</a>
+      <a class="lmd" href="#">Xiamen</a>
+      <a class="lmd" href="#">Harbin</a>
+      <a class="lmd" href="#">Guizhou</a>
+      <div class="gsm"></div>
+      <a class="lsee" href="#">See all destinations &#8594;</a>
+    </div>
+    <div>
+      <div class="ch">Travel Style</div>
+      <a class="lmd" href="#">Private tours</a>
+      <a class="lmd" href="#">Family tours</a>
+      <a class="lmd" href="#">China train tours</a>
+      <a class="lmd" href="#">Trekking tours</a>
+      <a class="lmd" href="#">Festival tours</a>
+      <a class="lmd" href="#">Winter tours</a>
+      <div class="gsm"></div>
+      <a class="lsee" href="#">See all styles &#8594;</a>
+    </div>
+  </div>
+
+  <!-- Travel Guide dropdown -->
+  <div class="drop drop-grid g3e" id="d-guide">
+    <div>
+      <div class="ch">Featured</div>
+      <a class="lfeat" href="#">Tibet Permit Guide 2026</a>
+      <a class="lfeat" href="#">China Visa-Free Policy 2026</a>
+    </div>
+    <div>
+      <div class="ch">Tibet Trip Planning</div>
+      <a class="lmd" href="#">Can You Travel to Tibet?</a>
+      <a class="lmd" href="#">How to Plan a Tibet Trip</a>
+      <a class="lmd" href="#">How Much Does Tibet Cost?</a>
+      <a class="lmd" href="#">How Many Days in Tibet?</a>
+      <a class="lmd" href="#">Best Time to Visit Tibet</a>
+      <a class="lmd" href="#">How to Get to Tibet</a>
+      <a class="lmd" href="#">Altitude &amp; Acclimatization</a>
+      <div class="gsm"></div>
+      <a class="lsee" href="#">All Tibet planning guides &#8594;</a>
+      <a class="lhub" href="#">Tibet Travel Guide <em>&#8594;</em></a>
+    </div>
+    <div>
+      <div class="ch">China Trip Planning</div>
+      <a class="lmd" href="#">2-Week China Itinerary</a>
+      <a class="lmd" href="#">China Trip Cost</a>
+      <a class="lmd" href="#">How Many Days in China?</a>
+      <a class="lmd" href="#">Best Time to Visit China</a>
+      <a class="lmd" href="#">10-Day China Itinerary</a>
+      <a class="lmd" href="#">China Train vs Flights</a>
+      <div class="gsm"></div>
+      <a class="lsee" href="#">All China planning guides &#8594;</a>
+      <a class="lhub" href="#">China Travel Guide <em>&#8594;</em></a>
+    </div>
+  </div>
+
+  <!-- About Us dropdown -->
+  <div class="drop drop-flex" id="d-about">
+    <div class="col1">
+      <div class="ch">About Us</div>
+      <a class="lmd" href="#">Our Story</a>
+      <a class="lmd" href="#">Why Travel With Us</a>
+      <a class="lmd" href="#">Meet Our Team</a>
+      <a class="lmd" href="#">How We Plan Your Trip</a>
+      <a class="lmd" href="#">Responsible Travel</a>
+      <a class="lmd" href="#">Traveler Reviews</a>
+      <a class="lmd" href="#">Payment Guide</a>
+      <a class="lmd" href="#">Contact Us</a>
+    </div>
+  </div>
+</div><!-- /desktop-nav -->
+
+<!-- ===== MOBILE NAV ===== -->
+<div class="m-nav">
+  <div class="m-bar">
+    <div class="m-logo">
+      <span class="logo-wm">Windhorse<em>Tour</em></span>
+    </div>
+    <div class="m-right">
+      <button class="m-cta">Plan my trip</button>
+      <button class="m-ham" onclick="mopen()">&#9776;</button>
+    </div>
+  </div>
+
+  <div class="m-drawer" id="m-drawer">
+    <div class="m-dbar">
+      <span class="logo-wm">Windhorse<em>Tour</em></span>
+      <div class="m-right">
+        <button class="m-cta">Plan my trip</button>
+        <button class="m-ham" onclick="mclose()">&#10005;</button>
+      </div>
+    </div>
+
+    <div class="m-screens">
+      <div class="m-main" id="m-main">
+        <div class="m-scroll">
+          <div class="m-gmd"></div>
+          <button class="m-item" onclick="msub('s-tibet')">Tibet tours</button>
+          <button class="m-item" onclick="msub('s-china')">China tours</button>
+          <button class="m-item" onclick="msub('s-guide')">Travel guide</button>
+          <button class="m-item" onclick="msub('s-about')">About us</button>
+          <div class="m-div"></div>
+          <div class="m-util">
+            <div class="m-urow">+86-28-85593923</div>
+            <div class="m-urow org">WA: +86 18628293438</div>
+          </div>
+        </div>
+        <div class="m-ctawrap"><button class="m-ctafull">Plan my trip</button></div>
+      </div>
+
+      <!-- Tibet sub -->
+      <div class="m-screen" id="s-tibet">
+        <div class="m-backbar">
+          <button class="m-back" onclick="mback('s-tibet')">&#8249;</button>
+          <button class="m-close" onclick="mclose()">&#10005;</button>
+        </div>
+        <div class="m-scroll">
+          <div class="m-gsm"></div>
+          <a class="m-lhero" href="#">Everest Base Camp tours</a>
+          <a class="m-lhero" href="#">Lhasa tours</a>
+          <a class="m-lhero" href="#">Mount Kailash tours</a>
+          <div class="m-gsm"></div>
+          <a class="m-lreg" href="#">Tibet &amp; Nepal tours</a>
+          <a class="m-lreg" href="#">China &amp; Tibet tours</a>
+          <a class="m-lreg" href="#">Qinghai&#8211;Tibet Railway tours</a>
+          <a class="m-lreg" href="#">Nyingchi tours</a>
+          <a class="m-lreg" href="#">Central Tibet tours</a>
+          <a class="m-lreg" href="#">Sichuan&#8211;Tibet overland</a>
+          <a class="m-lreg" href="#">Kham Tibet tours</a>
+          <div class="m-gsm"></div>
+          <a class="m-lsee" href="#">See all tours by destination &#8594;</a>
+          <a class="m-lsee" href="#">See all Tibet tours &#8594;</a>
+          <div class="m-gmd"></div>
+          <span class="m-slabel">Browse by style</span>
+          <a class="m-lreg" href="#">Private tours</a>
+          <a class="m-lreg" href="#">Small group tours</a>
+          <a class="m-lreg" href="#">Trekking tours</a>
+          <a class="m-lreg" href="#">Family tours</a>
+          <a class="m-lreg" href="#">Photography tours</a>
+          <a class="m-lreg" href="#">Winter tours</a>
+          <div class="m-gsm"></div>
+          <a class="m-lsee" href="#">See all styles &#8594;</a>
+          <div class="m-gmd"></div>
+        </div>
+        <div class="m-ctawrap"><button class="m-ctafull">Plan my trip</button></div>
+      </div>
+
+      <!-- China sub -->
+      <div class="m-screen" id="s-china">
+        <div class="m-backbar">
+          <button class="m-back" onclick="mback('s-china')">&#8249;</button>
+          <button class="m-close" onclick="mclose()">&#10005;</button>
+        </div>
+        <div class="m-scroll">
+          <div class="m-gsm"></div>
+          <a class="m-lhero" href="#">First-Time China tours</a>
+          <a class="m-lhero" href="#">China &amp; Tibet tours</a>
+          <a class="m-lhero" href="#">Yangtze River cruise</a>
+          <div class="m-gsm"></div>
+          <a class="m-lreg" href="#">Silk Road tours</a>
+          <a class="m-lreg" href="#">Panda tours</a>
+          <a class="m-lreg" href="#">Zhangjiajie tours</a>
+          <a class="m-lreg" href="#">Yunnan tours</a>
+          <a class="m-lreg" href="#">Xinjiang tours</a>
+          <div class="m-gsm"></div>
+          <a class="m-lsee" href="#">See all China tours &#8594;</a>
+          <div class="m-gmd"></div>
+          <span class="m-slabel">Top destinations</span>
+          <a class="m-lreg" href="#">Beijing</a>
+          <a class="m-lreg" href="#">Xi&#8217;an</a>
+          <a class="m-lreg" href="#">Chengdu</a>
+          <a class="m-lreg" href="#">Chongqing</a>
+          <a class="m-lreg" href="#">Shanghai</a>
+          <a class="m-lreg" href="#">Guilin &amp; Yangshuo</a>
+          <a class="m-lreg" href="#">Jiuzhaigou</a>
+          <a class="m-lreg" href="#">Xiamen</a>
+          <a class="m-lreg" href="#">Harbin</a>
+          <a class="m-lreg" href="#">Guizhou</a>
+          <div class="m-gsm"></div>
+          <a class="m-lsee" href="#">See all destinations &#8594;</a>
+          <div class="m-gmd"></div>
+          <span class="m-slabel">Travel style</span>
+          <a class="m-lreg" href="#">Private tours</a>
+          <a class="m-lreg" href="#">Family tours</a>
+          <a class="m-lreg" href="#">China train tours</a>
+          <a class="m-lreg" href="#">Trekking tours</a>
+          <a class="m-lreg" href="#">Festival tours</a>
+          <a class="m-lreg" href="#">Winter tours</a>
+          <div class="m-gsm"></div>
+          <a class="m-lsee" href="#">See all styles &#8594;</a>
+          <div class="m-gmd"></div>
+        </div>
+        <div class="m-ctawrap"><button class="m-ctafull">Plan my trip</button></div>
+      </div>
+
+      <!-- Guide sub -->
+      <div class="m-screen" id="s-guide">
+        <div class="m-backbar">
+          <button class="m-back" onclick="mback('s-guide')">&#8249;</button>
+          <button class="m-close" onclick="mclose()">&#10005;</button>
+        </div>
+        <div class="m-scroll">
+          <div class="m-gsm"></div>
+          <a class="m-lfeat" href="#">Tibet Permit Guide 2026</a>
+          <a class="m-lfeat" href="#">China Visa-Free Policy 2026</a>
+          <div class="m-gmd"></div>
+          <span class="m-slabel">Tibet trip planning</span>
+          <a class="m-lreg" href="#">Can You Travel to Tibet?</a>
+          <a class="m-lreg" href="#">How to Plan a Tibet Trip</a>
+          <a class="m-lreg" href="#">How Much Does Tibet Cost?</a>
+          <a class="m-lreg" href="#">How Many Days in Tibet?</a>
+          <a class="m-lreg" href="#">Best Time to Visit Tibet</a>
+          <a class="m-lreg" href="#">How to Get to Tibet</a>
+          <a class="m-lreg" href="#">Altitude &amp; Acclimatization</a>
+          <div class="m-gsm"></div>
+          <a class="m-lsee" href="#">All Tibet planning guides &#8594;</a>
+          <a class="m-lsee" href="#">Tibet Travel Guide &#8594;</a>
+          <div class="m-gmd"></div>
+          <span class="m-slabel">China trip planning</span>
+          <a class="m-lreg" href="#">2-Week China Itinerary</a>
+          <a class="m-lreg" href="#">China Trip Cost</a>
+          <a class="m-lreg" href="#">How Many Days in China?</a>
+          <a class="m-lreg" href="#">Best Time to Visit China</a>
+          <a class="m-lreg" href="#">10-Day China Itinerary</a>
+          <a class="m-lreg" href="#">China Train vs Flights</a>
+          <div class="m-gsm"></div>
+          <a class="m-lsee" href="#">All China planning guides &#8594;</a>
+          <a class="m-lsee" href="#">China Travel Guide &#8594;</a>
+          <div class="m-gmd"></div>
+        </div>
+        <div class="m-ctawrap"><button class="m-ctafull">Plan my trip</button></div>
+      </div>
+
+      <!-- About sub -->
+      <div class="m-screen" id="s-about">
+        <div class="m-backbar">
+          <button class="m-back" onclick="mback('s-about')">&#8249;</button>
+          <button class="m-close" onclick="mclose()">&#10005;</button>
+        </div>
+        <div class="m-scroll">
+          <div class="m-gsm"></div>
+          <a class="m-lreg" href="#">Our Story</a>
+          <a class="m-lreg" href="#">Why Travel With Us</a>
+          <a class="m-lreg" href="#">Meet Our Team</a>
+          <a class="m-lreg" href="#">How We Plan Your Trip</a>
+          <a class="m-lreg" href="#">Responsible Travel</a>
+          <a class="m-lreg" href="#">Traveler Reviews</a>
+          <a class="m-lreg" href="#">Payment Guide</a>
+          <a class="m-lreg" href="#">Contact Us</a>
+          <div class="m-gmd"></div>
+        </div>
+        <div class="m-ctawrap"><button class="m-ctafull">Plan my trip</button></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /m-nav -->
+<!-- SECTION 1 — HERO -->
+<div class="hero">
+  <div class="img-ph" data-img="hero" data-alt="China and Tibet — snow peaks and prayer flags on the plateau" style="background:radial-gradient(460px 260px at 28% 24%,rgba(255,205,130,.45),transparent 62%),linear-gradient(160deg,#2a1230 0%,#5a2a3a 32%,#8a4a30 62%,#c2772f 100%)"></div>
+  <div class="hero-in">
+    <h1>Private China &amp; Tibet Tours</h1>
+    <p class="hero-lead">Designed by local experts.</p>
+    <div class="hero-actions">
+      <a href="/tailor-made-tour" class="hero-tab">Plan my trip
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <span class="hero-or">or explore</span>
+      <a href="/china-tour" class="chip">China</a>
+      <a href="/tibet-tour" class="chip">Tibet</a>
+      <a href="/china-tibet-tour" class="chip">Both</a>
+    </div>
+  </div>
+</div>
+
+<!-- CREDIBILITY STRIP -->
+<div class="cred">
+  <div class="cred-in">
+    <div class="cred-item"><span class="n">Since 2007</span><span class="l">Among the first specialists offering Tibet tours online</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-item"><span class="n">3,000+</span><span class="l">Travelers across China &amp; Tibet each year</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-item"><span class="n">Tripadvisor</span><span class="l">Travelers&#8217; Choice Award</span></div>
+    <div class="cred-div"></div>
+    <div class="cred-item"><span class="n">30%</span><span class="l">Repeat guests &amp; referrals</span></div>
+  </div>
+</div>
+
+<!-- SECTION 2 — FIND YOUR PERFECT JOURNEY -->
+<section>
+  <div class="shell">
+    <h2 class="sec-h">Which China or Tibet Trip Is Right for You?</h2>
+    <p class="sec-p">Most trips start with how much time you have and how you like to travel. Pick what fits and we’ll point you in the right direction.</p>
+    <div class="find">
+      <div class="fc">
+        <div class="fc-head"><span class="fc-ico"><svg class="fc-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 1.8"/></svg></span><div class="fc-q">How long in China?</div></div>
+        <div class="fc-opts">
+          <a class="fc-opt" href="/china-tour/10-day-china-itinerary"><span>10-day China highlights</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a class="fc-opt" href="/china-tour/2-week-china-itinerary"><span>2 weeks in China</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a class="fc-opt" href="/china-tour/3-week-china-itinerary"><span>3-week grand tour</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="fc">
+        <div class="fc-head"><span class="fc-ico"><svg class="fc-ic" viewBox="0 0 24 24"><path d="M3 20l5.5-9 3.5 5 2.5-4L21 20z"/></svg></span><div class="fc-q">How long in Tibet?</div></div>
+        <div class="fc-opts">
+          <a class="fc-opt" href="/tibet-tour/lhasa"><span>Lhasa in 4–5 days</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a class="fc-opt" href="/everest-tour"><span>Everest Base Camp · ~8 days</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a class="fc-opt" href="/kailash-tour"><span>Mount Kailash · ~15 days</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="fc">
+        <div class="fc-head"><span class="fc-ico"><svg class="fc-ic" viewBox="0 0 24 24"><path d="M6 18.5c1.8-5.5 4.5-8.5 6.5-8.5s2 2.8.2 4.6"/><circle cx="6" cy="18.5" r="1.5"/><circle cx="17.5" cy="9" r="2.3"/></svg></span><div class="fc-q">How do you like to travel?</div></div>
+        <div class="fc-opts">
+          <a class="fc-opt" href="/tailor-made-tour"><span>Tailor-made, just your group</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a class="fc-opt" href="/tibet-group-tour"><span>Tibet small group tour</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a class="fc-opt" href="/china-family-tour"><span>China family tour</span><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="find-search">
+      <span class="find-search-lead">Or search all tours</span>
+      <div class="find-search-row">
+        <select class="soft-select" id="sf-dest" style="min-width:180px">
+          <option value="">All destinations</option>
+          <optgroup label="Tibet"><option>Tibet</option><option>Lhasa</option><option>Everest Base Camp</option><option>Mount Kailash</option></optgroup>
+          <optgroup label="China"><option>Beijing</option><option>Xi'an</option><option>Shanghai</option><option>Chengdu</option><option>Yunnan</option><option>Zhangjiajie</option><option>Guilin &amp; Yangshuo</option><option>Silk Road</option><option>Xinjiang</option></optgroup>
+        </select>
+        <select class="soft-select" id="sf-dur" style="min-width:160px">
+          <option value="">Any duration</option>
+          <option>Up to 7 days</option><option>8–10 days</option><option>11–14 days</option><option>15–21 days</option><option>21+ days</option>
+        </select>
+        <button class="find-search-btn" onclick="browseTours()">Browse tours &rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — WHY TRAVEL WITH WINDHORSETOUR -->
+<section class="sec-soft">
+  <div class="shell">
+    <h2 class="sec-h">Why travel with WindhorseTour</h2>
+    <p class="sec-p">We plan and operate your trip ourselves &#8212; not a marketplace reselling other companies&#8217; tours. Here&#8217;s what that means for you.</p>
+    <div class="why">
+      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div><h3>On the ground in China &amp; Tibet</h3><p>Based in Chengdu with a Lhasa operations office and our own local guides &#8212; not a booking middleman.</p></div>
+      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24"><path d="M3 20l5.5-9 3.5 5 2.5-4L21 20z"/></svg></div><h3>China &amp; Tibet expertise</h3><p>Deepest across Tibet and Western China, with the classic China routes covered too.</p></div>
+      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 7a3 3 0 0 1 0 6"/><path d="M21 20a6 6 0 0 0-5-5.9"/></svg></div><h3>Private &amp; customized</h3><p>Trips built around families, couples, friends, and small private groups &#8212; never off-the-shelf.</p></div>
+      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="2.5" y="13" width="3.5" height="6" rx="1.5"/><rect x="18" y="13" width="3.5" height="6" rx="1.5"/><path d="M20 19a4 4 0 0 1-4 3h-2"/></svg></div><h3>Direct human support</h3><p>One advisor who stays with you from first inquiry to departure, on WhatsApp or WeChat.</p></div>
+      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Honest &amp; flexible</h3><p>Clear pricing, no shopping stops, and traveler-friendly cancellation terms.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — WHAT WE'RE KNOWN FOR -->
+<section>
+  <div class="shell">
+    <h2 class="sec-h">What we&#8217;re known for</h2>
+    <p class="sec-p">Specialists in western China and the Tibetan plateau — with the classic highlights covered too.</p>
+    <div class="dcards three">
+      <a class="dcard" href="/tibet-tour/everest-base-camp"><div class="dcard-img"><div class="img-ph" data-img="everest-base-camp" data-alt="Everest Base Camp on the Tibetan side" style="background:radial-gradient(150px 100px at 62% 24%,rgba(210,235,255,.5),transparent 55%),linear-gradient(150deg,#1f3b63,#3f6488)"></div></div><div class="dcard-body"><div class="dcard-title">Everest Base Camp Tours</div><div class="dcard-desc">Stand at the foot of the world&#8217;s highest peak.</div><div class="dcard-link">12 tours <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></a>
+      <a class="dcard" href="/china-tour"><div class="dcard-img"><div class="img-ph" data-img="classic-china" data-alt="The Great Wall of China" style="background:radial-gradient(150px 100px at 62% 26%,rgba(255,225,160,.5),transparent 55%),linear-gradient(160deg,#3a1a0a,#8a3a18)"></div></div><div class="dcard-body"><div class="dcard-title">Classic China</div><div class="dcard-desc">Beijing, Xi&#39;an and Shanghai — the Great Wall, the Forbidden City and the Terracotta Army.</div><div class="dcard-link">24 tours <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></a>
+      <a class="dcard" href="/silk-road-tours"><div class="dcard-img"><div class="img-ph" data-img="silk-road" data-alt="Silk Road oasis and desert" style="background:radial-gradient(150px 100px at 60% 26%,rgba(255,235,150,.46),transparent 55%),linear-gradient(150deg,#4a2e08,#9a6a22)"></div></div><div class="dcard-body"><div class="dcard-title">Silk Road Tours</div><div class="dcard-desc">Xi&#39;an, Dunhuang and the oasis cities of the northwest.</div><div class="dcard-link">15 tours <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></a>
+      <a class="dcard" href="/yunnan-tour"><div class="dcard-img"><div class="img-ph" data-img="yunnan" data-alt="Lijiang old town, Yunnan" style="background:radial-gradient(150px 100px at 58% 28%,rgba(190,245,235,.42),transparent 55%),linear-gradient(150deg,#0f3a44,#2a8a8b)"></div></div><div class="dcard-body"><div class="dcard-title">Yunnan Tours</div><div class="dcard-desc">Lijiang, Shangri-La and Tiger Leaping Gorge.</div><div class="dcard-link">28 tours <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></a>
+      <a class="dcard" href="/tibet-tour/mount-kailash"><div class="dcard-img"><div class="img-ph" data-img="mount-kailash" data-alt="Sacred Mount Kailash" style="background:radial-gradient(140px 95px at 58% 28%,rgba(225,205,255,.42),transparent 55%),linear-gradient(150deg,#2a1545,#5c3472)"></div></div><div class="dcard-body"><div class="dcard-title">Mount Kailash Tours</div><div class="dcard-desc">The sacred peak and the classic three-day kora.</div><div class="dcard-link">7 tours <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></a>
+      <a class="dcard" href="/zhangjiajie-tour"><div class="dcard-img"><div class="img-ph" data-img="zhangjiajie" data-alt="Sandstone pillars of Zhangjiajie" style="background:radial-gradient(150px 100px at 58% 26%,rgba(200,240,225,.4),transparent 55%),linear-gradient(150deg,#0f2e2e,#2a7d6b)"></div></div><div class="dcard-body"><div class="dcard-title">Zhangjiajie Tours</div><div class="dcard-desc">Avatar peaks, glass bridges and forest trails.</div><div class="dcard-link">12 tours <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></a>
+      <a class="dcard" href="/sichuan-tour"><div class="dcard-img"><div class="img-ph" data-img="sichuan" data-alt="Giant panda in Sichuan" style="background:radial-gradient(150px 100px at 58% 30%,rgba(225,255,205,.42),transparent 55%),linear-gradient(150deg,#163a22,#4a8a42)"></div></div><div class="dcard-body"><div class="dcard-title">Sichuan Tours</div><div class="dcard-desc">Pandas, Jiuzhaigou and the Kham Tibetan highlands.</div><div class="dcard-link">47 tours <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></a>
+      <a class="dcard" href="/xinjiang-tour"><div class="dcard-img"><div class="img-ph" data-img="xinjiang" data-alt="Kashgar old city, Xinjiang" style="background:radial-gradient(150px 100px at 62% 26%,rgba(255,225,170,.46),transparent 55%),linear-gradient(150deg,#5a2010,#b06020)"></div></div><div class="dcard-body"><div class="dcard-title">Xinjiang Tours</div><div class="dcard-desc">Kashgar, the Taklamakan and the far western frontier.</div><div class="dcard-link">12 tours <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></a>
+      </div>
+  </div>
+</section>
+
+<!-- SECTION 5 — FEATURED JOURNEYS -->
+<section>
+  <div class="shell">
+    <h2 class="sec-h">Featured journeys</h2>
+    <p class="sec-p">Some of our most popular itineraries. Travel them as they are, or customize them to match your interests, pace, and travel style.</p>
+    <div class="tc-grid">
+      <a class="tc" href="/china-yangtze-river-tour/china-highlights-tour-yangtze-cruise"><div class="tc-img"><div class="img-ph" data-img="tour-china-yangtze" data-alt="Yangtze River cruise" style="background:radial-gradient(130px 85px at 62% 26%,rgba(255,225,160,.5),transparent 55%),linear-gradient(160deg,#3a1a0a,#8a3a18)"></div></div><div class="tc-body"><div class="tc-route">Beijing → Yangtze → Shanghai</div><div class="tc-name">14-Day China Highlights with Yangtze Cruise &amp; Panda</div><div class="tc-desc">China&#8217;s icons, a Yangtze cruise and the giant pandas.</div><div class="tc-foot"><div class="tc-pricebox"><div class="tc-type">Private</div><div class="tc-price"><span class="now">From USD 2,764</span></div></div><span class="tc-cta">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></a>
+      <a class="tc" href="/china-tour-packages/beijing-xian-guilin-shanghai-tour"><div class="tc-img"><div class="img-ph" data-img="tour-best-of-china" data-alt="Guilin karst landscape" style="background:radial-gradient(130px 85px at 60% 26%,rgba(255,235,150,.46),transparent 55%),linear-gradient(150deg,#4a2e08,#9a6a22)"></div></div><div class="tc-body"><div class="tc-route">Beijing → Xi&#39;an → Guilin → Shanghai</div><div class="tc-name">13-Day Best of China</div><div class="tc-desc">The grand China circuit, including Guilin&#8217;s karst scenery.</div><div class="tc-foot"><div class="tc-pricebox"><div class="tc-type">Private</div><div class="tc-price">From <span class="old">USD 1,870</span> <span class="now">USD 1,700</span></div></div><span class="tc-cta">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></a>
+      <a class="tc" href="/china-tour-packages/Classical-China-Tour-with-Zhangjiajie"><div class="tc-img"><div class="img-ph" data-img="tour-classic-zhangjiajie" data-alt="Zhangjiajie peaks and Guilin rivers" style="background:radial-gradient(120px 80px at 58% 26%,rgba(200,240,225,.4),transparent 55%),linear-gradient(150deg,#0f2e2e,#2a7d6b)"></div></div><div class="tc-body"><div class="tc-route">Beijing → Zhangjiajie → Guilin → Shanghai</div><div class="tc-name">14-Day Classic China with Zhangjiajie &amp; Guilin</div><div class="tc-desc">The classics plus Zhangjiajie&#8217;s peaks and Guilin&#8217;s rivers.</div><div class="tc-foot"><div class="tc-pricebox"><div class="tc-type">Private</div><div class="tc-price">From <span class="old">USD 3,525</span> <span class="now">USD 3,065</span></div></div><span class="tc-cta">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></a>
+      <a class="tc" href="/silk-road-tour/classic-silk-road-xian-urumqi-tour"><div class="tc-img"><div class="img-ph" data-img="tour-silk-road" data-alt="Silk Road dunes near Dunhuang" style="background:radial-gradient(130px 85px at 60% 26%,rgba(255,225,170,.46),transparent 55%),linear-gradient(150deg,#5a3a08,#b06020)"></div></div><div class="tc-body"><div class="tc-route">Xi&#39;an → Urumqi</div><div class="tc-name">14-Day Classic Silk Road: Xi&#39;an to Urumqi</div><div class="tc-desc">The classic Silk Road across China&#8217;s northwest.</div><div class="tc-foot"><div class="tc-pricebox"><div class="tc-type">Private</div><div class="tc-price"><span class="now">From USD 3,251</span></div></div><span class="tc-cta">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></a>
+      <a class="tc" href="/china-tour-packages/china-tibet-highlights-tour"><div class="tc-img"><div class="img-ph" data-img="tour-china-tibet" data-alt="Potala Palace in Lhasa" style="background:radial-gradient(120px 80px at 55% 28%,rgba(255,225,180,.42),transparent 55%),linear-gradient(115deg,#8a3a18,#3f6488)"></div></div><div class="tc-body"><div class="tc-route">Beijing → Lhasa → Shanghai</div><div class="tc-name">14-Day China &amp; Tibet Highlights</div><div class="tc-desc">China&#8217;s highlights combined with Lhasa and Tibet.</div><div class="tc-foot"><div class="tc-pricebox"><div class="tc-type">Private</div><div class="tc-price"><span class="now">From USD 3,281</span></div></div><span class="tc-cta">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></a>
+      <a class="tc" href="/kailash-tour/tibet-mount-kailash-everest-base-camp-tour"><div class="tc-img"><div class="img-ph" data-img="tour-kailash-everest" data-alt="Mount Kailash and Everest Base Camp overland" style="background:radial-gradient(120px 80px at 62% 26%,rgba(225,205,255,.42),transparent 55%),linear-gradient(150deg,#2a1545,#3f6488)"></div></div><div class="tc-body"><div class="tc-route">Lhasa → Kailash → Everest</div><div class="tc-name">15-Day Mount Kailash &amp; Everest Base Camp</div><div class="tc-desc">The sacred Kailash kora and Everest Base Camp, overland.</div><div class="tc-foot"><div class="tc-pricebox"><div class="tc-type">Private</div><div class="tc-price">From <span class="old">USD 3,791</span> <span class="now">USD 3,296</span></div></div><span class="tc-cta">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></a>
+      <a class="tc" href="/everest-tour/everest-base-camp-namtso-lake-tour"><div class="tc-img"><div class="img-ph" data-img="tour-everest-namtso" data-alt="Namtso Lake, Tibet" style="background:radial-gradient(130px 85px at 62% 24%,rgba(210,235,255,.5),transparent 55%),linear-gradient(150deg,#1f3b63,#3f6488)"></div></div><div class="tc-body"><div class="tc-route">Lhasa → Everest → Namtso Lake</div><div class="tc-name">10-Day Everest Base Camp &amp; Namtso Lake</div><div class="tc-desc">Everest Base Camp and the holy lake of Namtso.</div><div class="tc-foot"><div class="tc-pricebox"><div class="tc-type">Private</div><div class="tc-price">From <span class="old">USD 2,246</span> <span class="now">USD 1,951</span></div></div><span class="tc-cta">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></a>
+      <a class="tc" href="/everest-tour/lhasa-to-kathmandu-overland-tour"><div class="tc-img"><div class="img-ph" data-img="tour-lhasa-kathmandu" data-alt="Tibet overland route to the Nepal border" style="background:radial-gradient(120px 80px at 62% 26%,rgba(225,205,255,.42),transparent 55%),linear-gradient(150deg,#2a1545,#5c3472)"></div></div><div class="tc-body"><div class="tc-route">Lhasa → Everest → Gyirong border</div><div class="tc-name">8-Day Lhasa to Kathmandu Overland via Everest</div><div class="tc-desc">Overland from Lhasa to the Nepal border, past Everest.</div><div class="tc-foot"><div class="tc-pricebox"><div class="tc-type">Private</div><div class="tc-price">From <span class="old">USD 1,785</span> <span class="now">USD 1,552</span></div></div><span class="tc-cta">View tour <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — TRIP PLANNING RESOURCES -->
+<section class="sec-soft">
+  <div class="shell">
+    <h2 class="sec-h">Trip planning resources</h2>
+    <p class="sec-p">Real answers from people who run these trips every week.</p>
+    <div class="plan-cols">
+      <div class="plan-links"><a class="pl" href="/china-tour/1st-time-travel-china">First trip to China — where to start</a><a class="pl" href="/tibet-travel-tips/can-you-travel-to-tibet">Can you travel to Tibet right now?</a><a class="pl" href="/china-travel-tips/china-visa-free-policy">China visa-free policy 2026 explained</a><a class="pl" href="/tibet-travel-tips/tibet-permit-guide">Tibet Travel Permit — the complete guide</a></div>
+      <div class="plan-links"><a class="pl" href="/china-travel-tips/china-trip-cost">How much does a China trip cost?</a><a class="pl" href="/tibet-travel-tips/tibet-trip-cost">How much does a Tibet trip cost?</a><a class="pl" href="/china-tour/2-week-china-itinerary">The perfect 2-week China itinerary</a><a class="pl" href="/tibet-travel-tips/everest-base-camp">How to plan an Everest Base Camp tour</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6.5 — MEET THE TEAM -->
+<section>
+  <div class="shell">
+    <h2 class="sec-h">A real team you can talk to.</h2>
+    <p class="sec-p">When you write to us, you reach the same small team that plans and runs your trip &#8212; no call centre, no resold bookings, no handing you off.</p>
+    <div class="team">
+      <!-- Real photo: add style="background-image:url('helen.jpg')" to the .team-av and delete the placeholder label -->
+      <div class="team-card"><div class="team-av" style="background:linear-gradient(155deg,#e8410a,#f3935c)">Photo: Helen</div><div class="team-name">Helen Wang</div><div class="team-role">Founder &amp; General Manager</div></div>
+      <div class="team-card"><div class="team-av" style="background:linear-gradient(155deg,#b5832e,#d8b06a)">Add photo</div><div class="team-name">Yuki</div><div class="team-role">Travel Advisor</div></div>
+      <div class="team-card"><div class="team-av" style="background:linear-gradient(155deg,#3f6488,#6f93b5)">Add photo</div><div class="team-name">Victoria</div><div class="team-role">Travel Advisor</div></div>
+      <div class="team-card"><div class="team-av" style="background:linear-gradient(155deg,#2a7d6b,#5aa896)">Add photo</div><div class="team-name">Sylvia</div><div class="team-role">Travel Advisor</div></div>
+      <div class="team-card"><div class="team-av" style="background:linear-gradient(155deg,#6f6657,#9c927d)">Add photo</div><div class="team-name">Tashi</div><div class="team-role">On-the-ground support in Tibet</div></div>
+    </div>
+    <a class="browse-all" href="/about-us">Meet the full team <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<!-- SECTION 7 — TRAVELER REVIEWS -->
+<section>
+  <div class="shell">
+    <div class="rev-widget">
+      <div class="rev-summary">
+        <div class="rev-brand">Windhorse Tour</div>
+        <div class="rev-rings">●●●●●</div>
+        <div class="rev-summary-count">268 Tripadvisor reviews</div>
+        <a class="rev-write" href="https://www.tripadvisor.com/Attraction_Review-g297463-d4174524-Reviews-Windhorse_Tour-Chengdu_Sichuan.html" target="_blank" rel="noopener">Read all reviews</a>
+      </div>
+      <div class="rev-cards">
+        <div class="rev"><div class="rev-head"><div class="rev-av"></div><div><div class="rev-name">FarAway798605</div><div class="rev-time">United States</div></div><svg class="rev-ta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#00aa6c"/><text x="12" y="16" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#fff">TA</text></svg></div><div class="rev-rate"><span class="rings">●●●●●</span><svg class="vf" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2864f0"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rev-text">Amazingly responsive and helpful. They planned a comprehensive 17-day China and Tibet tour for us and every detail — guides, drivers, trains, hotels — was flawless.</div><a class="rev-more" href="https://www.tripadvisor.com/Attraction_Review-g297463-d4174524-Reviews-Windhorse_Tour-Chengdu_Sichuan.html" target="_blank" rel="noopener">Read more</a></div><div class="rev"><div class="rev-head"><div class="rev-av"></div><div><div class="rev-name">narendra2025</div><div class="rev-time">Australia</div></div><svg class="rev-ta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#00aa6c"/><text x="12" y="16" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#fff">TA</text></svg></div><div class="rev-rate"><span class="rings">●●●●●</span><svg class="vf" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2864f0"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rev-text">The Tibet permits and altitude pacing were handled perfectly. Best-organized trip we have ever done; our guide was outstanding.</div><a class="rev-more" href="https://www.tripadvisor.com/Attraction_Review-g297463-d4174524-Reviews-Windhorse_Tour-Chengdu_Sichuan.html" target="_blank" rel="noopener">Read more</a></div><div class="rev"><div class="rev-head"><div class="rev-av"></div><div><div class="rev-name">LindaH_Berlin</div><div class="rev-time">Germany</div></div><svg class="rev-ta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#00aa6c"/><text x="12" y="16" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#fff">TA</text></svg></div><div class="rev-rate"><span class="rings">●●●●●</span><svg class="vf" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2864f0"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rev-text">A real person answered every question for weeks before we paid anything. That trust made all the difference. We will travel with them again.</div><a class="rev-more" href="https://www.tripadvisor.com/Attraction_Review-g297463-d4174524-Reviews-Windhorse_Tour-Chengdu_Sichuan.html" target="_blank" rel="noopener">Read more</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8 — FINAL CTA (on-page inquiry form) -->
+<section>
+  <div class="shell">
+    <div class="inq">
+      <div class="inq-l">
+        <h2>Start planning your China or Tibet trip</h2>
+        <p>Tell us a little about your trip and your dedicated advisor will reply within one business day with a tailored itinerary and a clear per-person price. Free and no obligation.</p>
+        <div class="chat-row">
+          <a class="chat-btn" href="https://wa.me/8618628293438" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15l-1 4 4.1-1A10 10 0 1 0 12 2zm5.3 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.2-.2-1.2-1.5-1.2-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.2.1.5.1.7-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>WhatsApp</a>
+          <a class="chat-btn" href="https://www.windhorsetour.com/contact-us" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#09BB07"><path d="M9 3C4.6 3 1 6 1 9.6c0 2 1.2 3.8 3 5L3 17l2.6-1.3c.7.2 1.4.3 2.2.4-.1-.5-.2-1-.2-1.5 0-3.3 3.2-5.9 7.1-5.9h.7C14.7 5.2 12.1 3 9 3zm-2.6 4.6a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5.2 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM15 10c-3.3 0-6 2.2-6 5s2.7 5 6 5c.6 0 1.2-.1 1.8-.3l2 1-.6-1.7c1.1-.9 1.8-2.1 1.8-3.5 0-2.8-2.7-5-5-5zm-2 3.2a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6z"/></svg>WeChat</a>
+        </div>
+      </div>
+      <div class="inq-r">
+        <div class="form-row">
+          <div class="form-field"><label>Your name</label><input type="text" placeholder="Name"></div>
+          <div class="form-field"><label>Your email</label><input type="email" placeholder="email@example.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Travel dates</label><input type="text" placeholder="e.g. mid-October, flexible"></div>
+          <div class="form-field"><label>Group size</label><input type="text" placeholder="e.g. 2 adults"></div>
+        </div>
+        <div class="form-field"><label>What would you like to see?</label><textarea placeholder="Routes, interests, must-sees, pace&#8230;"></textarea></div>
+        <button class="btn-main">Send my inquiry &rarr;</button>
+        <div class="form-note">We reply within 24 hours &middot; your details are never shared</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="footer-heading">Contact us</div>
+      <div class="footer-links">
+        <a href="tel:+862885593923">+86-28-85593923</a>
+        <a href="mailto:info@windhorsetour.com">info@windhorsetour.com</a>
+        <a href="tel:+8618628293438">WX/WA: +86 18628293438</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Discover</div>
+      <div class="footer-links-grid">
+        <div>
+          <a href="/tibet-group-tour">Tibet group tours</a>
+          <a href="/tibet-tour">Tibet tours</a>
+          <a href="/china-tour">China tours</a>
+          <a href="/silk-road-tours">Silk Road tours</a>
+          <a href="/china-tour/1st-time-travel-china">First-time to China</a>
+          <a href="/china-yangtze-river-tour">China tours w/ Yangtze</a>
+          <a href="/china-tour-destinations">All China destinations</a>
+          <a href="/tibet-tours-destinations">All Tibet destinations</a>
+          <a href="/tailor-made-tour">Plan My Trip</a>
+        </div>
+        <div>
+          <a href="/beijing-tour">Beijing</a>
+          <a href="/xian-tour">Xi'an</a>
+          <a href="/shanghai-tour">Shanghai</a>
+          <a href="/chengdu-tour">Chengdu</a>
+          <a href="/guilin-tour">Guilin &amp; Yangshuo</a>
+          <a href="/zhangjiajie-tour">Zhangjiajie</a>
+          <a href="/jiuzhaigou-tour">Jiuzhaigou</a>
+          <a href="/sichuan-tour">Sichuan</a>
+          <a href="/yunnan-tour">Yunnan</a>
+          <a href="/guizhou-tour">Guizhou</a>
+          <a href="/xinjiang-tour">Xinjiang</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Company</div>
+      <div class="footer-links">
+        <a href="/about-us">About us</a>
+        <a href="/why-we-are-top-china-travel-agency">Why us</a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g297463-d4174524-Reviews-Windhorse_Tour-Chengdu_Sichuan.html" target="_blank" rel="noopener">Reviews (Tripadvisor)</a>
+        <a href="/contact-us">Contact us</a>
+        <a href="/payment-methods">Payment</a>
+        <a href="/terms-conditions">Terms and Conditions</a>
+        <a href="/terms-of-use">Privacy Policy</a>
+        <a href="/blog">Blog</a>
+        <a href="/china-faq-summary">FAQ</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 WindhorseTour. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY BAR -->
+<div class="m-sticky">
+  <a href="/tailor-made-tour" class="m-sticky-btn">
+    <span class="m-sticky-label">Plan my China or Tibet trip</span>
+    <span class="m-sticky-price">Free quote · usually within 24h</span>
+  </a>
+</div>
+
+<script>
+function switchTab(dest, url){
+  document.querySelectorAll('.hero-tab').forEach(function(t){t.classList.remove('active');});
+  if (event && event.target) event.target.classList.add('active');
+  if (url) window.location.href = url;
+}
+
+function browseTours() {
+  var dest = document.getElementById('sf-dest').value;
+  var dur  = document.getElementById('sf-dur').value;
+  var params = [];
+  if (dest) params.push('destination=' + encodeURIComponent(dest));
+  if (dur)  params.push('duration='    + encodeURIComponent(dur));
+  window.location.href = '/search-tours' + (params.length ? '?' + params.join('&') : '');
+}
+
+</script>
+
+<!-- ===== ONE-TIME PHOTO SWAP HELPER (optional) =====
+  When real photos are ready: name each file <data-img>.webp, drop them in /images/,
+  then uncomment this block. It turns every placeholder into a real <img>.
+<script>
+document.querySelectorAll('.img-ph').forEach(function(el){
+  var img = document.createElement('img');
+  img.src = '/images/' + el.dataset.img + '.webp';
+  img.alt = el.dataset.alt || '';
+  img.loading = (el.dataset.img === 'hero') ? 'eager' : 'lazy';
+  el.replaceWith(img);
+});
+</script>
+-->
+
+<script>
+function dtog(id,btn){
+  var isOn=document.getElementById('d-'+id).classList.contains('on');
+  dclose();
+  if(!isOn){
+    document.getElementById('d-'+id).classList.add('on');
+    document.getElementById('d-overlay').classList.add('on');
+    btn.classList.add('on');
+  }
+}
+function dclose(){
+  document.querySelectorAll('.drop').forEach(function(d){d.classList.remove('on');});
+  document.querySelectorAll('.nav-trigger-btn').forEach(function(b){b.classList.remove('on');});
+  document.getElementById('d-overlay').classList.remove('on');
+}
+function mopen(){document.getElementById('m-drawer').classList.add('on');document.body.style.overflow='hidden';}
+function mclose(){
+  document.getElementById('m-drawer').classList.remove('on');
+  document.querySelectorAll('.m-screen').forEach(function(s){s.classList.remove('on');});
+  document.getElementById('m-main').classList.remove('pushed');
+  document.body.style.overflow='';
+}
+function msub(id){document.getElementById(id).classList.add('on');document.getElementById('m-main').classList.add('pushed');}
+function mback(id){document.getElementById(id).classList.remove('on');document.getElementById('m-main').classList.remove('pushed');}
+(function(){
+  var bar=document.querySelector('.m-sticky'), hero=document.querySelector('.hero');
+  if(!bar||!hero) return;
+  function upd(){
+    var trigger=hero.offsetTop+hero.offsetHeight-120;
+    if(window.scrollY>trigger){bar.classList.add('visible');}else{bar.classList.remove('visible');}
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);
+  upd();
+})();
+</script>
+</body>
+</html>
