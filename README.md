@@ -22,7 +22,7 @@ Questions: **Slack** once WindhorseTour invites you to bid. No email.
 |--------|----------|
 | [00-rfp/](00-rfp/) | [Request for Proposal](00-rfp/RFP-2026-path-d-block-theme-retheme.md) (v1.16) |
 | [01-reference-files/](01-reference-files/) | ADR, Figma crosswalk, HTML previews, WPTE integration notes |
-| [02-question-answers/](02-question-answers/) | Formal Q&A — answers affecting all bidders |
+| [02-question-answers/](02-question-answers/) | Formal Q&A log and [production stack versions](02-question-answers/production-stack-versions.md) |
 | [03-legal/](03-legal/) | NDA template and signing instructions |
 | [04-templates/](04-templates/) | Commercial / pricing submission template (Appendix B) |
 | [05-workflow/](05-workflow/) | GitHub workflow, PR AI review prompts |
