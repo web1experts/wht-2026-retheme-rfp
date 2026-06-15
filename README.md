@@ -4,7 +4,7 @@
 
 Public bidding materials for the 2026 WordPress block-theme re-theme.
 
-**Draft source (private):** `wht-wp` → `wht-wp-docs/02-theme/2026-06-re-theme/procurement/`
+**Master RFP:** `wht-wp` → `wht-wp-docs/02-theme/2026-06-re-theme/procurement/RFP-2026-path-d-block-theme-retheme.md`. **Public copy:** this repo. **Private evaluation:** [wht-2026-retheme-procurement](https://github.com/WindhorseTour/wht-2026-retheme-procurement).
 
 ## What is public vs NDA-gated
 

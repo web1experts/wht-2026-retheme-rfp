@@ -1,1 +1,4 @@
 .DS_Store
+
+# Nested private procurement repo — never commit to public RFP repo
+wht-2026-retheme-procurement/
