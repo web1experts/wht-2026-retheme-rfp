@@ -1,6 +1,6 @@
 # Non-Disclosure Agreement
 
-**Effective Date:** ___________________________
+**Effective Date:** __16 June 2026_________________________
 
 ---
 
@@ -14,8 +14,8 @@ Room 1113, 15/F, Building 2, Platinum Business Age (Platinum City), No. 27 Qingl
 ("Company")
 
 **Receiving Party:**
-[VENDOR FULL LEGAL NAME]
-[VENDOR ADDRESS]
+Akshay Walia
+C 73 Phase 8 B Mohali , Punjab , India
 ("Vendor")
 
 ---
@@ -116,13 +116,13 @@ Date: ___________________________
 
 **[VENDOR NAME]**
 
-Signature: ___________________________
+Signature: __Akshay Walia_________________________
 
-Name: ___________________________
+Name: ___Akshay Walia________________________
 
-Title: ___________________________
+Title: ______Sr. Software Engineer ( Vendor)__________________
 
-Date: ___________________________
+Date: __________16 June 2026_________________
 
 ---
 
