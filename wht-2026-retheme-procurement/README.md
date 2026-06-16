@@ -13,6 +13,7 @@ Tracking vendor outreach, NDAs, and proposals for the WindhorseTour website reth
 | [Adeel Ur Rehman](vendors/adeel-ur-rehman.md) | Not received | Not received | Upwork · Sigma Square · four WPTE sites · no call until proposal |
 | [Zunair Saleem](vendors/zunair-saleem.md) | Claimed in v2.3 proposal | v2.3 received 2026-06-16 | Upwork · $6k fixed · gut low · resubmission after gap list |
 | [Oodles Technologies](vendors/oodles-technologies.md) | Not received | Not received | Upwork · no WPTE · Booking360 pitch · **RFP path or pause** |
+| [Darly Solutions](vendors/darly-solutions.md) | Not received | Not received | Slack · call requested · no call until complete proposal |
 
 ## Documents
 
