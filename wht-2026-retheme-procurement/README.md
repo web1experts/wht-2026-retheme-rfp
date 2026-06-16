@@ -11,6 +11,8 @@ Tracking vendor outreach, NDAs, and proposals for the WindhorseTour website reth
 | [John Glenn Njoroge Wanjiru](vendors/john-glenn-wanjiru.md) | Vendor signed 2026-06-16 | Not received | Slack · Glennwanjiru · requested Figma, GitHub, staging |
 | [Akshay Walia](vendors/akshay-walia.md) | Not received | Not received | Upwork · Ace the Himalaya WPTE · RFP reviewed 2026-06-15 |
 | [Adeel Ur Rehman](vendors/adeel-ur-rehman.md) | Not received | Not received | Upwork · Sigma Square · four WPTE sites · no call until proposal |
+| [Zunair Saleem](vendors/zunair-saleem.md) | Claimed in v2.3 proposal | v2.3 received 2026-06-16 | Upwork · $6k fixed · gut low · resubmission after gap list |
+| [Oodles Technologies](vendors/oodles-technologies.md) | Not received | Not received | Upwork · no WPTE · Booking360 pitch · **RFP path or pause** |
 
 ## Documents
 
